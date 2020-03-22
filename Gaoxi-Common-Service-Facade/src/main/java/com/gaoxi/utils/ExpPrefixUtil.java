@@ -19,7 +19,7 @@ public class ExpPrefixUtil {
     /** Order模块异常码前缀 */
     public static final String OrderExpPrefix = "40";
 
-    /** Analysis模块异常码前缀 */
-    public static final String AnlsExpPrefix = "50";
+    /** Czlbase模块异常码前缀 */
+    public static final String CzlbaseExpPrefix = "50";
 
 }

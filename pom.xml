@@ -90,7 +90,7 @@
 
 
 	<modules>
-		<module>Gaoxi-Analysis</module>
+		<module>Gaoxi-CzlBase</module>
 		<module>Gaoxi-Order</module>
 		<module>Gaoxi-Product</module>
 		<module>Gaoxi-User</module>

@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.gaoxi</groupId>
-	<artifactId>gaoxi-analysis</artifactId>
+	<artifactId>gaoxi-czlbase</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>gaoxi-analysis</name>
+	<name>gaoxi-czlbase</name>
 	<description></description>
 
 	<parent>
