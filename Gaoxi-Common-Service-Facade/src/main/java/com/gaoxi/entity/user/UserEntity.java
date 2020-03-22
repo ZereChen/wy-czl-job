@@ -8,7 +8,7 @@ import java.sql.Timestamp;
 import java.util.List;
 
 /**
- * @Author 大闲人柴毛毛
+ * @Author zerechen
  * @Date 2017/10/30 下午6:11
  */
 public class UserEntity implements Serializable {

@@ -1,11 +1,12 @@
 package com.gaoxi.redis.service;
 
 /**
- * @author 大闲人柴毛毛
+ * @author zerechen
  * @date 2017/11/1 下午3:15
  * @description
  */
 import java.io.Serializable;
+import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
@@ -123,5 +124,25 @@ public class RedisServiceImpl implements RedisService {
             e.printStackTrace();
         }
         return result;
+    }
+
+    @Override
+    public boolean set(String key, Serializable value) {
+        return false;
+    }
+
+    @Override
+    public boolean set(String key, Serializable value, Long expireTime) {
+        return false;
+    }
+
+    @Override
+    public <K, HK, HV> boolean setMap(K key, Map<HK, HV> map, Long expireTime) {
+        return false;
+    }
+
+    @Override
+    public <K, HK, HV> Map<HK, HV> getMap(K key) {
+        return null;
     }
 }

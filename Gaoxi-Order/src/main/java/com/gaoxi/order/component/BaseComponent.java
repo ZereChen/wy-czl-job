@@ -4,7 +4,7 @@ import com.gaoxi.context.OrderProcessContext;
 import com.gaoxi.req.order.OrderProcessReq;
 
 /**
- * @author 大闲人柴毛毛
+ * @author zerechen
  * @date 2017/11/6 下午2:05
  *
  * @description 业务组件的父类

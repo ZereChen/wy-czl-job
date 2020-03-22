@@ -3,7 +3,7 @@ package com.gaoxi.entity.product;
 import java.io.Serializable;
 
 /**
- * @author 大闲人柴毛毛
+ * @author zerechen
  * @date 2017/10/31 下午3:45
  * @description 产品图片的实体类
  */

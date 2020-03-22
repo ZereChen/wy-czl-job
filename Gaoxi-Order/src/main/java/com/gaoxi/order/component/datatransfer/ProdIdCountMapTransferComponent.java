@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author 大闲人柴毛毛
+ * @author zerechen
  * @date 2017/11/14 下午8:29
  *
  * @description 根据orderId，生成prodIdCountMap

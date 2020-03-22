@@ -18,7 +18,7 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * @author 大闲人柴毛毛
+ * @author zerechen
  * @date 2017/11/7 下午1:17
  * @description 库存校验组件
  */

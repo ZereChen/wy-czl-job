@@ -16,7 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 
 /**
- * @author 大闲人柴毛毛
+ * @author zerechen
  * @date 2017/11/6 下午3:02
  *
  * @description 幂等性检查的父类

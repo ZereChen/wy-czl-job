@@ -3,7 +3,7 @@ package com.gaoxi.order.util;
 import com.gaoxi.utils.KeyGenerator;
 
 /**
- * @author 大闲人柴毛毛
+ * @author zerechen
  * @date 2017/11/7 上午9:40
  * @description 订单主键生成器
  */

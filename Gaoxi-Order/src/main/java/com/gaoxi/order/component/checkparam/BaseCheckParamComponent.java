@@ -13,7 +13,7 @@ import java.util.Collection;
 import java.util.List;
 
 /**
- * @author 大闲人柴毛毛
+ * @author zerechen
  * @date 2017/11/7 下午1:13
  *
  * @description 参数校验的父类

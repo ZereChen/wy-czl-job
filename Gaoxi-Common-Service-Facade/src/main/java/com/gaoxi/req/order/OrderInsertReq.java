@@ -6,7 +6,7 @@ import com.gaoxi.req.AbsReq;
 import java.util.Map;
 
 /**
- * @author 大闲人柴毛毛
+ * @author zerechen
  * @date 2017/11/6 下午4:08
  *
  * @description 创建订单的请求

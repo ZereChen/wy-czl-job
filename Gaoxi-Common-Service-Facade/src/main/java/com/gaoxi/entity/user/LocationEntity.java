@@ -3,7 +3,7 @@ package com.gaoxi.entity.user;
 import java.io.Serializable;
 
 /**
- * @author 大闲人柴毛毛
+ * @author zerechen
  * @date 2017/11/6 上午11:40
  *
  * @description 地址信息

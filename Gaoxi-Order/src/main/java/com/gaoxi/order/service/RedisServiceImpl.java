@@ -1,7 +1,7 @@
 package com.gaoxi.order.service;
 
 /**
- * @author 大闲人柴毛毛
+ * @author zerechen
  * @date 2017/11/1 下午3:15
  * @description
  */
@@ -87,6 +87,9 @@ public class RedisServiceImpl implements RedisService {
         return result;
     }
 
+
+
+
     /**
      * 写入缓存
      *
@@ -105,6 +108,11 @@ public class RedisServiceImpl implements RedisService {
             e.printStackTrace();
         }
         return result;
+    }
+
+    @Override
+    public boolean set(String key, Object value) {
+        return false;
     }
 
     /**
@@ -126,6 +134,11 @@ public class RedisServiceImpl implements RedisService {
             e.printStackTrace();
         }
         return result;
+    }
+
+    @Override
+    public boolean set(String key, Object value, Long expireTime) {
+        return false;
     }
 
     @Override

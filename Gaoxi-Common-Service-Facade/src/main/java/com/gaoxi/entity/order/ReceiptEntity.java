@@ -5,7 +5,7 @@ import com.gaoxi.enumeration.order.ReceiptTypeEnum;
 import java.io.Serializable;
 
 /**
- * @author 大闲人柴毛毛
+ * @author zerechen
  * @date 2017/11/6 上午11:04
  *
  * @description 发票信息实体类

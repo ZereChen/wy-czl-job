@@ -6,16 +6,13 @@ import com.gaoxi.entity.user.*;
 import com.gaoxi.req.BatchReq;
 import com.gaoxi.req.user.*;
 import com.gaoxi.rsp.Result;
-import com.sun.org.apache.regexp.internal.RE;
 import org.springframework.web.bind.annotation.*;
-
-import javax.persistence.PersistenceUnit;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 /**
- * @Author 大闲人柴毛毛
+ * @Author zerechen
  * @Date 2017/10/27 下午10:26
  */
 @RestController

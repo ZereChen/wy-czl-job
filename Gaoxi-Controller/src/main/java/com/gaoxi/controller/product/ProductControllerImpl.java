@@ -14,7 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.List;
 
 /**
- * @author 大闲人柴毛毛
+ * @author zerechen
  * @date 2017/10/27 下午10:28
  */
 @RestController

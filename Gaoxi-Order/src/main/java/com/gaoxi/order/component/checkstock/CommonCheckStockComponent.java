@@ -4,7 +4,7 @@ import com.gaoxi.order.component.checkparam.BaseCheckParamComponent;
 import org.springframework.stereotype.Component;
 
 /**
- * @author 大闲人柴毛毛
+ * @author zerechen
  * @date 2017/11/13 上午10:53
  *
  * @description 通用的库存检查(无任何前置、后置处理的库存检查组件)

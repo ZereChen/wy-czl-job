@@ -3,7 +3,7 @@ package com.gaoxi.entity.user;
 import java.io.Serializable;
 
 /**
- * @Author 大闲人柴毛毛
+ * @Author zerechen
  * @Date 2017/10/30 下午6:13
  */
 public class CommentEntity implements Serializable {

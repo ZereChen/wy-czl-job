@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * @author 大闲人柴毛毛
+ * @author zerechen
  * @date 2017/11/1 下午6:57
  * @description 角色实体类
  */

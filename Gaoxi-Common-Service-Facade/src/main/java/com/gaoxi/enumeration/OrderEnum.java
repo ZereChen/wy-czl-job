@@ -1,7 +1,7 @@
 package com.gaoxi.enumeration;
 
 /**
- * @author 大闲人柴毛毛
+ * @author zerechen
  * @date 2017/11/1 下午9:22
  * @description 排序规则枚举
  */

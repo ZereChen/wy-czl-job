@@ -3,7 +3,7 @@ package com.gaoxi.enumeration.order;
 import com.gaoxi.enumeration.BaseEnum;
 
 /**
- * @author 大闲人柴毛毛
+ * @author zerechen
  * @date 2017/11/6 上午11:09
  *
  * @description 发票类型

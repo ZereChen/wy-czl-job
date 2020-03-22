@@ -27,7 +27,7 @@ import java.util.Set;
 import static java.util.stream.Collectors.groupingBy;
 
 /**
- * @author 大闲人柴毛毛
+ * @author zerechen
  * @date 2017/11/7 下午2:23
  * @description 下单参数校验
  */

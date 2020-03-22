@@ -4,7 +4,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 /**
- * @author 大闲人柴毛毛
+ * @author zerechen
  * @date 2017/11/1 下午2:46
  * @description redis连接信息配置类
  */

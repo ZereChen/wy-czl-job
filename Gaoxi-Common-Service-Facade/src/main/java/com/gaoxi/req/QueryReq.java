@@ -1,7 +1,7 @@
 package com.gaoxi.req;
 
 /**
- * @author 大闲人柴毛毛
+ * @author zerechen
  * @date 2017/10/31 下午7:42
  * @description 查询请求
  */

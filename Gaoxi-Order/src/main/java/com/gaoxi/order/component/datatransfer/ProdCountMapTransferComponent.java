@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author 大闲人柴毛毛
+ * @author zerechen
  * @date 2017/11/13 下午2:35
  *
  * @description 产品ID-数量的Map——>产品Entity-数量的Map

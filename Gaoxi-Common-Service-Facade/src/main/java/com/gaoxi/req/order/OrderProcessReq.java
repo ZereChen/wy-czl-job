@@ -4,7 +4,7 @@ import com.gaoxi.enumeration.order.ProcessReqEnum;
 import com.gaoxi.req.AbsReq;
 
 /**
- * @author 大闲人柴毛毛
+ * @author zerechen
  * @date 2017/11/9 下午1:47
  *
  * @description 订单受理请求

@@ -29,7 +29,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author 大闲人柴毛毛
+ * @author zerechen
  * @date 2017/11/1 上午10:04
  *
  * @description 初始化用户信息

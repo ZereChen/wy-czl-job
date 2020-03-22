@@ -29,7 +29,7 @@ import static com.gaoxi.rsp.Result.newFailureResult;
 import static com.gaoxi.rsp.Result.newSuccessResult;
 
 /**
- * @Author 大闲人柴毛毛
+ * @Author zerechen
  * @Date 2017/10/27 下午10:26
  */
 @RestController

@@ -3,7 +3,7 @@ package com.gaoxi.annotation;
 import java.lang.annotation.*;
 
 /**
- * @author 大闲人柴毛毛
+ * @author zerechen
  * @date 2017/10/27 下午10:28
  * @description 本注解用在Controller层的接口上，表示访问该接口所需的角色
  */

@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 import java.util.Arrays;
 
 /**
- * @author 大闲人柴毛毛
+ * @author zerechen
  * @date 2017/11/13 上午8:39
  *
  * @description 确认发货的幂等性检查

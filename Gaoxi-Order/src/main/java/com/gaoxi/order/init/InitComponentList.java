@@ -17,7 +17,7 @@ import java.lang.reflect.Field;
 import java.util.List;
 
 /**
- * @author 大闲人柴毛毛
+ * @author zerechen
  * @date 2017/11/7 下午4:30
  *
  * @description 初始化组件列表

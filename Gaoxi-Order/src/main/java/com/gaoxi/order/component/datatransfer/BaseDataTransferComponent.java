@@ -4,7 +4,7 @@ import com.gaoxi.context.OrderProcessContext;
 import com.gaoxi.order.component.BaseComponent;
 
 /**
- * @author 大闲人柴毛毛
+ * @author zerechen
  * @date 2017/11/13 下午2:33
  *
  * @description 数据转化组件的父类

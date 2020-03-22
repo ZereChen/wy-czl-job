@@ -1,7 +1,7 @@
 package com.gaoxi.enumeration;
 
 /**
- * @author 大闲人柴毛毛
+ * @author zerechen
  * @date 2017/11/1 上午11:09
  *
  * @description HTTP请求方式的枚举类

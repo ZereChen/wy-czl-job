@@ -14,7 +14,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * @Author 大闲人柴毛毛
+ * @Author zerechen
  * @Date 2017/10/29 下午12:58
  * REST接口统一的日志处理
  */

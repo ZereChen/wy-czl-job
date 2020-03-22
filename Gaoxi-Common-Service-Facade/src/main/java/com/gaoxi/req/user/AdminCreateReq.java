@@ -4,7 +4,7 @@ import com.gaoxi.entity.user.RoleEntity;
 import com.gaoxi.req.AbsReq;
 
 /**
- * @author 大闲人柴毛毛
+ * @author zerechen
  * @date 2017/11/4 下午4:19
  * @description 创建管理员的请求
  */

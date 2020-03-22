@@ -3,7 +3,7 @@ package com.gaoxi.enumeration.user;
 import com.gaoxi.enumeration.BaseEnum;
 
 /**
- * @author 大闲人柴毛毛
+ * @author zerechen
  * @date 2017/11/1 下午7:52
  * @description 用户状态的枚举类
  */

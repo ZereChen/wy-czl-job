@@ -11,7 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * @author 大闲人柴毛毛
+ * @author zerechen
  * @date 2017/11/4 下午7:50
  *
  * @description 实现MyBatis中枚举与Integer的相互映射

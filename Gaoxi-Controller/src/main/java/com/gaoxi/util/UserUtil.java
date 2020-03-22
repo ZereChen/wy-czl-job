@@ -14,7 +14,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * @author 大闲人柴毛毛
+ * @author zerechen
  * @date 2017/11/9 下午10:24
  *
  * @description 用户信息工具包

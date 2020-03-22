@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * @author 大闲人柴毛毛
+ * @author zerechen
  * @Date 2017/10/30 下午6:12
  */
 public class ArticleEntity implements Serializable {

@@ -5,7 +5,7 @@ import com.gaoxi.entity.user.UserEntity;
 import java.io.Serializable;
 
 /**
- * @author 大闲人柴毛毛
+ * @author zerechen
  * @date 2017/10/31 下午3:38
  * @description 产品品牌的实体类
  */

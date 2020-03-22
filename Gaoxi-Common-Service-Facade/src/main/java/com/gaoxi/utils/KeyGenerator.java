@@ -3,7 +3,7 @@ package com.gaoxi.utils;
 import java.util.UUID;
 
 /**
- * @author 大闲人柴毛毛
+ * @author zerechen
  * @date 2017/11/2 下午4:27
  * @description 主键生成器
  */

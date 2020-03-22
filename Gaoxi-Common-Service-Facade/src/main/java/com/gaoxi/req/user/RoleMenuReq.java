@@ -5,7 +5,7 @@ import com.gaoxi.req.AbsReq;
 import java.util.List;
 
 /**
- * @author 大闲人柴毛毛
+ * @author zerechen
  * @date 2017/11/4 下午4:43
  * @description 角色对应菜单的修改请求
  */

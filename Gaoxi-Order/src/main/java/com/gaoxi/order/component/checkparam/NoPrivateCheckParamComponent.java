@@ -4,7 +4,7 @@ import com.gaoxi.context.OrderProcessContext;
 import org.springframework.stereotype.Component;
 
 /**
- * @author 大闲人柴毛毛
+ * @author zerechen
  * @date 2017/11/13 上午10:43
  *
  * @description 供那些没有特有参数校验的场景使用

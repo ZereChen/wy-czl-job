@@ -3,7 +3,7 @@ package com.gaoxi.req.user;
 import com.gaoxi.req.AbsReq;
 
 /**
- * @author 大闲人柴毛毛
+ * @author zerechen
  * @date 2017/12/6 下午4:07
  *
  * @description 地址创建请求

@@ -324,7 +324,7 @@ docker pull chaimm/tomcat:1.1
 
 以创建gaoxi-user容器为例，采用如下命令创建容器：
 ```
-docker run --name gaoxi-user-1 -p 8082:8080 -v /usr/web/gaoxi-log:/opt/tomcat/gaoxi-log chaimm/tomcat:1.1
+docker run --name gaoxi-user-1 -p 8082:8080 -v /Users/chenzelei/Desktop/czl-log:/opt/tomcat/gaoxi-log chaimm/tomcat:1.1
 ```
 - --name：指定容器的名字
 - -p：指定容器的端口映射

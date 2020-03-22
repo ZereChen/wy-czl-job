@@ -5,7 +5,7 @@ import com.gaoxi.entity.product.ProductEntity;
 import java.io.Serializable;
 
 /**
- * @author 大闲人柴毛毛
+ * @author zerechen
  * @date 2017/11/6 上午10:52
  *
  * @description 产品-订单关系(用于指定某一订单中某一产品的数量)

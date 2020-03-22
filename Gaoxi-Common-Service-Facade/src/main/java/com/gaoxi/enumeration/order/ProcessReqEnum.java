@@ -3,7 +3,7 @@ package com.gaoxi.enumeration.order;
 import com.gaoxi.enumeration.BaseEnum;
 
 /**
- * @author 大闲人柴毛毛
+ * @author zerechen
  * @date 2017/11/6 下午1:53
  *
  * @description 订单受理请求枚举

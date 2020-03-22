@@ -6,7 +6,7 @@ import com.gaoxi.order.processor.Processor;
 import java.lang.annotation.*;
 
 /**
- * @author 大闲人柴毛毛
+ * @author zerechen
  * @date 2017/11/9 下午2:43
  *
  * @description 向ProcessEngine中注入所有的Processor

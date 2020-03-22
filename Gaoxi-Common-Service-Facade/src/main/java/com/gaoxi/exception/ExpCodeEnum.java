@@ -7,7 +7,7 @@ import java.io.Serializable;
 import static com.gaoxi.utils.ExpPrefixUtil.*;
 
 /**
- * @Author 大闲人柴毛毛
+ * @Author zerechen
  * @Date 2017/10/27 下午10:37
  * 全局的异常状态码 和 异常描述
  *

@@ -3,7 +3,7 @@ package com.gaoxi.entity.user;
 import java.io.Serializable;
 
 /**
- * @author 大闲人柴毛毛
+ * @author zerechen
  * @date 2017/11/1 下午7:26
  * @description 权限实体类
  */

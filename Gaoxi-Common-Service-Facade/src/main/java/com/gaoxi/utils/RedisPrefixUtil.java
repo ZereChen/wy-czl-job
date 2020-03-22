@@ -1,7 +1,7 @@
 package com.gaoxi.utils;
 
 /**
- * @author 大闲人柴毛毛
+ * @author zerechen
  * @date 2017/11/2 下午2:32
  * @description 向Redis存储键值对时，Key必须要使用本类定义的标准前缀！！！
  * 从而减少Hash冲突，从而提高查询效率
