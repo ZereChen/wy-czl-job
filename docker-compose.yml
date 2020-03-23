@@ -1,0 +1,22 @@
+version: '2.0'
+services:
+  zk-dubbo-admin:
+    ports:
+      - "2181:2181"
+      - "10000:8080"
+    container_name: zk-dubbo-admin
+    image: zerechen/zookeeper-dubbo:1.0
+
+  user:
+    build: Gaoxi-User
+    container_name: czl-user
+    ports:
+      - "8002:8000"
+    volumes:
+      - ~/logs/user:/logs
+
+#  redis:
+#    image: redis
+#    ports:
+#      - "6379:6379"
+#    container_name: redis
