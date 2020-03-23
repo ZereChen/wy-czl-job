@@ -5,7 +5,6 @@ import java.util.Map;
 
 /**
  * @author zerechen
- * @date 2017/11/1 下午3:33
  * @description Redis服务接口
  */
 public interface RedisService {
