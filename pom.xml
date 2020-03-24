@@ -3,12 +3,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.gaoxi</groupId>
-	<artifactId>gaoxi</artifactId>
+	<groupId>com.czl</groupId>
+	<artifactId>czl</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
-	<name>Gaoxi</name>
+	<name>Czl</name>
 	<description>Demo project for Spring Boot</description>
 
 	<parent>
@@ -62,10 +62,9 @@
 			<version>1.0.0</version>
 		</dependency>
 
-		<!-- gaoxi-common-service-facade -->
 		<dependency>
-			<groupId>com.gaoxi</groupId>
-			<artifactId>gaoxi-common-service-facade</artifactId>
+			<groupId>com.czl</groupId>
+			<artifactId>czl-common-service-facade</artifactId>
 			<version>0.0.1</version>
 		</dependency>
 
@@ -90,13 +89,13 @@
 
 
 	<modules>
-		<module>Gaoxi-CzlBase</module>
-		<module>Gaoxi-Order</module>
-		<module>Gaoxi-Product</module>
-		<module>Gaoxi-User</module>
-		<module>Gaoxi-Redis</module>
-		<module>Gaoxi-Controller</module>
-		<module>Gaoxi-Common-Service-Facade</module>
+		<module>Czl-Base</module>
+		<module>Czl-Order</module>
+		<module>Czl-Product</module>
+		<module>Czl-User</module>
+		<module>Czl-Redis</module>
+		<module>Czl-Controller</module>
+		<module>Czl-Common-Service-Facade</module>
 	</modules>
 
 	<profiles>
