@@ -8,7 +8,7 @@ services:
     image: zerechen/zookeeper-dubbo:1.0
 
   user:
-    build: Gaoxi-User
+    build: Czl-User
     container_name: czl-user
     ports:
       - "8002:8000"

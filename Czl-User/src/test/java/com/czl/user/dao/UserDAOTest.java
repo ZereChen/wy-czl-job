@@ -1,7 +1,7 @@
-//package com.gaoxi.user.dao;
+//package com.czl.user.dao;
 //
-//import com.gaoxi.entity.user.UserEntity;
-//import com.gaoxi.req.user.UserQueryReq;
+//import com.czl.entity.user.UserEntity;
+//import com.czl.req.user.UserQueryReq;
 //import org.junit.Test;
 //import org.junit.runner.RunWith;
 //import org.springframework.beans.factory.annotation.Autowired;

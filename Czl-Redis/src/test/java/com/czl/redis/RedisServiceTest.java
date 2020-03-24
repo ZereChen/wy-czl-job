@@ -1,6 +1,6 @@
-//package com.gaoxi.redis;
+//package com.czl.redis;
 //
-//import com.gaoxi.redis.service.RedisServiceImpl;
+//import com.czl.redis.service.RedisServiceImpl;
 //import org.junit.Test;
 //import org.junit.runner.RunWith;
 //import org.springframework.beans.factory.annotation.Autowired;

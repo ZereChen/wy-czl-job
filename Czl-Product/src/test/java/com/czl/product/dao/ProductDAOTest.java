@@ -1,4 +1,4 @@
-//package com.gaoxi.product.dao;
+//package com.czl.product.dao;
 //
 //import org.junit.Assert;
 //import org.junit.Test;
