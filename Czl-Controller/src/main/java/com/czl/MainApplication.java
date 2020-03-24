@@ -8,14 +8,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
 @RestController
-public class GaoxiControllerApplication extends SpringBootServletInitializer {
+public class MainApplication extends SpringBootServletInitializer {
 
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-		return builder.sources(GaoxiControllerApplication.class);
+		return builder.sources(MainApplication.class);
 	}
 
 	public static void main(String[] args) {
-		SpringApplication.run(GaoxiControllerApplication.class, args);
+		SpringApplication.run(MainApplication.class, args);
 	}
 }
