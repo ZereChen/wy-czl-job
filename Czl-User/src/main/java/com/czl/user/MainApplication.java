@@ -6,14 +6,14 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
 
 @SpringBootApplication
-public class GaoxiUserApplication extends SpringBootServletInitializer {
+public class MainApplication extends SpringBootServletInitializer {
 
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-		return builder.sources(GaoxiUserApplication.class);
+		return builder.sources(MainApplication.class);
 	}
 
 	public static void main(String[] args) {
-		SpringApplication.run(GaoxiUserApplication.class, args);
+		SpringApplication.run(MainApplication.class, args);
 	}
 }

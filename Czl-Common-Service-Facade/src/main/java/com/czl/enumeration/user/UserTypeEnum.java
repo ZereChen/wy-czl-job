@@ -8,8 +8,8 @@ import com.czl.enumeration.BaseEnum;
  * @description
  */
 public enum UserTypeEnum implements BaseEnum {
-    Person(1,"个人用户"),
-    Company(2,"企业用户"),
+    Person(1,"买家"),
+    Company(2,"卖家"),
     ADMIN(3,"管理员");
 
     private int code;

@@ -1,19 +1,19 @@
 package com.czl.init;
 
 import com.alibaba.dubbo.common.utils.StringUtils;
-import com.alibaba.dubbo.config.annotation.Reference;
 import com.czl.annotation.AuthScan;
 import com.czl.annotation.Login;
 import com.czl.annotation.Permission;
 import com.czl.entity.user.AccessAuthEntity;
 import com.czl.enumeration.HttpMethodEnum;
 import com.czl.facade.redis.RedisService;
-import com.czl.redis.RedisServiceTemp;
 import com.czl.utils.AnnotationUtil;
 import com.czl.utils.ClassUtil;
+import com.czl.utils.RedisPrefixUtil;
 import com.google.common.collect.Maps;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
@@ -37,8 +37,7 @@ public class InitAuth implements CommandLineRunner {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    /** Redis工具包 */
-    @Reference(version = "1.0.0")
+    @Autowired
     private RedisService redisService;
 
     /** 接口权限列表 */
@@ -50,9 +49,6 @@ public class InitAuth implements CommandLineRunner {
     public void run(String... strings) throws Exception {
         loadAccessAuth();
     }
-
-
-
 
     /**
      * 加载接口访问权限
@@ -88,14 +84,13 @@ public class InitAuth implements CommandLineRunner {
             }
         }
         // 存至Redis
-//        redisService.setMap(RedisPrefixUtil.Access_Auth_Prefix, accessAuthMap, null);
-        RedisServiceTemp.accessAuthMap = accessAuthMap;
-        logger.info("接口访问权限已加载完毕！"+accessAuthMap);
+        redisService.setMap(RedisPrefixUtil.Access_Auth_Prefix, accessAuthMap, null);
+        logger.info("loadAccessAuth() completed！"+accessAuthMap);
     }
 
     /**
      * 生成接口权限信息的Key
-     * Key = 'AUTH'+请求方式+请求URL
+     * Key = 请求方式+请求URL
      * @param accessAuthEntity 接口权限信息
      * @return Key
      */

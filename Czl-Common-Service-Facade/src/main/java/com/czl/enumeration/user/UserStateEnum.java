@@ -4,7 +4,6 @@ import com.czl.enumeration.BaseEnum;
 
 /**
  * @author zerechen
- * @date 2017/11/1 下午7:52
  * @description 用户状态的枚举类
  */
 public enum UserStateEnum implements BaseEnum {

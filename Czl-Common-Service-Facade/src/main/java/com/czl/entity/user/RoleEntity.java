@@ -19,9 +19,6 @@ public class RoleEntity implements Serializable {
     /** 角色描述 */
     private String desc;
 
-    /** 该角色能访问的菜单 */
-    private List<MenuEntity> menuList;
-
     /** 该角色拥有的权限 */
     private List<PermissionEntity> permissionList;
 
@@ -49,14 +46,6 @@ public class RoleEntity implements Serializable {
         this.desc = desc;
     }
 
-    public List<MenuEntity> getMenuList() {
-        return menuList;
-    }
-
-    public void setMenuList(List<MenuEntity> menuList) {
-        this.menuList = menuList;
-    }
-
     public List<PermissionEntity> getPermissionList() {
         return permissionList;
     }
@@ -71,7 +60,6 @@ public class RoleEntity implements Serializable {
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", desc='" + desc + '\'' +
-                ", menuList=" + menuList +
                 ", permissionList=" + permissionList +
                 '}';
     }

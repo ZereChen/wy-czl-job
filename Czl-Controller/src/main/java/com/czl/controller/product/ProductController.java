@@ -18,7 +18,6 @@ import java.util.List;
 
 /**
  * @author zerechen
- * @date 2017/10/27 下午10:28
  * @description 产品系统的Controller
  */
 public interface ProductController {

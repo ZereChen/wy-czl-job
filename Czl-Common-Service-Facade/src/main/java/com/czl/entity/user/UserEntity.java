@@ -27,9 +27,6 @@ public class UserEntity implements Serializable {
     /** 邮箱 */
     private String mail;
 
-    /** 营业执照照片 */
-    private String licencePic;
-
     /** 注册时间 */
     private Timestamp registerTime;
 
@@ -82,13 +79,6 @@ public class UserEntity implements Serializable {
         this.mail = mail;
     }
 
-    public String getLicencePic() {
-        return licencePic;
-    }
-
-    public void setLicencePic(String licencePic) {
-        this.licencePic = licencePic;
-    }
 
     public Timestamp getRegisterTime() {
         return registerTime;
@@ -122,8 +112,6 @@ public class UserEntity implements Serializable {
         this.roleEntity = roleEntity;
     }
 
-
-
     @Override
     public String toString() {
         return "UserEntity{" +
@@ -132,7 +120,6 @@ public class UserEntity implements Serializable {
                 ", password='" + password + '\'' +
                 ", phone='" + phone + '\'' +
                 ", mail='" + mail + '\'' +
-                ", licencePic='" + licencePic + '\'' +
                 ", registerTime=" + registerTime +
                 ", userTypeEnum=" + userTypeEnum +
                 ", userStateEnum=" + userStateEnum +

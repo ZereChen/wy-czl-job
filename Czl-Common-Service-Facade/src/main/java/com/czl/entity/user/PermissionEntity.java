@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 /**
  * @author zerechen
- * @date 2017/11/1 下午7:26
  * @description 权限实体类
  */
 public class PermissionEntity implements Serializable {

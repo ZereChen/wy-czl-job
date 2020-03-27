@@ -1,22 +1,22 @@
-package com.czl.redis.service;
+package com.czl.redis;
 
 /**
  * @author zerechen
  * @description
  */
+
+import com.czl.facade.redis.RedisService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.HashOperations;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.ValueOperations;
+import org.springframework.stereotype.Service;
 import java.io.Serializable;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
-import com.alibaba.dubbo.config.annotation.Service;
-import com.czl.facade.redis.RedisService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.core.ValueOperations;
-
-@org.springframework.stereotype.Service
-@Service(version = "1.0.0")
+@Service
 public class RedisServiceImpl implements RedisService {
 
     @Autowired
@@ -127,21 +127,45 @@ public class RedisServiceImpl implements RedisService {
 
     @Override
     public boolean set(String key, Serializable value) {
-        return false;
+        boolean result = false;
+        try {
+            ValueOperations<Serializable, Serializable> operations = redisTemplate.opsForValue();
+            operations.set(key, value);
+            result = true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
     }
 
     @Override
     public boolean set(String key, Serializable value, Long expireTime) {
-        return false;
+        boolean result = false;
+        try {
+            ValueOperations<Serializable, Serializable> operations = redisTemplate.opsForValue();
+            operations.set(key, value);
+            redisTemplate.expire(key, expireTime, TimeUnit.SECONDS);
+            result = true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
     }
 
     @Override
     public <K, HK, HV> boolean setMap(K key, Map<HK, HV> map, Long expireTime) {
+        HashOperations<K, HK, HV> operations = redisTemplate.opsForHash();
+        operations.putAll(key, map);
+
+        if (expireTime != null) {
+            redisTemplate.expire(key, expireTime, TimeUnit.SECONDS);
+        }
         return false;
     }
 
     @Override
     public <K, HK, HV> Map<HK, HV> getMap(K key) {
-        return null;
+        HashOperations<K, HK, HV> operations = redisTemplate.opsForHash();
+        return operations.entries(key);
     }
 }

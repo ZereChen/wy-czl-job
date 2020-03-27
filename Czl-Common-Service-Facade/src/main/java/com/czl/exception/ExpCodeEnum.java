@@ -24,7 +24,7 @@ public enum ExpCodeEnum implements Serializable {
     /** User模块异常 */
     USERNAME_NULL(UserExpPrefix + "000", "用户名为空"),
     PASSWD_NULL(UserExpPrefix + "001", "密码为空"),
-    AUTH_NULL(UserExpPrefix + "002", "手机、电子邮件、用户名 至少填一个"),
+    AUTH_NULL(UserExpPrefix + "002", "用户名为空"),
     LOGIN_FAIL(UserExpPrefix + "003", "登录失败"),
     UNLOGIN(UserExpPrefix + "004", "尚未登录"),
     NO_PERMISSION(UserExpPrefix + "005", "没有权限"),

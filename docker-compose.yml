@@ -2,14 +2,12 @@ version: '2.0'
 services:
   zk-dubbo-admin:
     image: zerechen/zookeeper-dubbo:1.0
-    container_name: czl-zk-dubbo-admin
     ports:
       - "2181:2181"
       - "10000:8080"
 
   czl-redis:
     image: redis
-    container_name: czl-redis
     ports:
       - "6379:6379"
     restart: always
@@ -19,7 +17,6 @@ services:
 
   czl-controller:
     build: Czl-Controller/
-    container_name: czl-controller
     ports:
       - "8002:8000"
     volumes:
@@ -27,7 +24,6 @@ services:
 
   czl-user:
     build: Czl-User/
-    container_name: czl-user
     ports:
       - "8003:8000"
     volumes:
@@ -36,6 +32,5 @@ services:
 
   czl-ui:
     build: Czl-UI-Frontend
-    container_name: czl-ui-frontend
     ports:
       - "9000:8000"

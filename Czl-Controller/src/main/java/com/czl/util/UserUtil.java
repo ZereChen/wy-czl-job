@@ -1,14 +1,16 @@
 package com.czl.util;
 
 import com.alibaba.dubbo.common.utils.StringUtils;
-import com.alibaba.dubbo.config.annotation.Reference;
 import com.czl.entity.user.UserEntity;
 import com.czl.exception.CommonBizException;
 import com.czl.exception.ExpCodeEnum;
 import com.czl.facade.redis.RedisService;
-import com.czl.redis.RedisServiceTemp;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+import org.springframework.web.context.request.RequestAttributes;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -20,17 +22,26 @@ import javax.servlet.http.HttpServletRequest;
 @Component
 public class UserUtil {
 
-    /** HTTP Response中Session ID 的名字 */
     @Value("${session.SessionIdName}")
     private String sessionIdName;
 
-    @Reference(version = "1.0.0")
+    @Autowired
     private RedisService redisService;
 
-
+    /**
+     * 获取HttpServletRequest
+     *
+     * @return
+     */
+    public HttpServletRequest getHttpServletRequest() {
+        RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();
+        ServletRequestAttributes servletRequestAttributes = (ServletRequestAttributes) requestAttributes;
+        return servletRequestAttributes.getRequest();
+    }
 
     /**
-     * 获取用户信息
+     * 从httpServletReq中获取用户信息UserEntity
+     *
      * @param httpServletReq HTTP请求
      * @return 用户信息
      */
@@ -42,27 +53,38 @@ public class UserUtil {
         }
 
         // 获取UserEntity
-//        Object userEntity =  redisService.get(sessionID);
-        // TODO 暂时使用本地redis
-        Object userEntity = RedisServiceTemp.userMap.get(sessionID);
+        Object userEntity = redisService.get(sessionID);
         if (userEntity == null) {
             return null;
         }
         return (UserEntity) userEntity;
 
     }
-
     /**
-     * 获取SessionID
+     * 获取用户ID
+     * @param httpReq HTTP请求
+     * @return 用户ID
+     */
+    public String getUserId(HttpServletRequest httpReq) {
+        UserEntity userEntity = getUser(httpReq);
+        if (userEntity == null) {
+            throw new CommonBizException(ExpCodeEnum.UNLOGIN);
+        }
+
+        return userEntity.getId();
+    }
+    /**
+     * 从HttpServletRequest中获取SessionID
+     *
      * @param request 当前的请求对象
      * @return SessionID的值
      */
-    private String getSessionID(HttpServletRequest request) {
+    public String getSessionID(HttpServletRequest request) {
         Cookie[] cookies = request.getCookies();
 
         // 遍历所有cookie，找出SessionID
         String sessionID = null;
-        if (cookies!=null && cookies.length>0) {
+        if (cookies != null && cookies.length > 0) {
             for (Cookie cookie : cookies) {
                 if (sessionIdName.equals(cookie.getName())) {
                     sessionID = cookie.getValue();

@@ -8,7 +8,6 @@
         <result property="username" column="username"/>
         <result property="phone" column="phone"/>
         <result property="mail" column="mail"/>
-        <result property="licencePic" column="licence_pic"/>
         <result property="registerTime" column="register_time"/>
         <result property="registerTime" column="register_time"/>
         <result property="userTypeEnum" column="user_type" typeHandler="com.czl.typehandler.EnumTypeHandler"/>
@@ -27,42 +26,6 @@
         </association>
     </resultMap>
 
-
-    <update id="batchUpdateUserState">
-        UPDATE sys_user
-        set  user_state = #{userStateCode}
-        where id in
-        <foreach collection="userIdList"
-                 index="index"
-                 item="userId"
-                 separator=","
-                 open="(" close=")">
-            #{userId}
-        </foreach>
-    </update>
-    <update id="updateLocation">
-      UPDATE location
-      <set>
-        <if test="locationUpdateReq.location != null">
-            location = #{locationUpdateReq.location},
-        </if>
-        <if test="locationUpdateReq.name != null">
-            name = #{locationUpdateReq.name},
-        </if>
-        <if test="locationUpdateReq.phone != null">
-            phone = #{locationUpdateReq.phone},
-        </if>
-        <if test="locationUpdateReq.postCode != null">
-            post_code = #{locationUpdateReq.postCode},
-        </if>
-      </set>
-        WHERE id = #{locationUpdateReq.locationId} AND user_id = #{userId}
-    </update>
-    <insert id="createLocation">
-        INSERT INTO gaoxi.location (id, location, name, phone, post_code, user_id)
-        VALUES (#{id}, #{location}, #{name}, #{phone}, #{postCode}, #{userId} )
-    </insert>
-
     <delete id="deleteRole">
       DELETE FROM sys_role WHERE id = #{roleId}
     </delete>
@@ -71,16 +34,10 @@
         DELETE FROM sys_role_permission WHERE role_id = #{roleId}
     </delete>
 
-    <delete id="deleteRoleMenu">
-        DELETE FROM sys_role_menu WHERE role_id = #{roleId}
-    </delete>
-    <delete id="deleteLocation">
-        DELETE FROM location where id = #{locationId} AND user_id = #{userId}
-    </delete>
 
 
     <select id="findUsers" resultMap="userResultMap">
-      SELECT user.id as id, username, phone, mail, licence_pic, register_time,
+      SELECT user.id as id, username, phone, mail, register_time,
               user_type,
               user_state,
               role.id as role_id,
@@ -166,33 +123,6 @@
       SELECT * FROM sys_permission
     </select>
 
-    <select id="findMenus" resultType="com.czl.entity.user.MenuEntity">
-        SELECT * FROM sys_menu
-    </select>
-
-    <select id="findLocations" resultType="com.czl.entity.user.LocationEntity">
-      SELECT  location.id as id,
-              location.location as location,
-              location.user_id as userId,
-              location.post_code as postCode,
-              location.phone as phone,
-              location.name as name
-      FROM gaoxi.location as location WHERE gaoxi.location.user_id = #{userId}
-    </select>
-
-
-    <insert id="createUser">
-        INSERT INTO sys_user (id,username,password,phone,mail,licence_pic,register_time,user_type,user_state,role_id)
-        VALUES (#{id},#{username},#{password},#{phone},#{mail},#{licencePic},#{registerTime},#{userTypeEnum.code},#{userStateEnum.code},#{roleEntity.id})
-    </insert>
-
-    <insert id="insertRoleMenu">
-        INSERT INTO sys_role_menu (role_id,menu_id)
-        VALUES
-        <foreach collection="roleMenuReq.menuIdList" item="menuId" index="index" separator=",">
-          (#{roleMenuReq.roleId},#{menuId})
-        </foreach>
-    </insert>
 
     <insert id="insertRolePermission">
         INSERT INTO sys_role_permission (role_id,permission_id)

@@ -1,9 +1,11 @@
 package com.czl.handle;
 
+import com.czl.util.UserUtil;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.request.RequestAttributes;
@@ -25,13 +27,14 @@ public class LogHandle {
     @Pointcut("execution(public * com.czl.controller..*.*(..))")
     public void restLog(){}
 
+    @Autowired
+    private UserUtil userUtil;
     @Around("restLog()")
     public void doAround(ProceedingJoinPoint joinPoint) throws Throwable {
-
         // 生成本次请求时间戳
         String timestamp = System.currentTimeMillis()+"";
 
-        HttpServletRequest request = getHttpServletRequest();
+        HttpServletRequest request = userUtil.getHttpServletRequest();
         String url = request.getRequestURL().toString();
         String method = request.getMethod();
         String uri = request.getRequestURI();
@@ -43,13 +46,5 @@ public class LogHandle {
         logger.info(timestamp + " , " + result.toString());
     }
 
-    /**
-     * 获取HttpServletRequest
-     * @return
-     */
-    private HttpServletRequest getHttpServletRequest() {
-        RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();
-        ServletRequestAttributes servletRequestAttributes = (ServletRequestAttributes) requestAttributes;
-        return servletRequestAttributes.getRequest();
-    }
+
 }

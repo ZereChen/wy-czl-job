@@ -21,8 +21,6 @@ public class RegisterReq extends AbsReq {
     /** 邮箱 */
     private String mail;
 
-    /** 营业执照照片 */
-    private String licencePic;
 
     /** 用户类别 {@link com.czl.enumeration.user.UserTypeEnum} */
     private Integer userType;
@@ -47,6 +45,17 @@ public class RegisterReq extends AbsReq {
         return phone;
     }
 
+    @Override
+    public String toString() {
+        return "RegisterReq{" +
+                "username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", phone='" + phone + '\'' +
+                ", mail='" + mail + '\'' +
+                ", userType=" + userType +
+                '}';
+    }
+
     public void setPhone(String phone) {
         this.phone = phone;
     }
@@ -59,13 +68,6 @@ public class RegisterReq extends AbsReq {
         this.mail = mail;
     }
 
-    public String getLicencePic() {
-        return licencePic;
-    }
-
-    public void setLicencePic(String licencePic) {
-        this.licencePic = licencePic;
-    }
 
     public Integer getUserType() {
         return userType;
@@ -75,15 +77,5 @@ public class RegisterReq extends AbsReq {
         this.userType = userType;
     }
 
-    @Override
-    public String toString() {
-        return "RegisterReq{" +
-                "username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", phone='" + phone + '\'' +
-                ", mail='" + mail + '\'' +
-                ", licencePic='" + licencePic + '\'' +
-                ", userType=" + userType +
-                '}';
-    }
+
 }

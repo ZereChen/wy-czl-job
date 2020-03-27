@@ -17,4 +17,8 @@ public class KeyGenerator {
         //去掉“-”符号
         return uuid.replaceAll("-", "");
     }
+
+    public static void main(String[] args) {
+        System.out.println(getKey());
+    }
 }

@@ -94,7 +94,6 @@
 		<module>Czl-Order</module>
 		<module>Czl-Product</module>
 		<module>Czl-User</module>
-		<module>Czl-Redis</module>
 		<module>Czl-Controller</module>
 		<module>Czl-UI-Frontend</module>
 	</modules>
