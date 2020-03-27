@@ -32,3 +32,10 @@ services:
       - "8003:8000"
     volumes:
       - ./logs/user:/logs/
+
+
+  czl-ui:
+    build: Czl-UI-Frontend
+    container_name: czl-ui-frontend
+    ports:
+      - "9000:8000"

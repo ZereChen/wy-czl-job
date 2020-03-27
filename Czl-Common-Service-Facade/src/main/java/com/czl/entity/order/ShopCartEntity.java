@@ -7,7 +7,6 @@ import java.sql.Timestamp;
 
 /**
  * @author zerechen
- * @date 2017/11/6 上午10:10
  *
  * @description 购物车实体类
  */

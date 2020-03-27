@@ -4,8 +4,6 @@ import java.io.Serializable;
 
 /**
  * @author zerechen
- * @date 2017/11/6 下午2:11
- *
  * @description 通用系统异常
  */
 public class CommonSysException extends RuntimeException implements Serializable {

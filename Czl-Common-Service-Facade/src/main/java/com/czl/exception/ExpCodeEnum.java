@@ -6,7 +6,6 @@ import static com.czl.utils.ExpPrefixUtil.*;
 
 /**
  * @Author zerechen
- * @Date 2017/10/27 下午10:37
  * 全局的异常状态码 和 异常描述
  *
  * PS:异常码一共由5位组成，前两位为固定前缀，请参考{@link com.czl.utils.ExpPrefixUtil}

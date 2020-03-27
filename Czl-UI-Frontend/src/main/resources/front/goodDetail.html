@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>商品详情</title>
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/detail.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_762189_4zun6p41wj3.css">
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <!--<script src="js/jquery.validate.min.js"></script>-->
+    <script src="js/swiper.min.js"></script>
+    <!--<script src="js/jquery.jqzoom.js"></script>-->
+    <script src="js/nav.js"></script>
+    <script src="js/detail.js"></script>
+</head>
+<body>
+
+<header>
+    <div class="nav">
+        <div class="nav-bar">
+            <div class="slogan left">
+                <a name="slogan" href="#">好的生活，没那么贵</a>
+            </div>
+            <div class="login right">
+                <a class="log" href="login.html">登录</a>
+                <a class="reg" href="register.html">注册</a>
+                <div class="split"></div>
+                <a href="">我的订单</a>
+                <div class="split"></div>
+                <a href="">会员</a>
+                <div class="split"></div>
+                <a href="">甄选家</a>
+                <div class="split"></div>
+                <a href="">企业采购</a>
+                <div class="split"></div>
+                <a href="">客户服务</a>
+
+                <div class="split"></div>
+                <a class="dl-app" href="">
+                    <i class="iconfont icon-contextphone"></i>APP
+                    <div class="wrap-code">
+                        <img src="images/下载.png" alt="" />
+                        <p>扫码下载 首单立减8元</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="store-header">
+            <div class="g-row">
+                <a href="" class="tab-logo"></a>
+                <div class="m-search">
+                    <div class="search-div">
+                        <input type="text" class="search-input" placeholder="精选裤衩子限时包邮">
+                        <div class="search-button">
+                            <i class="search-icon"></i>
+                        </div>
+                        <a class="cart-div" href="cart.html">
+                            <i class="cart-icon"></i>
+                            <i class="amount-icon">0</i>
+                        </a>
+                    </div>
+                </div>
+                <ul class="nav-item">
+                    <li class="item">
+                        <a class="" href="index.html">首页</a>
+                    </li>
+                    <li  class="item">
+                        <a href="">居家</a>
+                        <div class="nav-card">
+                            <ul class="card-list">
+                                <li class="card-item">
+                                    <img class="w-icon" src="images/card-list/13ff4decdf38fe1a5bde34f0e0cc635a.png" alt="">
+                                    <p class="w-text">被枕</p>
+                                </li>
+                                <li class="card-item">
+                                    <img class="w-icon" src="images/card-list/13ff4decdf38fe1a5bde34f0e0cc635a.png" alt="">
+                                    <p class="w-text">床品件套</p>
+                                </li>
+                                <li class="card-item">
+                                    <img class="w-icon" src="images/card-list/13ff4decdf38fe1a5bde34f0e0cc635a.png" alt="">
+                                    <p class="w-text">床垫</p>
+                                </li>
+                                <li class="card-item">
+                                    <img class="w-icon" src="images/card-list/13ff4decdf38fe1a5bde34f0e0cc635a.png" alt="">
+                                    <p class="w-text">地垫</p>
+                                </li>
+                                <li class="card-item">
+                                    <img class="w-icon" src="images/card-list/13ff4decdf38fe1a5bde34f0e0cc635a.png" alt="">
+                                    <p class="w-text">家具</p>
+                                </li>
+                                <li class="card-item">
+                                    <img class="w-icon" src="images/card-list/13ff4decdf38fe1a5bde34f0e0cc635a.png" alt="">
+                                    <p class="w-text">舒坐</p>
+                                </li>
+                                <li class="card-item">
+                                    <img class="w-icon" src="images/card-list/13ff4decdf38fe1a5bde34f0e0cc635a.png" alt="">
+                                    <p class="w-text">灯具</p>
+                                </li>
+                                <li class="card-item">
+                                    <img class="w-icon" src="images/card-list/13ff4decdf38fe1a5bde34f0e0cc635a.png" alt="">
+                                    <p class="w-text">家饰</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="item">
+                        <a href="">鞋包</a>
+                        <div class="nav-card">
+                            <ul class="card-list">
+                                <li class="card-item">
+                                    <img class="w-icon" src="images/card-list/863b1e4a6c84fb33f5d09d91d2a36881.png" alt="">
+                                    <p class="w-text">行李箱</p>
+                                </li>
+                                <li class="card-item">
+                                    <img class="w-icon" src="images/card-list/863b1e4a6c84fb33f5d09d91d2a36881.png" alt="">
+                                    <p class="w-text">女士包袋</p>
+                                </li>
+                                <li class="card-item">
+                                    <img class="w-icon" src="images/card-list/863b1e4a6c84fb33f5d09d91d2a36881.png" alt="">
+                                    <p class="w-text">男士包袋</p>
+                                </li>
+                                <li class="card-item">
+                                    <img class="w-icon" src="images/card-list/863b1e4a6c84fb33f5d09d91d2a36881.png" alt="">
+                                    <p class="w-text">钱包及小皮件</p>
+                                </li>
+                                <li class="card-item">
+                                    <img class="w-icon" src="images/card-list/863b1e4a6c84fb33f5d09d91d2a36881.png" alt="">
+                                    <p class="w-text">女鞋</p>
+                                </li>
+                                <li class="card-item">
+                                    <img class="w-icon" src="images/card-list/863b1e4a6c84fb33f5d09d91d2a36881.png" alt="">
+                                    <p class="w-text">男鞋</p>
+                                </li>
+                                <li class="card-item">
+                                    <img class="w-icon" src="images/card-list/863b1e4a6c84fb33f5d09d91d2a36881.png" alt="">
+                                    <p class="w-text">拖鞋</p>
+                                </li>
+                                <li class="card-item">
+                                    <img class="w-icon" src="images/card-list/863b1e4a6c84fb33f5d09d91d2a36881.png" alt="">
+                                    <p class="w-text">鞋配</p>
+                                </li>
+                                <li class="card-item">
+                                    <img class="w-icon" src="images/card-list/863b1e4a6c84fb33f5d09d91d2a36881.png" alt="">
+                                    <p class="w-text">袜子</p>
+                                </li>
+                                <li class="card-item">
+                                    <img class="w-icon" src="images/card-list/863b1e4a6c84fb33f5d09d91d2a36881.png" alt="">
+                                    <p class="w-text">丝袜</p>
+                                </li>
+                                <li class="card-item">
+                                    <img class="w-icon" src="images/card-list/863b1e4a6c84fb33f5d09d91d2a36881.png" alt="">
+                                    <p class="w-text">配饰</p>
+                                </li>
+                                <li class="card-item">
+                                    <img class="w-icon" src="images/card-list/863b1e4a6c84fb33f5d09d91d2a36881.png" alt="">
+                                    <p class="w-text">眼镜</p>
+                                </li>
+                                <li class="card-item">
+                                    <img class="w-icon" src="images/card-list/863b1e4a6c84fb33f5d09d91d2a36881.png" alt="">
+                                    <p class="w-text">围巾套件</p>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </li>
+                    <li class="item">
+                        <a href="">服装</a>
+                    </li>
+                    <li class="item">
+                        <a href="">电器</a>
+                    </li>
+                    <li class="item">
+                        <a href="">洗护</a>
+                    </li>
+                    <li class="item">
+                        <a href="">饮食</a>
+                    </li>
+                    <li class="item">
+                        <a href="">餐厨</a>
+                    </li>
+                    <li class="item">
+                        <a href="">婴童</a>
+                    </li>
+                    <li class="item">
+                        <a href="">文体</a>
+                    </li>
+                    <li class="item">
+                        <a href="">特色区</a>
+                    </li>
+                    <li class="fixed-hide li-spl"></li>
+                    <li class="fixed-hide"><a href="">为您甄选</a></li>
+                    <li class="fixed-hide last"><a href="">众筹</a></li>
+                </ul>
+                <div class="notlogin">
+                    <a class="cart-div" href="cart.html">
+                        <i class="cart-icon"></i>
+                        <i class="amount-icon">0</i>
+                    </a>
+                    <a class="lg" href="login.html">登录</a>
+                    <a class="rg" href="register.html">注册</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="blank clearfix"></div>
+<section class="m-detail">
+    <div class="container">
+        <!--当前页面位置-->
+        <div class="m-curmb">
+            <ul class="clearfix">
+                <li><a href="">首页</a></li>
+                <li><a href="">鞋包配饰</a></li>
+                <li><a href="">男鞋</a></li>
+                <li><a href="">男式一脚蹬头层牛皮滑板鞋</a></li>
+            </ul>
+        </div>
+
+        <div class="goodsale clearfix">
+            <div class="main-slide left clearfix">
+                <div id="preview" class="spec-preview left">
+						<span class="jqzoom">
+							<img jqimg="images/93799db1be56f5bdba0a2614a074e93c.png" src="images/d56500409d3fd09c9eb6d67910ad31fa.jpg" />
+						</span>
+                </div>
+                <!--缩图开始-->
+                <div class="items clearfix">
+                    <ul>
+                        <li><img bimg="images/93799db1be56f5bdba0a2614a074e93c.png" src="images/93799db1be56f5bdba0a2614a074e93c.png" onmousemove="preview(this);"></li>
+                        <li><img bimg="images/93799db1be56f5bdba0a2614a074e93c.png" src="images/d56500409d3fd09c9eb6d67910ad31fa.jpg" onmousemove="preview(this);"></li>
+                        <li><img bimg="images/93799db1be56f5bdba0a2614a074e93c.png" src="images/8b7a05da41c1fc1a92ac787f8d419961.jpg" onmousemove="preview(this);"></li>
+                        <li><img bimg="images/93799db1be56f5bdba0a2614a074e93c.png" src="images/dd791f961fb504bd771be888a93f60ea.jpg" onmousemove="preview(this);"></li>
+                        <li><img bimg="images/93799db1be56f5bdba0a2614a074e93c.png" src="images/d9c9b960e78b8968613f96c20fad6db0.jpg" onmousemove="preview(this);"></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="main-sale left">
+                <div class="goodName clearfix">
+                    <span>Kenneth Cole制造商</span><br>
+                    <h4>男式一脚蹬头层牛皮滑板鞋</h4>
+                </div>
+                <div class="goodSubName">
+                    <h5>穿脱方便，裸足穿依旧舒适</h5>
+                </div>
+                <div class="sale">
+                    <div class="price same-pad">
+                        <span class="same-span">售价:</span>
+                        <p class="good-price"><span class="fuHao">￥</span><span class="num">194.3</span></p>
+                    </div>
+                    <div class="limit same-pad">
+                        <span class="same-span">限制</span>
+                        <span>特价商品不可与优惠券叠加使用</span>
+                    </div>
+                    <div class="point same-pad">
+                        <span class="same-span left">积分</span>
+                        <span>购买最高得19积分</span>
+                    </div>
+                    <div class="serve same-pad">
+                        <span class="same-span left">服务</span>
+                        <ul class="clearfix">
+                            <li><i></i>支持30天无忧退换货</li>
+                            <li><i></i>48小时快速退款</li>
+                            <li><i></i>满88元免邮费</li>
+                            <li><i></i>网易自营品牌</li>
+                            <li><i></i>免费配送到家</li>
+                            <li><i></i>国内部分地区无法配送</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="color clearfix">
+                    <span class="left same-span">颜色</span>
+                    <ul class="left clear color-total">
+                        <li class="clickactive">
+                            <img src="images/740e6c3a11f8bf44a202f0cba185ea43.png" id="imgId1"/>
+                            <i></i>
+                            <div class="color-title">黑色</div>
+                        </li>
+                        <li>
+                            <img src="images/6349c99b77ddb91bffc45bab52f92b2a.png" id="imgId2"/>
+                            <i></i>
+                            <div class="color-title">灰色</div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="goodNum clearfix">
+                    <span class="left same-span goodNum-w">数量</span>
+                    <div class="left goodNumIn">
+							<span class="left leftBtn">
+								<i class="ch"></i>
+							</span>
+                        <input type="text" value="1"  class="left good-num"/>
+                        <span class="left rightBtn">
+								<i class="ch"></i>
+								<i class="xh"></i>
+							</span>
+                    </div>
+                </div>
+                <div class="goodBtn clearfix">
+                    <a href="shopCar.html" class="btn1 left"><span>立即购买</span></a>
+                    <a href="javascript:void(0);" class="btn2 left"><i></i><span>加入购物车</span></a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="peo-see">
+    <div class="container clearfix">
+
+        <div class="title">大家都在看</div>
+
+        <!-- Swiper -->
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide m-product">
+                    <div class="hd">
+                        <a href="">
+                            <img src="images/91ca7d3a389ef09e331311dadef2f6a5.png" alt="" class="img">
+                        </a>
+                    </div>
+                    <div class="bd">
+                        <h4 class="m-name">
+                            <a href="#">3只装&nbsp;&nbsp;黑白粉扑</a>
+                        </h4>
+                        <p class="price">
+                            <span>$29.9</span>
+                            <span class="sign"><a href="">2色可选</a></span>
+                        </p>
+                    </div>
+                </div>
+                <div class="swiper-slide m-product">
+                    <div class="hd">
+                        <a href="">
+                            <img src="images/8a8cca61f87ade0fce98757c70a65f0f.png" alt="" class="img">
+                        </a>
+                    </div>
+                    <div class="bd">
+                        <h4 class="m-name">
+                            <a href="#">3只装&nbsp;&nbsp;黑白粉扑</a>
+                        </h4>
+                        <p class="price">
+                            <span>$29.9</span>
+                            <span class="sign"><a href="">Dior制造商</a></span>
+                        </p>
+                    </div>
+                </div>
+                <div class="swiper-slide m-product">
+                    <div class="hd">
+                        <a href="">
+                            <img src="images/83f2c91c3c55ab67dc939ddb3f8aee35.png" alt="" class="img">
+                        </a>
+                    </div>
+                    <div class="bd">
+                        <h4 class="m-name">
+                            <a href="#">3只装&nbsp;&nbsp;黑白粉扑</a>
+                        </h4>
+                        <p class="price">
+                            <span>$29.9</span>
+                            <span class="sign"><a href="">3色可选</a></span>
+                        </p>
+                    </div>
+                </div>
+                <div class="swiper-slide m-product">
+                    <div class="hd">
+                        <a href="">
+                            <img src="images/dfc946d5b8cd841ad63ba818cb2d7792.png" alt="" class="img">
+                        </a>
+                    </div>
+                    <div class="bd">
+                        <h4 class="m-name">
+                            <a href="#">3只装&nbsp;&nbsp;黑白粉扑</a>
+                        </h4>
+                        <p class="price">
+                            <span>$29.9</span>
+                            <span class="sign"><a href="">新品上市</a></span>
+                        </p>
+                    </div>
+                </div>
+                <div class="swiper-slide m-product">
+                    <div class="hd">
+                        <a href="">
+                            <img src="images/ef621c644cf6d6e6d611f3e341cb00bb.png" alt="" class="img">
+                        </a>
+                    </div>
+                    <div class="bd">
+                        <h4 class="m-name">
+                            <a href="#">3只装&nbsp;&nbsp;黑白粉扑</a>
+                        </h4>
+                        <p class="price">
+                            <span>$29.9</span>
+                            <span class="sign"><a href="">Dior制造商</a></span>
+                        </p>
+                    </div>
+                </div>
+                <div class="swiper-slide m-product">
+                    <div class="hd">
+                        <a href="">
+                            <img src="images/6b3b0b0dadcdf965d12aacd928d67b9d.png" alt="" class="img">
+                        </a>
+                    </div>
+                    <div class="bd">
+                        <h4 class="m-name">
+                            <a href="#">3只装&nbsp;&nbsp;黑白粉扑</a>
+                        </h4>
+                        <p class="price">
+                            <span>$29.9</span>
+                            <span class="sign"><a href="">Dior制造商</a></span>
+                        </p>
+                    </div>
+                </div>
+                <div class="swiper-slide m-product">
+                    <div class="hd">
+                        <a href="">
+                            <img src="images/47a0db14459bc252e78b2f5bcdb2185c.png" alt="" class="img">
+                        </a>
+                    </div>
+                    <div class="bd">
+                        <h4 class="m-name">
+                            <a href="#">3只装&nbsp;&nbsp;黑白粉扑</a>
+                        </h4>
+                        <p class="price">
+                            <span>$29.9</span>
+                            <span class="sign"><a href="">Dior制造商</a></span>
+                        </p>
+                    </div>
+                </div>
+                <div class="swiper-slide m-product">
+                    <div class="hd">
+                        <a href="">
+                            <img src="images/1096ee97e76f4f3e2e8134983808bff8.png" alt="" class="img">
+                        </a>
+                    </div>
+                    <div class="bd">
+                        <h4 class="m-name">
+                            <a href="#">3只装&nbsp;&nbsp;黑白粉扑</a>
+                        </h4>
+                        <p class="price">
+                            <span>$29.9</span>
+                            <span class="sign"><a href="">Dior制造商</a></span>
+                        </p>
+                    </div>
+                </div>
+                <div class="swiper-slide m-product">
+                    <div class="hd">
+                        <a href="">
+                            <img src="images/2dc30f3f4d8cf42580cee419980b0d08.png" alt="" class="img">
+                        </a>
+                    </div>
+                    <div class="bd">
+                        <h4 class="m-name">
+                            <a href="#">3只装&nbsp;&nbsp;黑白粉扑</a>
+                        </h4>
+                        <p class="price">
+                            <span>$29.9</span>
+                            <span class="sign"><a href="">Dior制造商</a></span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- Add Pagination -->
+            <!--<div class="swiper-pagination"></div>-->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+    </div>
+
+
+</section>
+
+<section class="describe">
+    <div class="container">
+
+        <div class="detailNavTab ">
+            <div class="hd ">
+                <a href="" class="active"><div>详情</div></a>
+                <a href=""><div>评价</div><div class="comment">(3229)</div></a>
+                <a href=""><div>常见问题</div></a>
+            </div>
+            <div class="bd tabContent ">
+                <ul class="m-attrList ">
+                    <li class="item clearfix">
+                        <span class="attr">颜色</span>
+                        <span class="value">黑色，灰色</span>
+                    </li>
+                    <li class="item clearfix">
+                        <span class="attr">尺码</span>
+                        <span class="value">39码（245，脚长—24.5cm）；40码（250，脚长—25.0cm）；41码（255，脚长—25.5cm）；42码（260，脚长—26.0cm），43码（265，脚长—26.5cm）；44码（270，脚长—27.0cm）</span>
+                    </li>
+                    <li class="item clearfix">
+                        <span class="attr">主体材质</span>
+                        <span class="value">鞋面：头层牛皮革 <br>鞋底：橡胶</span>
+                    </li>
+                    <li class="item clearfix">
+                        <span class="attr">温馨提示</span>
+                        <span class="value">鞋类属贴身穿着商品，拿到商品后请在地上垫白纸试穿，一经落地，非质量问题，不予退换。</span>
+                    </li>
+                    <li class="item clearfix">
+                        <span class="attr">售后服务</span>
+                        <span class="value">我们承诺按鞋品三包准则进行售后退换货等服务，详情可见内盒三包卡条约。非质量问题的退换货请保持商品整体的清洁，不影响商品的二次销售，否则不予退换，敬请谅解。</span>
+                    </li>
+                </ul>
+                <div class="customContent ">
+                    <img src="images/describe.png" alt="">
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="side">
+            <div class="m-hotSell">
+                <span class="title">24小时热销榜</span>
+                <ul>
+                    <li>
+                        <div class="h-product">
+                            <div class="hd">
+                                <a href="">
+                                    <img src="images/e1d87f845a5773665bd7042d28cbf11a.png" alt="" class="img">
+                                    <p class="sign">2色可选</p>
+                                </a>
+                            </div>
+                            <div class="bd">
+                                <div class="m-name">
+                                    <a href="#">严选礼品卡 100元面值</a>
+                                </div>
+                                <a href="#" class="price">
+                                    <span>$100</span>
+                                    <i class="iconfont icon-cart"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="h-product">
+                            <div class="hd">
+                                <a href="">
+                                    <img src="images/bcaf6bbd497b40e76ca94414347be57b.png" alt="" class="img">
+                                    <p class="sign hide" >2色可选</p>
+                                </a>
+                            </div>
+                            <div class="bd">
+                                <div class="m-name">
+                                    <a href="#">严选礼品卡 100元面值</a>
+                                </div>
+                                <a href="#" class="price">
+                                    <span>$100</span>
+                                    <i class="iconfont icon-cart"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="h-product">
+                            <div class="hd">
+                                <a href="">
+                                    <img src="images/d3571a8e36904b030b24d7c44e36c88e.png" alt="" class="img">
+                                    <p class="sign">2色可选</p>
+                                </a>
+                            </div>
+                            <div class="bd">
+                                <div class="m-name">
+                                    <a href="#">严选礼品卡 100元面值</a>
+                                </div>
+                                <a href="#" class="price">
+                                    <span>$100</span>
+                                    <i class="iconfont icon-cart"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="h-product">
+                            <div class="hd">
+                                <a href="">
+                                    <img src="images/63e6c61b7387f9fcba0d6be046782a80.png" alt="" class="img">
+                                    <p class="sign">2色可选</p>
+                                </a>
+                            </div>
+                            <div class="bd">
+                                <div class="m-name">
+                                    <a href="#">严选礼品卡 100元面值</a>
+                                </div>
+                                <a href="#" class="price">
+                                    <span>$100</span>
+                                    <i class="iconfont icon-cart"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="h-product">
+                            <div class="hd">
+                                <a href="">
+                                    <img src="images/66b9f1638c0517d179262f14ed1345f9.png" alt="" class="img">
+                                    <p class="sign">2色可选</p>
+                                </a>
+                            </div>
+                            <div class="bd">
+                                <div class="m-name">
+                                    <a href="#">严选礼品卡 100元面值</a>
+                                </div>
+                                <a href="#" class="price">
+                                    <span>$100</span>
+                                    <i class="iconfont icon-cart"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="h-product">
+                            <div class="hd">
+                                <a href="">
+                                    <img src="images/c95a4d1daa62d7a9004208752a1a2098.png" alt="" class="img">
+                                    <p class="sign">2色可选</p>
+                                </a>
+                            </div>
+                            <div class="bd">
+                                <div class="m-name">
+                                    <a href="#">严选礼品卡 100元面值</a>
+                                </div>
+                                <a href="#" class="price">
+                                    <span>$100</span>
+                                    <i class="iconfont icon-cart"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="m-topic">
+                <span class="title">专题推荐</span>
+                <ul>
+                    <li>
+                        <div class="t-item">
+                            <div class="hd">
+                                <a href="">
+                                    <img src="images/3573e7c6c71897b1011e2497e8938cd8.jpg" alt="">
+                                    <div>丁磊赞不绝口的橄榄油</div>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="t-item">
+                            <div class="hd">
+                                <a href="">
+                                    <img src="images/8390baa83fe1295393b84ebae764261a.jpg" alt="">
+                                    <div>让洗衣变成一种享受</div>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="t-item">
+                            <div class="hd">
+                                <a href="">
+                                    <img src="images/07c73fa79b9c32ed1b0aff8510142b71.jpg" alt="">
+                                    <div>简约清新的两居室</div>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="t-item">
+                            <div class="hd">
+                                <a href="">
+                                    <img src="images/6efc1c78d94fcab54d7214434cc1ce34.jpg" alt="">
+                                    <div>办公室必备零食之猪肉脯</div>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="t-item">
+                            <div class="hd">
+                                <a href="">
+                                    <img src="images/7bb6679fe161a34bf45c93691c577740.jpg" alt="">
+                                    <div>二十年秘方香菇酱</div>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<footer>
+    <div class="side-fix">
+        <a class="hallow" href="">
+            <img src="images/9c59223c6c0bc0203367a9657a7580d1.gif" alt="" />
+        </a>
+
+        <a class="side-div" href="">
+            <i class="iconfont icon-liwu"></i><br>
+            <span>新人有礼</span>
+        </a>
+        <!--<a class="dlo-app" href="">-->
+        <!--<i></i><br>-->
+        <!--<span>下载APP</span>-->
+        <!--<div class="qr">-->
+        <!--<img src="images/下载.png" alt=""><br>-->
+        <!--<span>首单立减8元</span>-->
+        <!--</div>-->
+        <!--</a>-->
+        <a href="" class="side-div ">
+            <i class="iconfont icon-kefu"></i><br>
+            <span>在线客服</span>
+        </a>
+        <!--<a href="#slogan"  class="side-div">-->
+        <!--<i class="iconfont icon-shang"></i><br>-->
+        <!--<span>回顶部</span>-->
+        <!--</a>-->
+        <div class="back-to-top">
+            <span>^</span>
+            <br>
+            <!--<span>回顶部</span>-->
+            <a href="#slogan">回顶部</a>
+        </div>
+    </div>
+    <div class="customer-service clearfix">
+        <div class="container">
+            <div class="customer-item">
+                <div class="item-left">
+                    <div class="fw">客户服务</div>
+                    <div class="xh">
+                        <a class="yx-cp-btn">
+                            <i class="iconfont icon-kefu"></i>
+                            <div>在线客服</div>
+                        </a>
+                        <a class="yx-cp-btn">
+                            <i class="iconfont icon-fankui"></i>
+                            <div>用户反馈</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="customer-item">
+                <div class="item-mid">
+                    <div class="fw">何为严选</div>
+                    <p class="yx-cp-desc">网易原创生活类电商品牌，秉承网易一贯的严谨态度，我们深入世界各地，从源头全程严格把控商品生产环节，力求帮消费者甄选到优质的商品</p>
+                    <div class="yx-gz">
+                        <div class="yx-gz-left">关注我们</div>
+                        <div class="yx-gz-right">
+                            <div class="pc">
+                                <img class="pc-img" src="images/60068701f3a380911f237c26c91b39d0.png">
+                                <div class="pc-wrap-code">
+                                    <img src="images/下载.png" alt="">
+                                </div>
+                            </div>
+                            <div class="wx">
+                                <img class="wx-img" src="images/031e783d7ee645b6096980d0bf83079b.png">
+                                <div class="wx-wrap-code">
+                                    <img src="images/下载.png" alt="">
+                                </div>
+                            </div>
+                            <div class="wb"><img class="wb-img" src="images/0c8759a89cdbd7acf7f2921e6f0fad19.png"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="customer-item">
+                <div class="item-right">
+                    <div class="fw">扫码下载严选APP</div>
+                    <div class="qr-img">
+                        <img src="images/下载.png">
+                    </div>
+                    <div class="xr">下载领1000元新人礼包</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="NetEase">
+        <div class="container">
+            <div class="NetEase-content clearfix">
+                <div class="NetEase-content-item">
+                    <div class="title-img">
+                        <div class="title-img-left">
+                            <img src="images/e6021a6fcd3ba0af3a10243b7a2fda0d.png">
+                        </div>
+                        <div class="title-img-right">30天无忧退换货</div>
+                    </div>
+
+                </div>
+                <div class="NetEase-content-item">
+                    <div class="title-img">
+                        <div class="title-img-left">
+                            <img src="images/e09c44e4369232c7dd2f6495450439f1.png">
+                        </div>
+                        <div class="title-img-right">满88元免邮费</div>
+                    </div>
+
+                </div>
+                <div class="NetEase-content-item">
+                    <div class="title-img">
+                        <div class="title-img-left">
+                            <img src="images/e72ed4de906bd7ff4fec8fa90f2c63f1.png">
+                        </div>
+                        <div class="title-img-right">网易品质保证</div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="shfw">
+                <ul class="clearfix">
+                    <li><a href="#">关于我们</a></li>
+                    <li><a href="#">帮助中心</a></li>
+                    <li><a href="#">售后服务</a></li>
+                    <li><a href="#">配送与验收</a></li>
+                    <li><a href="#">商务合作</a></li>
+                    <li><a href="#">企业采购</a></li>
+                    <li><a href="#">开放平台</a></li>
+                    <li><a href="#">搜索推荐</a></li>
+                    <li><a href="#">友情链接</a></li>
+                </ul>
+                <div class="shfw-bq">
+                    <span>网易公司版权所有 © 1997-2017 </span>
+                    <span>食品经营许可证：JY13301080111719 </span>
+                    <span>出版物经营许可证：新出发滨字第0132号 </span>
+                    <span>单用途商业预付卡备案证：330100AAC0024 </span>
+
+                    <img class="police" src="images/86f32b668af6e537389a77480fb5c74d.gif">
+                </div>
+
+            </div>
+        </div>
+    </div>
+</footer>
+<script>
+    var new_item_swiper = new Swiper('.peo-see .swiper-container', {
+        // pagination: '.new-item .swiper-pagination',
+        nextButton: '.peo-see .swiper-button-next',
+        prevButton: '.peo-see .swiper-button-prev',
+        slidesPerView: 4,
+        // paginationClickable: true,
+        spaceBetween: 30,
+        slidesPerGroup: 4,
+        loop: false
+    });
+
+</script>
+</body>
+</html>

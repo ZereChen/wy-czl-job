@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * @Author zerechen
- * @Date 2017/10/27 下午11:02
  * REST接口的通用异常处理
  */
 @ControllerAdvice

@@ -7,7 +7,6 @@ import java.sql.Timestamp;
 
 /**
  * @author zerechen
- * @date 2017/11/6 下午1:27
  *
  * @description 订单到达各个状态的时间
  */

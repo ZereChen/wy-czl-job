@@ -1,0 +1,153 @@
+body{
+    background-color: #efefef;
+}
+.container{
+    width: 1090px;
+    margin: 0 auto;
+}
+
+/*header*/
+header .container{
+    margin: 35px auto;
+}
+header .container .m-logo{
+    width: 300px;
+    height: 60px;
+    background-image: url("../images/register.png");
+    background-position: -50px -25px;
+}
+header .m-tr-block{
+    margin-top: 15px;
+    font-size: 18px;
+}
+header .m-tr-block a{
+    color: #c1252e;
+}
+
+/*body*/
+.reg-block .container{
+    background-color: white;
+    height: auto!important;
+    box-shadow: 0px 0px 3px 1px #cccccc;
+    border-radius: 10px;
+}
+.reg-block .u-input{
+    box-sizing: border-box;
+    padding: 15px 0;
+}
+.reg-block input{
+    width: 364px;
+    height: 44px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    padding-left: 10px;
+}
+.reg-block .u-input:first-child{
+    padding-top: 120px;
+}
+.reg-block .m-label{
+    display: inline-block;
+    font-size: 16px;
+    text-align: right;
+    width: 364px;
+    height: 45px;
+    line-height: 45px;
+}
+.u-input .m-note{
+    display: inline-block;
+    font-size: 12px;
+    color: #999999;
+}
+.u-input .m-note a{
+    color: #66ccff;
+}
+.u-input .m-label.m-note-blank{
+    height: 30px;
+}
+.u-input.mail input{
+    width: 240px;
+}
+.u-input.ver .m-inpt{
+    display: inline-block;
+    position: absolute;
+    /*top: 275px;*/
+    width: 364px;
+
+}
+.u-input.mail .but-getms{
+    width: 120px;
+    height: 44px;
+    background-color: #c7e3fa;
+    display: inline-block;
+    line-height: 44px;
+    text-align: center;
+    color: white;
+}
+.u-input .submit{
+    display: inline-block;
+    width: 364px;
+    height: 45px;
+    background-color: #df9797;
+    color: white;
+    line-height: 45px;
+    text-align: center;
+}
+.u-input .tip{
+    display: inline-block;
+    color: #999999;
+    font-size: 12px;
+}
+.u-input .m-label.m-tip-blank{
+    height: 15px;
+}
+.u-input .tip input{
+    width: 14px;
+    height: 14px;
+}
+.app-dl{
+    width: 100%;
+    height: 180px;
+    box-sizing: border-box;
+    margin-top: 90px;
+    /*padding: 0 50px;*/
+    text-align: center;
+}
+.app-dl img{
+    /*width: 100%;*/
+    /*height: 100%;*/
+    /*margin: 0 auto;*/
+}
+
+/*footer*/
+footer .container{
+    text-align: center;
+}
+footer .about{
+    display: block;
+    width: 720px;
+    margin: 0 auto;
+    margin-top: 35px;
+}
+footer .about li{
+    float: left;
+    padding: 0 12px;
+}
+footer .about li a{
+    font-size: 14px;
+    color: #999;
+}
+footer .about li a:hover{
+    color: #c1252e;
+}
+footer .police{
+    text-align: center;
+    font-size: 14px;
+    color: #999;
+    margin-bottom: 50px;
+}
+.error{
+    color: #c1252e;
+}
+.error-info{
+    color: #c1252e;
+}

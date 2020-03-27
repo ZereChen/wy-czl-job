@@ -2,7 +2,6 @@ package com.czl.utils;
 
 /**
  * @author zerechen
- * @date 2017/11/2 下午2:55
  * @description 异常码的前缀
  */
 public class ExpPrefixUtil {

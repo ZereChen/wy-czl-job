@@ -1,0 +1,100 @@
+.l-bd{
+    position: relative;
+    width: 100%;
+    height: 600px;
+    background-image: url("../images/6c20940c7b36612b0ed4d7b0a8a4aafe.jpg");
+    overflow: hidden;
+}
+.l-bd .l-row {
+    width: 1090px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.login-blank{
+    z-index: -100;
+    display: block;
+    width: 100%;
+    height: 120px;
+}
+.m-loginBox {
+    margin-top: 83px;
+    margin-left: 703px;
+    padding: 40px;
+    width: 386px;
+    /*height: 500px;*/
+    height: auto!important;
+    background-color: white;
+    box-sizing: border-box;
+}
+.m-loginBox .title-tab{
+    display: flex;
+    flex-wrap: nowrap;
+    text-align: center;
+    margin-bottom: 40px;
+}
+.m-loginBox .title-tab a{
+    flex: 1;
+    color: #999999;
+    font-size: 18px;
+}
+.m-loginBox .title-tab a:hover{
+    color: #b4a078;
+}
+.title-tab a.active{
+    color: black;
+}
+
+
+/* TODO  手机号登录布局*/
+.m-loginBox form.phone-login{
+
+}
+
+/* 邮箱登录布局*/
+.m-loginBox form.mail-login{
+
+}
+.m-loginBox form.mail-login .inputGroup{
+    margin-bottom: 12px;
+    border: 1px solid #cccccc;
+}
+.m-loginBox form.mail-login .inputGroup input{
+    height: 36px;
+    width: 216px;
+    outline: none;
+    font-size: 15px;
+}
+.m-loginBox form.mail-login .inputGroup i{
+    padding: 0 7px 0 0;
+    margin: 7px 0 7px 7px;
+    border-right: 1px solid #cccccc;
+}
+.m-loginBox form.mail-login .inputGroup i:before{
+    font-size: 17px;
+}
+.m-loginBox form.mail-login .inputGroup a{
+    display: none;
+    margin: 7px 7px 7px 14px;
+}
+.m-loginBox form.mail-login .inputGroup a i{
+    margin: 0;
+    padding: 0;
+    border-right: none;
+}
+.m-loginBox form.mail-login .inputGroup a i:before{
+    font-size: 20px;
+}
+.m-loginBox form.mail-login .submit{
+    display: block;
+    width: 100%;
+    height: 48px;
+    line-height: 48px;
+    background-color:#b4a078;
+    color: white;
+    text-align: center;
+}
+.m-loginBox form.mail-login label.error{
+    display: block;
+    color: red;
+    margin-bottom: 12px;
+}

@@ -6,7 +6,6 @@ import java.io.Serializable;
 
 /**
  * @author zerechen
- * @date 2017/11/6 上午10:52
  *
  * @description 产品-订单关系(用于指定某一订单中某一产品的数量)
  */

@@ -4,8 +4,7 @@ import java.lang.annotation.*;
 
 /**
  * @author zerechen
- * @date 2017/10/27 下午10:28
- * @description 本注解用于指定扫描用户鉴权相关注解所在的包
+ * @description 指定需要扫描 用户鉴权 所在的包
  */
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)

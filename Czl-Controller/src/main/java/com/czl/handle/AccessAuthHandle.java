@@ -28,8 +28,6 @@ import java.util.Map;
 
 /**
  * @author zerechen
- * @date 2017/11/2 下午7:06
- *
  * @description 访问权限处理类(所有请求都要经过此类)
  */
 @Aspect
@@ -45,12 +43,6 @@ public class AccessAuthHandle {
     @Reference(version = "1.0.0")
     private RedisService redisService;
 
-    /** 反斜杠 */
-    private static final String Back_Slash = "/";
-    /** 星 */
-    private static final String STAR = "*";
-
-
 
     /** 定义切点 */
     @Pointcut("execution(public * com.czl.controller..*.*(..))")
@@ -62,8 +54,6 @@ public class AccessAuthHandle {
      */
     @Before("accessAuth()")
     public void doBefore() {
-
-        // 访问鉴权
         authentication();
 
     }
@@ -72,13 +62,11 @@ public class AccessAuthHandle {
 
 
     /**
-     * 检查当前用户是否允许访问该接口
+     * 访问鉴权：检查当前用户是否允许访问该接口
      */
     private void authentication() {
         // 获取 HttpServletRequest
         HttpServletRequest request = getHttpServletRequest();
-
-        // 获取 method 和 url
         String method = request.getMethod();
         String url = request.getServletPath();
 
@@ -186,10 +174,10 @@ public class AccessAuthHandle {
      */
     private boolean isMatch(String key, String method, String url) {
         // 清除首尾的反斜杠
-        if (url.startsWith(Back_Slash)) {
+        if (url.startsWith("/")) {
             url = url.substring(1);
         }
-        if (url.endsWith(Back_Slash)) {
+        if (url.endsWith("/")) {
             url = url.substring(0,url.length()-1);
         }
 
@@ -206,7 +194,7 @@ public class AccessAuthHandle {
         // 逐个匹配
         for (int i=0; i<urls_1.length; i++) {
             // 若当前是个* 或 当前字符串相等，则匹配下一个
-            if (STAR.equals(urls_1[i]) || urls_1[i].equals(urls_2[i])) {
+            if ("*".equals(urls_1[i]) || urls_1[i].equals(urls_2[i])) {
                 continue;
             }
 

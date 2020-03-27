@@ -15,8 +15,6 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author zerechen
- * @date 2017/11/9 下午10:24
- *
  * @description 用户信息工具包
  */
 @Component

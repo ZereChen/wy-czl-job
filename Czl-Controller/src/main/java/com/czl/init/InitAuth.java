@@ -29,8 +29,6 @@ import java.util.Map;
 
 /**
  * @author zerechen
- * @date 2017/11/1 上午10:04
- *
  * @description 初始化用户信息
  */
 @AuthScan("com.czl.controller")
@@ -46,14 +44,10 @@ public class InitAuth implements CommandLineRunner {
     /** 接口权限列表 */
     private Map<String,AccessAuthEntity> accessAuthMap = Maps.newHashMap();
 
-    /** 反斜杠 */
-    private static final String Back_Slash = "/";
-
 
 
     @Override
     public void run(String... strings) throws Exception {
-        // 加载接口访问权限
         loadAccessAuth();
     }
 
@@ -64,7 +58,7 @@ public class InitAuth implements CommandLineRunner {
      * 加载接口访问权限
      */
     private void loadAccessAuth() throws IOException {
-        // 获取待扫描的包名
+        // 获取需要 用户鉴权 的包名
         AuthScan authScan = AnnotationUtil.getAnnotationValueByClass(this.getClass(), AuthScan.class);
         String pkgName = authScan.value();
 
@@ -74,14 +68,14 @@ public class InitAuth implements CommandLineRunner {
             return;
         }
 
-        // 遍历类
+        // 遍历所有类
         for (Class clazz : classes) {
             Method[] methods = clazz.getMethods();
             if (methods==null || methods.length==0) {
                 continue;
             }
 
-            // 遍历函数
+            // 遍历类中到函数
             for (Method method : methods) {
                 AccessAuthEntity accessAuthEntity = buildAccessAuthEntity(method);
                 if (accessAuthEntity!=null) {
@@ -94,7 +88,6 @@ public class InitAuth implements CommandLineRunner {
             }
         }
         // 存至Redis
-        // TODO 暂时存储在本地
 //        redisService.setMap(RedisPrefixUtil.Access_Auth_Prefix, accessAuthMap, null);
         RedisServiceTemp.accessAuthMap = accessAuthMap;
         logger.info("接口访问权限已加载完毕！"+accessAuthMap);
@@ -112,7 +105,7 @@ public class InitAuth implements CommandLineRunner {
     }
 
     /**
-     * 构造AccessAuthEntity对象
+     * 由方法 构造AccessAuthEntity对象
      * @param method
      * @return
      */
@@ -130,24 +123,21 @@ public class InitAuth implements CommandLineRunner {
             accessAuthEntity = new AccessAuthEntity();
             accessAuthEntity.setHttpMethodEnum(HttpMethodEnum.GET);
             accessAuthEntity.setUrl(trimUrl(getMapping.value()[0]));
-        }
-        else if (postMapping!=null
+        } else if (postMapping!=null
                 && postMapping.value()!=null
                 && postMapping.value().length==1
                 && StringUtils.isNotEmpty(postMapping.value()[0])) {
             accessAuthEntity = new AccessAuthEntity();
             accessAuthEntity.setHttpMethodEnum(HttpMethodEnum.POST);
             accessAuthEntity.setUrl(trimUrl(postMapping.value()[0]));
-        }
-        else if (putMapping!=null
+        } else if (putMapping!=null
                 && putMapping.value()!=null
                 && putMapping.value().length==1
                 && StringUtils.isNotEmpty(putMapping.value()[0])) {
             accessAuthEntity = new AccessAuthEntity();
             accessAuthEntity.setHttpMethodEnum(HttpMethodEnum.PUT);
             accessAuthEntity.setUrl(trimUrl(putMapping.value()[0]));
-        }
-        else if (deleteMapping!=null
+        } else if (deleteMapping!=null
                 && deleteMapping.value()!=null
                 && deleteMapping.value().length==1
                 && StringUtils.isNotEmpty(deleteMapping.value()[0])) {
@@ -175,10 +165,10 @@ public class InitAuth implements CommandLineRunner {
      */
     private static String trimUrl(String url) {
         // 清除首尾的反斜杠
-        if (url.startsWith(Back_Slash)) {
+        if (url.startsWith("/")) {
             url = url.substring(1);
         }
-        if (url.endsWith(Back_Slash)) {
+        if (url.endsWith("/")) {
             url = url.substring(0,url.length()-1);
         }
 

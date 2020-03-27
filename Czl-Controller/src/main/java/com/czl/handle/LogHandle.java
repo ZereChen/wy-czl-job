@@ -14,7 +14,6 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  * @Author zerechen
- * @Date 2017/10/29 下午12:58
  * REST接口统一的日志处理
  */
 @ControllerAdvice
@@ -32,19 +31,25 @@ public class LogHandle {
         // 生成本次请求时间戳
         String timestamp = System.currentTimeMillis()+"";
 
-        RequestAttributes ra = RequestContextHolder.getRequestAttributes();
-        ServletRequestAttributes sra = (ServletRequestAttributes) ra;
-        HttpServletRequest request = sra.getRequest();
-
+        HttpServletRequest request = getHttpServletRequest();
         String url = request.getRequestURL().toString();
         String method = request.getMethod();
         String uri = request.getRequestURI();
         String queryString = request.getQueryString();
         logger.info(timestamp + ", url: {}, method: {}, uri: {}, params: {}", url, method, uri, queryString);
 
-        // result的值就是被拦截方法的返回值
+        // 被拦截方法的返回值
         Object result = joinPoint.proceed();
         logger.info(timestamp + " , " + result.toString());
     }
 
+    /**
+     * 获取HttpServletRequest
+     * @return
+     */
+    private HttpServletRequest getHttpServletRequest() {
+        RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();
+        ServletRequestAttributes servletRequestAttributes = (ServletRequestAttributes) requestAttributes;
+        return servletRequestAttributes.getRequest();
+    }
 }

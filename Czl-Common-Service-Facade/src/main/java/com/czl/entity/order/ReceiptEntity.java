@@ -6,7 +6,6 @@ import java.io.Serializable;
 
 /**
  * @author zerechen
- * @date 2017/11/6 上午11:04
  *
  * @description 发票信息实体类
  */

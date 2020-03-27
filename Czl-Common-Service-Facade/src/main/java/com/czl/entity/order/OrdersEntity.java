@@ -10,7 +10,6 @@ import java.util.List;
 
 /**
  * @author zerechen
- * @date 2017/11/6 上午10:21
  *
  * @description 订单实体类
  */

@@ -4,7 +4,6 @@ import java.util.UUID;
 
 /**
  * @author zerechen
- * @date 2017/11/2 下午4:27
  * @description 主键生成器
  */
 public class KeyGenerator {

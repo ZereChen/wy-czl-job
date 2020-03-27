@@ -16,16 +16,16 @@ public interface RedisService {
     public void remove(final String... keys);
 
     /**
-     * 批量删除指定key
-     * @param pattern
-     */
-    public void removePattern(final String pattern);
-
-    /**
      * 删除指定key
      * @param key
      */
     public void remove(final String key);
+
+    /**
+     * 批量删除按照模版key
+     * @param pattern
+     */
+    public void removePattern(final String pattern);
 
     /**
      * 判断指定key是否存在

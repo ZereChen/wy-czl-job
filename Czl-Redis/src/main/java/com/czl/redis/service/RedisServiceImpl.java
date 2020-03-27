@@ -2,7 +2,6 @@ package com.czl.redis.service;
 
 /**
  * @author zerechen
- * @date 2017/11/1 下午3:15
  * @description
  */
 import java.io.Serializable;

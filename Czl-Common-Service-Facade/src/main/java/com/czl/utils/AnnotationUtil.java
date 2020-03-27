@@ -5,7 +5,6 @@ import java.lang.reflect.Method;
 
 /**
  * @author zerechen
- * @date 2017/11/1 上午10:28
  * @description 注解工具包
  */
 public class AnnotationUtil {

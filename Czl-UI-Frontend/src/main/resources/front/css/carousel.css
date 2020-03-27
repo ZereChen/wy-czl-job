@@ -1,0 +1,53 @@
+
+/*轮播图*/
+.carousel{
+    position: relative;
+    z-index: 0;
+
+    overflow: hidden;
+
+    width: 100%;
+    height: 420px;
+}
+.carousel-img li{
+    position: absolute;
+    left: 50%;
+
+    width: 1920px;
+    height: 420px;
+    margin-left: -960px;
+}
+
+.carousel-img li img{
+    display: block;
+}
+
+.carousel .swiper-container {
+    width: 100%;
+    height: 100%;
+}
+.carousel .swiper-container .swiper-slide {
+    background-position: center;
+    background-size: cover;
+}
+.carousel .swiper-container .swiper-button-prev{
+    background-image: url("../images/ios-arrow-dropleft-c.png");
+    left: 250px;
+    background-size: 60px;
+    width: 50px;
+    height: 50px;
+}
+.carousel .swiper-container .swiper-button-prev:hover{
+    background-image: url("../images/ios-arrow-dropleft-d.png");
+}
+.carousel .swiper-container .swiper-button-next{
+    background-image: url("../images/ios-arrow-dropleft-c.png");
+    right: 250px;
+    background-size: 60px;
+    width: 50px;
+    height: 50px;
+    transform: rotate(180deg);
+}
+.carousel .swiper-container .swiper-button-next:hover{
+    background-image: url("../images/ios-arrow-dropleft-d.png");
+}
