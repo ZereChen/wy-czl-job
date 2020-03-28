@@ -49,7 +49,7 @@ public class UserUtil {
         // 获取SessionID
         String sessionID = getSessionID(httpServletReq);
         if (StringUtils.isEmpty(sessionID)) {
-            throw new CommonBizException(ExpCodeEnum.SESSION_NULL);
+            return null;
         }
 
         // 获取UserEntity

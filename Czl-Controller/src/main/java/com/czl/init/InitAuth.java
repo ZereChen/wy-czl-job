@@ -14,6 +14,7 @@ import com.google.common.collect.Maps;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
@@ -43,7 +44,8 @@ public class InitAuth implements CommandLineRunner {
     /** 接口权限列表 */
     private Map<String,AccessAuthEntity> accessAuthMap = Maps.newHashMap();
 
-
+    @Value("$(server.context-path)")
+    String path;
 
     @Override
     public void run(String... strings) throws Exception {

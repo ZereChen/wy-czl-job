@@ -36,8 +36,6 @@ public interface UserController {
     @Login
     public Result logout(HttpServletRequest httpReq, HttpServletResponse httpRsp);
 
-
-
     /**
      * 判断指定用户是否登录
      * @return
@@ -45,26 +43,6 @@ public interface UserController {
     @GetMapping("/isLogin")
     @Login
     public Result isLogin(HttpServletRequest request);
-
-
-    /**
-     * 查询所有角色
-     * @return 返回所有角色
-     */
-    @GetMapping("/role")
-    @Login
-    @Permission("role:query")
-    public Result<List<RoleEntity>> findRoles();
-
-    /**
-     * 删除指定角色
-     * @param roleId 角色ID
-     * @return 是否删除成功
-     */
-    @DeleteMapping("/role")
-    @Login
-    @Permission("role:delete")
-    public Result deleteRole(String roleId);
 
 
     /**

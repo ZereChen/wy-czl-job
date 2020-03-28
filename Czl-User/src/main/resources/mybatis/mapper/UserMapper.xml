@@ -26,9 +26,6 @@
         </association>
     </resultMap>
 
-    <delete id="deleteRole">
-      DELETE FROM sys_role WHERE id = #{roleId}
-    </delete>
 
     <delete id="deleteRolePermission">
         DELETE FROM sys_role_permission WHERE role_id = #{roleId}
@@ -114,10 +111,6 @@
         </if>
     </select>
 
-
-    <select id="findRoles" resultType="com.czl.entity.user.RoleEntity">
-      SELECT * FROM sys_role
-    </select>
 
     <select id="findPermissions" resultType="com.czl.entity.user.PermissionEntity">
       SELECT * FROM sys_permission

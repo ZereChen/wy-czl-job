@@ -1,4 +1,4 @@
-version: '2.0'
+version: '3'
 services:
   zk-dubbo-admin:
     image: zerechen/zookeeper-dubbo:1.0
@@ -18,19 +18,23 @@ services:
   czl-controller:
     build: Czl-Controller/
     ports:
-      - "8002:8000"
+      - "8081:8080"
     volumes:
       - ./logs/controller:/logs/
+    depends_on:
+      - czl-redis
+      - zk-dubbo-admin
 
   czl-user:
     build: Czl-User/
     ports:
-      - "8003:8000"
+      - "8082:8080"
     volumes:
       - ./logs/user:/logs/
-
+    depends_on:
+      - zk-dubbo-admin
 
   czl-ui:
     build: Czl-UI-Frontend
     ports:
-      - "9000:8000"
+      - "8080:8080"

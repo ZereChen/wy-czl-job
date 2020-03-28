@@ -1,10 +1,10 @@
-package com.czl.utils;
+package com.czl.exception;
 
 /**
  * @author zerechen
  * @description 异常码的前缀
  */
-public class ExpPrefixUtil {
+public class ExpPrefix {
 
     /** 通用异常码前缀 */
     public static final String ComExpPrefix = "10";

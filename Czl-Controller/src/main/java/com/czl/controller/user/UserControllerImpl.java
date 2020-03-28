@@ -3,6 +3,7 @@ package com.czl.controller.user;
 import com.alibaba.dubbo.common.utils.StringUtils;
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.czl.entity.user.*;
+import com.czl.enumeration.KeyGeneratorPrefixEnum;
 import com.czl.exception.CommonBizException;
 import com.czl.exception.ExpCodeEnum;
 import com.czl.facade.redis.RedisService;
@@ -47,10 +48,20 @@ public class UserControllerImpl implements UserController {
 
     @Override
     public Result login(LoginReq loginReq, HttpServletResponse httpRsp) {
+        // 校验参数
+        if (StringUtils.isEmpty(loginReq.getUsername())) {
+            return Result.newFailureResult(new CommonBizException(ExpCodeEnum.USERNAME_NULL));
+        }
+        if (StringUtils.isEmpty(loginReq.getPassword())) {
+            return Result.newFailureResult(new CommonBizException(ExpCodeEnum.PASSWD_NULL));
+        }
 
         // 登录鉴权
         UserEntity userEntity = userService.login(loginReq);
-
+        // 登录失败
+        if (userEntity == null){
+            return Result.newFailureResult(new CommonBizException(ExpCodeEnum.LOGIN_FAIL));
+        }
         // 登录成功
         doLoginSuccess(userEntity, httpRsp);
         return Result.newSuccessResult(userEntity);
@@ -92,31 +103,6 @@ public class UserControllerImpl implements UserController {
     }
 
 
-
-
-
-
-    @Override
-    public Result<List<RoleEntity>> findRoles() {
-
-        // 查询
-        List<RoleEntity> roleEntityList = userService.findRoles();
-
-        // 成功
-        return newSuccessResult(roleEntityList);
-    }
-
-    @Override
-    public Result deleteRole(String roleId) {
-        // 删除
-        userService.deleteRole(roleId);
-
-        // 成功
-        return newSuccessResult();
-    }
-
-
-
     @Override
     public Result updatePermissionOfRole(RolePermissionReq rolePermissionReq) {
         // 更新
@@ -143,7 +129,7 @@ public class UserControllerImpl implements UserController {
      */
     private void doLoginSuccess(UserEntity userEntity, HttpServletResponse httpRsp) {
         // 生成SessionID
-        String sessionID = RedisPrefixUtil.SessionID_Prefix + KeyGenerator.getKey();
+        String sessionID = KeyGenerator.getKey(KeyGeneratorPrefixEnum.SESSION_ID_PREFIX);
 
         // 将 SessionID-UserEntity 存入Redis
         redisService.set(sessionID, userEntity, sessionExpireTime);

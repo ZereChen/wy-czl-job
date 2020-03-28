@@ -1,5 +1,6 @@
 package com.czl.order.util;
 
+import com.czl.enumeration.KeyGeneratorPrefixEnum;
 import com.czl.utils.KeyGenerator;
 
 /**
@@ -9,10 +10,9 @@ import com.czl.utils.KeyGenerator;
  */
 public class OrderKeyGenerator {
 
-    private static final String ORDER_ID_PREFIX = "ORDER";
 
     public static String generateOrderKey() {
-        return ORDER_ID_PREFIX + KeyGenerator.getKey();
+        return KeyGenerator.getKey(KeyGeneratorPrefixEnum.ORDER_ID_PREFIX);
     }
 
 }

@@ -26,19 +26,6 @@ public interface UserDAO {
     List<UserEntity> findUsers(@Param("userQueryReq") UserQueryReq userQueryReq);
 
 
-
-    /**
-     * 查询所有的角色
-     * @return 角色列表
-     */
-    List<RoleEntity> findRoles();
-
-    /**
-     * 删除角色
-     * @param roleId 角色ID
-     */
-    void deleteRole(String roleId);
-
     /**
      * 删除角色-权限关系
      * @param roleId 角色ID

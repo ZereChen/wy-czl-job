@@ -5,6 +5,7 @@ import com.alibaba.dubbo.config.annotation.Service;
 import com.czl.entity.product.BrandEntity;
 import com.czl.entity.product.CategoryEntity;
 import com.czl.entity.product.ProductEntity;
+import com.czl.enumeration.KeyGeneratorPrefixEnum;
 import com.czl.enumeration.product.ProdStateEnum;
 import com.czl.exception.CommonBizException;
 import com.czl.exception.ExpCodeEnum;
@@ -208,7 +209,7 @@ public class ProductServiceImpl implements ProductService {
         ProdInsertReq newProduct = new ProdInsertReq();
         //使用BeanUtils复制属性，注意顺序！
         BeanUtils.copyProperties(prodInsertReq,newProduct);
-        newProduct.setId(KeyGenerator.getKey());
+        newProduct.setId(KeyGenerator.getKey(KeyGeneratorPrefixEnum.PRODUCT_ID_PREFIX));
         //新增产品默认销量为0
         newProduct.setSales(0);
         //新增产品默认状态是上架
@@ -224,7 +225,7 @@ public class ProductServiceImpl implements ProductService {
     private CategoryEntity makeCateInsert(CategoryEntity categoryEntity){
         CategoryEntity newCategory = new CategoryEntity();
         BeanUtils.copyProperties(categoryEntity,newCategory);
-        newCategory.setId(KeyGenerator.getKey());
+        newCategory.setId(KeyGenerator.getKey(KeyGeneratorPrefixEnum.PRODUCT_ID_PREFIX));
         return newCategory;
     }
 
@@ -236,7 +237,7 @@ public class ProductServiceImpl implements ProductService {
     private BrandInsertReq makeBrandInsert(BrandInsertReq brandInsertReq){
         BrandInsertReq newBrand = new BrandInsertReq();
         BeanUtils.copyProperties(brandInsertReq,newBrand);
-        newBrand.setId(KeyGenerator.getKey());
+        newBrand.setId(KeyGenerator.getKey(KeyGeneratorPrefixEnum.PRODUCT_ID_PREFIX));
         return newBrand;
     }
 

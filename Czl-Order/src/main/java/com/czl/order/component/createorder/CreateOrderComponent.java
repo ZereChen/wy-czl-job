@@ -9,6 +9,7 @@ import com.czl.entity.order.ReceiptEntity;
 import com.czl.entity.product.ProductEntity;
 import com.czl.entity.user.LocationEntity;
 import com.czl.entity.user.UserEntity;
+import com.czl.enumeration.KeyGeneratorPrefixEnum;
 import com.czl.enumeration.order.OrderStateEnum;
 import com.czl.enumeration.order.PayModeEnum;
 import com.czl.exception.CommonBizException;
@@ -157,7 +158,7 @@ public class CreateOrderComponent extends BaseComponent {
      */
     private OrdersEntity buildOrdersEntity(OrderInsertReq orderInsertReq, String orderTotalPrice) {
         OrdersEntity ordersEntity = new OrdersEntity();
-        ordersEntity.setId(KeyGenerator.getKey());
+        ordersEntity.setId(KeyGenerator.getKey(KeyGeneratorPrefixEnum.ORDER_ID_PREFIX));
 
         UserEntity buyer = new UserEntity();
         buyer.setId(orderInsertReq.getUserId());

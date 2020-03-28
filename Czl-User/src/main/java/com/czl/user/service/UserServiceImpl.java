@@ -4,6 +4,7 @@ import com.alibaba.dubbo.common.utils.CollectionUtils;
 import com.alibaba.dubbo.common.utils.StringUtils;
 import com.alibaba.dubbo.config.annotation.Service;
 import com.czl.entity.user.*;
+import com.czl.enumeration.KeyGeneratorPrefixEnum;
 import com.czl.enumeration.user.UserStateEnum;
 import com.czl.enumeration.user.UserTypeEnum;
 import com.czl.exception.CommonBizException;
@@ -32,19 +33,9 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserDAO userDAO;
 
-    /** 用户表主键的前缀 */
-    private static final String USER_KEY_PREFIX = "USER";
 
     @Override
     public UserEntity login(LoginReq loginReq) {
-
-        // 校验参数
-        if (StringUtils.isEmpty(loginReq.getPassword())) {
-            throw new CommonBizException(ExpCodeEnum.PASSWD_NULL);
-        }
-        if (StringUtils.isEmpty(loginReq.getUsername())) {
-            throw new CommonBizException(ExpCodeEnum.AUTH_NULL);
-        }
 
         // 创建用户查询请求
         UserQueryReq userQueryReq = buildUserQueryReq(loginReq);
@@ -54,7 +45,7 @@ public class UserServiceImpl implements UserService {
 
         // 查询失败
         if (CollectionUtils.isEmpty(userEntityList)) {
-            throw new CommonBizException(ExpCodeEnum.LOGIN_FAIL);
+            return null;
         }
 
         // 查询成功
@@ -84,31 +75,6 @@ public class UserServiceImpl implements UserService {
         }
 
         return userQueryReq;
-    }
-
-    @Override
-    public List<UserEntity> findUsers(UserQueryReq userQueryReq) {
-        return userDAO.findUsers(userQueryReq);
-    }
-
-    @Override
-    public List<RoleEntity> findRoles() {
-        return userDAO.findRoles();
-    }
-
-    @Override
-    public void deleteRole(String roleId) {
-        // 参数校验
-        if (StringUtils.isEmpty(roleId)) {
-            throw new CommonBizException(ExpCodeEnum.PARAM_NULL);
-        }
-
-        // 删除角色
-        userDAO.deleteRole(roleId);
-
-        // 删除角色-权限关系
-        userDAO.deleteRolePermission(roleId);
-
     }
 
 
@@ -152,7 +118,7 @@ public class UserServiceImpl implements UserService {
      * @return 主键
      */
     private String generateKey() {
-        return USER_KEY_PREFIX + KeyGenerator.getKey();
+        return  KeyGenerator.getKey(KeyGeneratorPrefixEnum.USER_PREFIX);
     }
 
 }
