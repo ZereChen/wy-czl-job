@@ -6,7 +6,6 @@ import java.io.Serializable;
 
 /**
  * @author zerechen
- *
  * @description 订单受理上下文
  */
 public class OrderProcessContext <T> implements Serializable {

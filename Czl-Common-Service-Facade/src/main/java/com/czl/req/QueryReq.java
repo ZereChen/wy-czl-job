@@ -2,7 +2,6 @@ package com.czl.req;
 
 /**
  * @author zerechen
- * @date 2017/10/31 下午7:42
  * @description 查询请求
  */
 public class QueryReq extends AbsReq {

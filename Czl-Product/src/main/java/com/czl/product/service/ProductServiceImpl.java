@@ -2,20 +2,18 @@ package com.czl.product.service;
 
 import com.alibaba.dubbo.common.utils.StringUtils;
 import com.alibaba.dubbo.config.annotation.Service;
-import com.czl.entity.product.BrandEntity;
-import com.czl.entity.product.CategoryEntity;
 import com.czl.entity.product.ProductEntity;
 import com.czl.enumeration.KeyGeneratorPrefixEnum;
 import com.czl.enumeration.product.ProdStateEnum;
 import com.czl.exception.CommonBizException;
 import com.czl.exception.ExpCodeEnum;
 import com.czl.facade.product.ProductService;
-import com.czl.product.dao.BrandDAO;
-import com.czl.product.dao.CategoryDAO;
 import com.czl.product.dao.ProductDAO;
 import com.czl.req.product.*;
 import com.czl.rsp.Result;
 import com.czl.utils.KeyGenerator;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.CollectionUtils;
@@ -24,7 +22,6 @@ import java.util.List;
 
 /**
  * @author zerechen
- * @date 2017/10/31 下午8:43
  * @description
  */
 @org.springframework.stereotype.Service
@@ -34,11 +31,6 @@ public class ProductServiceImpl implements ProductService {
     @Autowired
     private ProductDAO productDAO;
 
-    @Autowired
-    private CategoryDAO categoryDAO;
-
-    @Autowired
-    private BrandDAO brandDAO;
 
     @Override
     public Result createProduct(ProdInsertReq prodInsertReq){
@@ -68,96 +60,19 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Result<List<ProductEntity>> findProducts(ProdQueryReq prodQueryReq) {
-        //查询产品详情
+        PageHelper.startPage(prodQueryReq.getPage(), prodQueryReq.getNumPerPage());
         List<ProductEntity> productEntityList= productDAO.findProducts(prodQueryReq);
+
+        PageInfo info=new PageInfo(productEntityList);
+        productEntityList=info.getList();
         if (CollectionUtils.isEmpty(productEntityList)){
-            throw new CommonBizException(ExpCodeEnum.PRODUCT_SELECT_FAIL);
+            return Result.newFailureResult(new CommonBizException(ExpCodeEnum.PRODUCT_SELECT_FAIL));
         }
-        return Result.newSuccessResult(productEntityList);
+        return Result.newSuccessResult(productEntityList,info.getPages());
     }
 
-    @Override
-    public Result createCategoty(CategoryEntity categoryEntity) {
-        //校验参数，类别名称不能为空
-        if (StringUtils.isEmpty(categoryEntity.getCategory())){
-            throw new CommonBizException(ExpCodeEnum.CATEGORY_NAME_NULL);
-        }
-        //组装新增类别
-        CategoryEntity category = makeCateInsert(categoryEntity);
-        int result = categoryDAO.createCategoty(category);
-        if (result == 0){
-            throw new CommonBizException(ExpCodeEnum.CATEGORY_CREATE_FAIL);
-        }
-        return Result.newSuccessResult();
-    }
 
-    @Override
-    public Result modifyCategory(CategoryEntity categoryEntity) {
-        //增量更新类别
-        int result = categoryDAO.updateCategory(categoryEntity);
-        if (result == 0){
-            throw new CommonBizException(ExpCodeEnum.CATEGORY_UPDATE_FAIL);
-        }
-        return Result.newSuccessResult();
-    }
 
-    @Override
-    public Result deleteCategory(String categoryId) {
-        //判断当前类别是否已经被使用
-        int result = productDAO.findUsedCategory(categoryId);
-        if (result>0){
-            throw new CommonBizException(ExpCodeEnum.CATEGORY_HASUSED);
-        }
-        //当前类别未被使用，可以删除
-        result = categoryDAO.deleteCategory(categoryId);
-        if (result == 0){
-            throw new CommonBizException(ExpCodeEnum.CATEGORY_DELETE_FAIL);
-        }
-        return Result.newSuccessResult();
-    }
-
-    @Override
-    public Result createBrand(BrandInsertReq brandInsertReq) {
-        //校验参数
-        checkBrandParam(brandInsertReq);
-        //组装新增品牌
-        BrandInsertReq brand = makeBrandInsert(brandInsertReq);
-        int result = brandDAO.createBrand(brand);
-        if (result == 0){
-            throw new CommonBizException(ExpCodeEnum.BRADN_CREATE_FAIL);
-        }
-        return Result.newSuccessResult();
-    }
-
-    @Override
-    public Result modifyBrand(BrandInsertReq brandInsertReq) {
-        //更新类别
-        int result = brandDAO.updateBrand(brandInsertReq);
-        if (result == 0){
-            throw new CommonBizException(ExpCodeEnum.BRADN_UPDATE_FAIL);
-        }
-        return Result.newSuccessResult();
-    }
-
-    @Override
-    public Result<List<CategoryEntity>> findCategorys(CategoryQueryReq categoryQueryReq) {
-        //查询类别
-        List<CategoryEntity> categoryEntityList = categoryDAO.findCategorys(categoryQueryReq);
-        if (CollectionUtils.isEmpty(categoryEntityList)){
-            throw new CommonBizException(ExpCodeEnum.CATEGORY_SELECT_FAIL);
-        }
-        return Result.newSuccessResult(categoryEntityList);
-    }
-
-    @Override
-    public Result<List<BrandEntity>> findBrands(BrandQueryReq brandQueryReq) {
-        //查询品牌
-        List<BrandEntity> brandEntityList = brandDAO.findBrands(brandQueryReq);
-        if (CollectionUtils.isEmpty(brandEntityList)){
-            throw new CommonBizException(ExpCodeEnum.BRADN_SELETE_FAIL);
-        }
-        return Result.newSuccessResult(brandEntityList);
-    }
 
     /**
      * 校验新增产品时参数
@@ -187,20 +102,6 @@ public class ProductServiceImpl implements ProductService {
     }
 
     /**
-     * 校验新增品牌时参数
-     * 关键字段不能为空
-     * @param brandInsertReq
-     */
-    public void checkBrandParam(BrandInsertReq brandInsertReq){
-        if (StringUtils.isEmpty(brandInsertReq.getBrand())){
-            throw new CommonBizException(ExpCodeEnum.BRADN_NAME_NULL);
-        }else if (StringUtils.isEmpty(brandInsertReq.getBrandLogoUrl())){
-            throw new CommonBizException(ExpCodeEnum.BRADN_LOGO_NULL);
-        }else if (StringUtils.isEmpty(brandInsertReq.getCompanyEntityId())){
-            throw new CommonBizException(ExpCodeEnum.BRADN_COMMPANY_NULL);
-        }
-    }
-    /**
      * 组装新增产品对象
      * @param prodInsertReq
      * @return
@@ -217,28 +118,18 @@ public class ProductServiceImpl implements ProductService {
         return newProduct;
     }
 
-    /**
-     * 组装新增类别对象
-     * @param categoryEntity
-     * @return
-     */
-    private CategoryEntity makeCateInsert(CategoryEntity categoryEntity){
-        CategoryEntity newCategory = new CategoryEntity();
-        BeanUtils.copyProperties(categoryEntity,newCategory);
-        newCategory.setId(KeyGenerator.getKey(KeyGeneratorPrefixEnum.PRODUCT_ID_PREFIX));
-        return newCategory;
+    @Override
+    public Result deleteProduct(String ProductId) {
+        //判断当前类别是否已经被使用
+//        int result = productDAO.findUsedCategory(categoryId);
+//        if (result>0){
+//            throw new CommonBizException(ExpCodeEnum.CATEGORY_HASUSED);
+//        }
+//        //当前类别未被使用，可以删除
+//        result = categoryDAO.deleteCategory(categoryId);
+//        if (result == 0){
+//            throw new CommonBizException(ExpCodeEnum.CATEGORY_DELETE_FAIL);
+//        }
+        return Result.newSuccessResult();
     }
-
-    /**
-     * 组装新增品牌对象
-     * @param brandInsertReq
-     * @return
-     */
-    private BrandInsertReq makeBrandInsert(BrandInsertReq brandInsertReq){
-        BrandInsertReq newBrand = new BrandInsertReq();
-        BeanUtils.copyProperties(brandInsertReq,newBrand);
-        newBrand.setId(KeyGenerator.getKey(KeyGeneratorPrefixEnum.PRODUCT_ID_PREFIX));
-        return newBrand;
-    }
-
 }

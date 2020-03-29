@@ -1,7 +1,6 @@
 package com.czl.facade.product;
 
 import com.czl.entity.product.BrandEntity;
-import com.czl.entity.product.CategoryEntity;
 import com.czl.entity.product.ProductEntity;
 import com.czl.req.product.*;
 import com.czl.rsp.Result;
@@ -36,51 +35,9 @@ public interface ProductService {
     Result<List<ProductEntity>> findProducts(ProdQueryReq prodQueryReq);
 
     /**
-     * 新增类别
-     * @param categoryEntity
+     * 删除产品
+     * @param ProductId
      * @return
      */
-    Result createCategoty(CategoryEntity categoryEntity);
-
-    /**
-     * 增量更新类别
-     * @param categoryEntity
-     * @return
-     */
-    Result modifyCategory(CategoryEntity categoryEntity);
-
-    /**
-     * 删除类别
-     * @param categoryId
-     * @return
-     */
-    Result deleteCategory(String categoryId);
-
-    /**
-     * 新增品牌
-     * @param brandInsertReq
-     * @return
-     */
-    Result createBrand(BrandInsertReq brandInsertReq);
-
-    /**
-     * 增量更新品牌
-     * @param brandInsertReq
-     * @return
-     */
-    Result modifyBrand(BrandInsertReq brandInsertReq);
-
-    /**
-     * 多条件查询所有类别（支持分页）
-     * @param categoryQueryReq
-     * @return
-     */
-    Result<List<CategoryEntity>> findCategorys(CategoryQueryReq categoryQueryReq);
-
-    /**
-     * 多条件查询所有品牌（支持分页）
-     * @param brandQueryReq
-     * @return
-     */
-    Result<List<BrandEntity>> findBrands(BrandQueryReq brandQueryReq);
+    Result deleteProduct(String ProductId);
 }

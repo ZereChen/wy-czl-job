@@ -12,8 +12,6 @@ import java.sql.SQLException;
 
 /**
  * @author zerechen
- * @date 2017/11/4 下午7:50
- *
  * @description 实现MyBatis中枚举与Integer的相互映射
  */
 public class EnumTypeHandler<E extends Enum<?> & BaseEnum> extends BaseTypeHandler<BaseEnum> {

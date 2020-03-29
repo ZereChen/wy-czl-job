@@ -4,7 +4,6 @@ import com.czl.req.QueryReq;
 
 /**
  * @author zerechen
- * @date 2017/11/1 下午8:45
  * @description 用户查询请求
  */
 public class UserQueryReq extends QueryReq {
@@ -21,16 +20,14 @@ public class UserQueryReq extends QueryReq {
     /** 手机号 */
     private String phone;
 
-    /** 邮箱 */
-    private String mail;
+    /** 昵称 */
+    private String nickname;
 
     /** 注册时间(起始) */
     private String registerTimeStart;
     /** 注册时间(结束) */
     private String registerTimeEnd;
 
-    /** 用户类型 {@link com.czl.enumeration.user.UserTypeEnum} */
-    private Integer userType;
 
     /** 账号状态 {@link com.czl.enumeration.user.UserStateEnum } */
     private Integer userState;
@@ -67,24 +64,25 @@ public class UserQueryReq extends QueryReq {
         this.phone = phone;
     }
 
-    public String getMail() {
-        return mail;
-    }
-
-    public void setMail(String mail) {
-        this.mail = mail;
-    }
-
-    public Integer getUserType() {
-        return userType;
-    }
-
-    public void setUserType(Integer userType) {
-        this.userType = userType;
-    }
 
     public Integer getUserState() {
         return userState;
+    }
+
+    @Override
+    public String toString() {
+        return "UserQueryReq{" +
+                "id='" + id + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", phone='" + phone + '\'' +
+                ", nickname='" + nickname + '\'' +
+                ", registerTimeStart='" + registerTimeStart + '\'' +
+                ", registerTimeEnd='" + registerTimeEnd + '\'' +
+                ", userState=" + userState +
+                ", roleId='" + roleId + '\'' +
+                ", orderByRegisterTime=" + orderByRegisterTime +
+                '}';
     }
 
     public void setUserState(Integer userState) {
@@ -132,23 +130,5 @@ public class UserQueryReq extends QueryReq {
     }
 
 
-    @Override
-    public String toString() {
-        return "UserQueryReq{" +
-                "id='" + id + '\'' +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", phone='" + phone + '\'' +
-                ", mail='" + mail + '\'' +
-                ", registerTimeStart='" + registerTimeStart + '\'' +
-                ", registerTimeEnd='" + registerTimeEnd + '\'' +
-                ", userType=" + userType +
-                ", userState=" + userState +
-                ", roleId='" + roleId + '\'' +
-                ", orderByRegisterTime=" + orderByRegisterTime +
-                ", page=" + page +
-                ", numPerPage=" + numPerPage +
-                '}';
-    }
 
 }

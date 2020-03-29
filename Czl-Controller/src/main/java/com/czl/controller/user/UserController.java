@@ -15,6 +15,7 @@ import java.util.List;
  * @Author zerechen
  */
 @RestController
+@CrossOrigin
 public interface UserController {
 
     /**
@@ -43,25 +44,5 @@ public interface UserController {
     @GetMapping("/isLogin")
     @Login
     public Result isLogin(HttpServletRequest request);
-
-
-    /**
-     * 修改角色对应的权限
-     * @param rolePermissionReq 角色-权限的修改请求
-     * @return 是否修改成功
-     */
-    @PutMapping("/permissionOfRole")
-    @Login
-    @Permission("permissionOfRole:update")
-    public Result updatePermissionOfRole(RolePermissionReq rolePermissionReq);
-
-    /**
-     * 查询所有的权限
-     * @return 所有的权限列表
-     */
-    @GetMapping("permission")
-    @Login
-    @Permission("permission:query")
-    public Result<List<PermissionEntity>> findPermissions();
 
 }

@@ -14,8 +14,4 @@ public interface UserService {
 
     public UserEntity login(LoginReq loginReq);
 
-    void updatePermissionOfRole(RolePermissionReq rolePermissionReq);
-
-    List<PermissionEntity> findPermissions();
-
 }

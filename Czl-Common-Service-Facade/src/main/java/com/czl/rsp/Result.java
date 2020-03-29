@@ -23,6 +23,8 @@ public class Result<T> implements Serializable {
     /** 返回数据 */
     private T data;
 
+    private Integer pages;
+
     /**
      * 返回成功的结果
      * @param data 需返回的结果
@@ -36,6 +38,20 @@ public class Result<T> implements Serializable {
         return result;
     }
 
+    /**
+     * 返回成功的结果
+     * @param data 需返回到结果
+     * @param pages 总页数
+     * @param <T>
+     * @return
+     */
+    public static <T> Result<T> newSuccessResult(T data, int pages){
+        Result<T> result = new Result<>();
+        result.isSuccess = true;
+        result.pages = pages;
+        result.data = data;
+        return result;
+    }
     /**
      * 返回成功的结果
      * @param <T>
@@ -123,13 +139,22 @@ public class Result<T> implements Serializable {
         this.data = data;
     }
 
+    public Integer getPages() {
+        return pages;
+    }
+
+    public void setPages(Integer pages) {
+        this.pages = pages;
+    }
+
     @Override
     public String toString() {
         return "Result{" +
                 "isSuccess=" + isSuccess +
-                ", errorCode=" + errorCode +
+                ", errorCode='" + errorCode + '\'' +
                 ", message='" + message + '\'' +
                 ", data=" + data +
+                ", pages=" + pages +
                 '}';
     }
 }

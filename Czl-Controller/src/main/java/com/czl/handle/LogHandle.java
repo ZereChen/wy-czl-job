@@ -6,6 +6,7 @@ import org.aspectj.lang.annotation.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.request.RequestAttributes;
@@ -18,8 +19,9 @@ import javax.servlet.http.HttpServletRequest;
  * @Author zerechen
  * REST接口统一的日志处理
  */
-@ControllerAdvice
 @ResponseBody
+@Aspect
+@Component
 public class LogHandle {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -30,7 +32,7 @@ public class LogHandle {
     @Autowired
     private UserUtil userUtil;
     @Around("restLog()")
-    public void doAround(ProceedingJoinPoint joinPoint) throws Throwable {
+    public Object doAround(ProceedingJoinPoint joinPoint) throws Throwable {
         // 生成本次请求时间戳
         String timestamp = System.currentTimeMillis()+"";
 
@@ -44,6 +46,7 @@ public class LogHandle {
         // 被拦截方法的返回值
         Object result = joinPoint.proceed();
         logger.info(timestamp + " , " + result.toString());
+        return result;
     }
 
 

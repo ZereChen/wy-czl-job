@@ -1,0 +1,35 @@
+<header>
+    <div class="nav">
+        <div class="nav-bar">
+            <div class="slogan left">
+                <a name="slogan" href="#">好的内容，没那么贵</a>
+            </div>
+            <div class="login right">
+                <a id="czl-nickname">用户昵称</a>
+                <div class="split"></div>
+                <a href="index_login_buyer.html">首页</a>
+                <div class="split"></div>
+                <a href="">购物车</a>
+                <div class="split"></div>
+                <a href="">财务</a>
+                <div class="split"></div>
+                <a onclick="logout()">退出</a>
+                <div class="split"></div>
+                <a class="dl-app" href="">
+                    <i class="iconfont icon-contextphone"></i>APP
+                    <div class="wrap-code">
+                        <img src="images/下载.png" alt="" />
+                        <p>扫码下载 首单立减8元</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<script>
+    $(function () {
+        var users = $.parseJSON( $.cookie('users'));
+        $("#czl-nickname").text(users.nickname);
+    });
+</script>

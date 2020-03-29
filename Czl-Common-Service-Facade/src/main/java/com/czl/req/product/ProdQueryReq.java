@@ -4,7 +4,6 @@ import com.czl.req.QueryReq;
 
 /**
  * @author zerechen
- * @date 2017/10/31 下午7:37
  * @description 产品查询请求
  */
 public class ProdQueryReq extends QueryReq {
@@ -12,34 +11,12 @@ public class ProdQueryReq extends QueryReq {
     /** 产品id */
     private String id;
 
-    /** 产品名称（模糊匹配） */
-    private String prodName;
+    /** 产品名称 */
+    private String name;
 
-    /** 本店价格下限 */
-    private String shopPriceStart;
-    /** 本店价格上限 */
-    private String shopPriceEnd;
-
-    /** 一级类别id */
-    private String topCategoryId;
-    /** 二级类别id */
-    private String subCategoryId;
-
-    /** 品牌id */
-    private String brandId;
 
     /** 产品状态码 {@link com.czl.enumeration.product.ProdStateEnum} */
     private Integer prodStateCode;
-
-    /** 公司id */
-    private String companyId;
-
-
-    /** 根据价格排序 {@link com.czl.enumeration.OrderEnum} */
-    private Integer orderByPrice;
-
-    /** 根据销量排序 {@link com.czl.enumeration.OrderEnum} */
-    private Integer orderBySales;
 
 
     public String getId() {
@@ -50,52 +27,12 @@ public class ProdQueryReq extends QueryReq {
         this.id = id;
     }
 
-    public String getProdName() {
-        return prodName;
+    public String getName() {
+        return name;
     }
 
-    public void setProdName(String prodName) {
-        this.prodName = prodName;
-    }
-
-    public String getShopPriceStart() {
-        return shopPriceStart;
-    }
-
-    public void setShopPriceStart(String shopPriceStart) {
-        this.shopPriceStart = shopPriceStart;
-    }
-
-    public String getShopPriceEnd() {
-        return shopPriceEnd;
-    }
-
-    public void setShopPriceEnd(String shopPriceEnd) {
-        this.shopPriceEnd = shopPriceEnd;
-    }
-
-    public String getTopCategoryId() {
-        return topCategoryId;
-    }
-
-    public void setTopCategoryId(String topCategoryId) {
-        this.topCategoryId = topCategoryId;
-    }
-
-    public String getSubCategoryId() {
-        return subCategoryId;
-    }
-
-    public void setSubCategoryId(String subCategoryId) {
-        this.subCategoryId = subCategoryId;
-    }
-
-    public String getBrandId() {
-        return brandId;
-    }
-
-    public void setBrandId(String brandId) {
-        this.brandId = brandId;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Integer getProdStateCode() {
@@ -106,46 +43,16 @@ public class ProdQueryReq extends QueryReq {
         this.prodStateCode = prodStateCode;
     }
 
-    public String getCompanyId() {
-        return companyId;
-    }
-
-    public void setCompanyId(String companyId) {
-        this.companyId = companyId;
-    }
-
-    public Integer getOrderByPrice() {
-        return orderByPrice;
-    }
-
-    public void setOrderByPrice(Integer orderByPrice) {
-        this.orderByPrice = orderByPrice;
-    }
-
-    public Integer getOrderBySales() {
-        return orderBySales;
-    }
-
-    public void setOrderBySales(Integer orderBySales) {
-        this.orderBySales = orderBySales;
-    }
-
     @Override
     public String toString() {
         return "ProdQueryReq{" +
                 "id='" + id + '\'' +
-                ", prodName='" + prodName + '\'' +
-                ", shopPriceStart='" + shopPriceStart + '\'' +
-                ", shopPriceEnd='" + shopPriceEnd + '\'' +
-                ", topCategoryId='" + topCategoryId + '\'' +
-                ", subCategoryId='" + subCategoryId + '\'' +
-                ", brandId='" + brandId + '\'' +
+                ", name='" + name + '\'' +
                 ", prodStateCode=" + prodStateCode +
-                ", companyId='" + companyId + '\'' +
-                ", orderByPrice=" + orderByPrice +
-                ", orderBySales=" + orderBySales +
                 ", page=" + page +
                 ", numPerPage=" + numPerPage +
+                ", currentPage=" + currentPage +
                 '}';
     }
 }
+

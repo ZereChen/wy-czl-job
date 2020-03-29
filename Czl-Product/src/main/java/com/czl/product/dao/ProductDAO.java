@@ -34,9 +34,10 @@ public interface ProductDAO {
     List<ProductEntity> findProducts(ProdQueryReq prodQueryReq);
 
     /**
-     * 查询制定类别是否被使用
-     * @param categoryId
+     * 删除类别
+     * @param productId
      * @return
      */
-    int findUsedCategory(String categoryId);
+    int deleteProduct(String productId);
+
 }

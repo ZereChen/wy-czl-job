@@ -45,9 +45,9 @@ public class BaseCheckStockComponent extends BaseComponent {
             // 获取购买量
             Integer count = prodEntityCountMap.get(productEntity);
             // 校验
-            if (productEntity.getStock() < count) {
-                throw new CommonBizException(ExpCodeEnum.STOCK_LOW);
-            }
+//            if (productEntity.getStock() < count) {
+//                throw new CommonBizException(ExpCodeEnum.STOCK_LOW);
+//            }
         }
     }
 

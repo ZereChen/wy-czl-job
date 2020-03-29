@@ -2,7 +2,6 @@ package com.czl.enumeration;
 
 /**
  * @author zerechen
- * @date 2017/11/1 下午9:22
  * @description 排序规则枚举
  */
 public enum OrderEnum {

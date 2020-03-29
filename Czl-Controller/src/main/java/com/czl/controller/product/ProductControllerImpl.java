@@ -2,7 +2,6 @@ package com.czl.controller.product;
 
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.czl.entity.product.BrandEntity;
-import com.czl.entity.product.CategoryEntity;
 import com.czl.entity.product.ProdImageEntity;
 import com.czl.entity.product.ProductEntity;
 import com.czl.facade.product.ProductService;
@@ -20,7 +19,7 @@ import java.util.List;
 @RestController
 public class ProductControllerImpl implements ProductController {
 
-    @Reference(version = "1.0.0")
+    @Reference(version = "1.0.0" ,timeout = 100000)
     private ProductService productService;
 
 
@@ -46,38 +45,10 @@ public class ProductControllerImpl implements ProductController {
         return productService.findProducts(prodQueryReq);
     }
 
-    @Override
-    public Result createCategoty(CategoryEntity categoryEntity) {
-        return productService.createCategoty(categoryEntity);
-    }
 
     @Override
-    public Result modifyCategory(CategoryEntity categoryEntity) {
-        return productService.modifyCategory(categoryEntity);
+    public Result deleteProduct(String productId) {
+        return productService.deleteProduct(productId);
     }
 
-    @Override
-    public Result deleteCategory(String categoryId) {
-        return productService.deleteCategory(categoryId);
-    }
-
-    @Override
-    public Result<List<CategoryEntity>> findCategorys(CategoryQueryReq categoryQueryReq) {
-        return productService.findCategorys(categoryQueryReq);
-    }
-
-    @Override
-    public Result createBrand(BrandInsertReq brandInsertReq) {
-        return productService.createBrand(brandInsertReq);
-    }
-
-    @Override
-    public Result modifyBrand(BrandInsertReq brandInsertReq) {
-        return productService.modifyBrand(brandInsertReq);
-    }
-
-    @Override
-    public Result<List<BrandEntity>> findBrands(BrandQueryReq brandQueryReq) {
-        return productService.findBrands(brandQueryReq);
-    }
 }

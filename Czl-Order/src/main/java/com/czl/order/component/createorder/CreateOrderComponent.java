@@ -35,7 +35,6 @@ import static java.util.stream.Collectors.groupingBy;
 
 /**
  * @author zerechen
- * @date 2017/11/6 下午3:56
  *
  * @description 创建订单组件
  */
@@ -176,7 +175,7 @@ public class CreateOrderComponent extends BaseComponent {
 
         ordersEntity.setRemark(orderInsertReq.getRemark());
 
-        ordersEntity.setCompany(orderInsertReq.getProdEntityCountMap().keySet().toArray(new ProductEntity[1])[0].getCompanyEntity());
+//        ordersEntity.setCompany(orderInsertReq.getProdEntityCountMap().keySet().toArray(new ProductEntity[1])[0].getCompanyEntity());
 
         ordersEntity.setTotalPrice(orderTotalPrice);
 
@@ -198,13 +197,13 @@ public class CreateOrderComponent extends BaseComponent {
         BigDecimal orderTotalPrice = new BigDecimal("0");
         for (ProductEntity productEntity : prodEntityCountMap.keySet()) {
             // 本店单价
-            BigDecimal shopPrice = new BigDecimal(productEntity.getShopPrice());
+//            BigDecimal shopPrice = new BigDecimal(productEntity.getShopPrice());
             // 购买数量
             BigDecimal count = new BigDecimal(prodEntityCountMap.get(productEntity));
             // 单品总价(本店单价*购买数量)
-            BigDecimal prodTotalPrice = shopPrice.multiply(count);
+//            BigDecimal prodTotalPrice = shopPrice.multiply(count);
             // 订单总价
-            orderTotalPrice = orderTotalPrice.add(prodTotalPrice);
+//            orderTotalPrice = orderTotalPrice.add(prodTotalPrice);
         }
 
         // 保留两位小数 & 四舍五入
@@ -226,10 +225,10 @@ public class CreateOrderComponent extends BaseComponent {
         List<ProductEntity> productEntityList = query(prodQueryReqList);
 
         // 校验 TODO lamada表达式还要检查
-        Map<UserEntity, List<ProductEntity>> companyMap = productEntityList.stream().collect(groupingBy(ProductEntity::getCompanyEntity));
-        if (companyMap.size() > 1) {
-            throw new CommonBizException(ExpCodeEnum.SELLER_DIFFERENT);
-        }
+//        Map<UserEntity, List<ProductEntity>> companyMap = productEntityList.stream().collect(groupingBy(ProductEntity::getCompanyEntity));
+//        if (companyMap.size() > 1) {
+//            throw new CommonBizException(ExpCodeEnum.SELLER_DIFFERENT);
+//        }
 
     }
 

@@ -1,0 +1,26 @@
+<header>
+    <div class="nav">
+        <div class="nav-bar">
+            <div class="slogan left">
+                <a name="slogan" href="#">好的内容，没那么贵</a>
+            </div>
+            <div class="login right">
+                <a id="czl-nickname">用户昵称</a>
+                <div class="split"></div>
+                <a href="index_login_seller.html">首页</a>
+                <div class="split"></div>
+                <a href="">发布</a>
+                <div class="split"></div>
+                <a onclick="logout()">退出</a>
+                <div class="split"></div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<script>
+    $(function () {
+        var users = $.parseJSON( $.cookie('users'));
+        $("#czl-nickname").text(users.nickname);
+    });
+</script>

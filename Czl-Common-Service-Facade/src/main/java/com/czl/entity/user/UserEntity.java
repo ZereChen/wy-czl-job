@@ -1,14 +1,12 @@
 package com.czl.entity.user;
 
 import com.czl.enumeration.user.UserStateEnum;
-import com.czl.enumeration.user.UserTypeEnum;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
 
 /**
  * @Author zerechen
- * @Date 2017/10/30 下午6:11
  */
 public class UserEntity implements Serializable {
 
@@ -24,14 +22,12 @@ public class UserEntity implements Serializable {
     /** 手机号 */
     private String phone;
 
-    /** 邮箱 */
-    private String mail;
+    /** 昵称 */
+    private String nickname;
 
     /** 注册时间 */
     private Timestamp registerTime;
 
-    /** 用户类型 {@link com.czl.enumeration.user.UserTypeEnum} */
-    private UserTypeEnum userTypeEnum;
 
     /** 账号状态 {@link com.czl.enumeration.user.UserStateEnum } */
     private UserStateEnum userStateEnum;
@@ -71,14 +67,14 @@ public class UserEntity implements Serializable {
         this.phone = phone;
     }
 
-    public String getMail() {
-        return mail;
+
+    public String getNickname() {
+        return nickname;
     }
 
-    public void setMail(String mail) {
-        this.mail = mail;
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
     }
-
 
     public Timestamp getRegisterTime() {
         return registerTime;
@@ -88,12 +84,19 @@ public class UserEntity implements Serializable {
         this.registerTime = registerTime;
     }
 
-    public UserTypeEnum getUserTypeEnum() {
-        return userTypeEnum;
-    }
 
-    public void setUserTypeEnum(UserTypeEnum userTypeEnum) {
-        this.userTypeEnum = userTypeEnum;
+    @Override
+    public String toString() {
+        return "UserEntity{" +
+                "id='" + id + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", phone='" + phone + '\'' +
+                ", nickname='" + nickname + '\'' +
+                ", registerTime=" + registerTime +
+                ", userStateEnum=" + userStateEnum +
+                ", roleEntity=" + roleEntity +
+                '}';
     }
 
     public UserStateEnum getUserStateEnum() {
@@ -112,18 +115,5 @@ public class UserEntity implements Serializable {
         this.roleEntity = roleEntity;
     }
 
-    @Override
-    public String toString() {
-        return "UserEntity{" +
-                "id='" + id + '\'' +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", phone='" + phone + '\'' +
-                ", mail='" + mail + '\'' +
-                ", registerTime=" + registerTime +
-                ", userTypeEnum=" + userTypeEnum +
-                ", userStateEnum=" + userStateEnum +
-                ", roleEntity=" + roleEntity +
-                '}';
-    }
+
 }

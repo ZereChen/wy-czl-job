@@ -34,6 +34,15 @@ services:
     depends_on:
       - zk-dubbo-admin
 
+  czl-product:
+    build: Czl-Product/
+    ports:
+      - "8083:8080"
+    volumes:
+      - ./logs/product:/logs/
+    depends_on:
+      - zk-dubbo-admin
+
   czl-ui:
     build: Czl-UI-Frontend
     ports:

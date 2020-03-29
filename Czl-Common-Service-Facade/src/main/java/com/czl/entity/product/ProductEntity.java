@@ -8,7 +8,6 @@ import java.util.List;
 
 /**
  * @author zerechen
- * @Date 2017/10/31 下午2:20
  * 产品实体类
  */
 public class ProductEntity implements Serializable {
@@ -17,44 +16,22 @@ public class ProductEntity implements Serializable {
     private String id;
 
     /** 产品名称 */
-    private String prodName;
+    private String name;
 
-    /** 市场价（保留两位小数，使用字符串类型存储，计算时将其转为数值型） */
-    private String marketPrice;
+    /** 产品图片 */
+    private String url;
 
-    /** 本店价 */
-    private String shopPrice;
-
-    /** 库存 */
-    private int stock;
-
-    /** 销量 */
-    private int sales;
-
-    /** 产品重量 */
-    private String weight;
-
-    /** 产品所属一级分类 */
-    private CategoryEntity topCateEntity;
-
-    /** 产品所属二级分类 */
-    private CategoryEntity subCategEntity;
-
-    /** 产品所属品牌 */
-    private BrandEntity brandEntity;
+    /** 价格 */
+    private String price;
 
     /** 是否上架 {@link com.czl.enumeration.product.ProdStateEnum} */
     private ProdStateEnum prodStateEnum;
 
-    /** 产品图片 */
-    private List<ProdImageEntity> prodImageEntityList;
-
-    /** 产品详情 */
+    /** 正文 */
     private String content;
 
-    /** 产品所属企业信息 */
-    private UserEntity companyEntity;
-
+    /** 摘要 */
+    private String summary;
 
     public String getId() {
         return id;
@@ -64,68 +41,28 @@ public class ProductEntity implements Serializable {
         this.id = id;
     }
 
-    public String getProdName() {
-        return prodName;
+    public String getName() {
+        return name;
     }
 
-    public void setProdName(String prodName) {
-        this.prodName = prodName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getMarketPrice() {
-        return marketPrice;
+    public String getUrl() {
+        return url;
     }
 
-    public void setMarketPrice(String marketPrice) {
-        this.marketPrice = marketPrice;
+    public void setUrl(String url) {
+        this.url = url;
     }
 
-    public String getShopPrice() {
-        return shopPrice;
+    public String getPrice() {
+        return price;
     }
 
-    public void setShopPrice(String shopPrice) {
-        this.shopPrice = shopPrice;
-    }
-
-    public int getStock() {
-        return stock;
-    }
-
-    public void setStock(int stock) {
-        this.stock = stock;
-    }
-
-    public String getWeight() {
-        return weight;
-    }
-
-    public void setWeight(String weight) {
-        this.weight = weight;
-    }
-
-    public CategoryEntity getTopCateEntity() {
-        return topCateEntity;
-    }
-
-    public void setTopCateEntity(CategoryEntity topCateEntity) {
-        this.topCateEntity = topCateEntity;
-    }
-
-    public CategoryEntity getSubCategEntity() {
-        return subCategEntity;
-    }
-
-    public void setSubCategEntity(CategoryEntity subCategEntity) {
-        this.subCategEntity = subCategEntity;
-    }
-
-    public BrandEntity getBrandEntity() {
-        return brandEntity;
-    }
-
-    public void setBrandEntity(BrandEntity brandEntity) {
-        this.brandEntity = brandEntity;
+    public void setPrice(String price) {
+        this.price = price;
     }
 
     public ProdStateEnum getProdStateEnum() {
@@ -136,14 +73,6 @@ public class ProductEntity implements Serializable {
         this.prodStateEnum = prodStateEnum;
     }
 
-    public List<ProdImageEntity> getProdImageEntityList() {
-        return prodImageEntityList;
-    }
-
-    public void setProdImageEntityList(List<ProdImageEntity> prodImageEntityList) {
-        this.prodImageEntityList = prodImageEntityList;
-    }
-
     public String getContent() {
         return content;
     }
@@ -152,39 +81,24 @@ public class ProductEntity implements Serializable {
         this.content = content;
     }
 
-    public UserEntity getCompanyEntity() {
-        return companyEntity;
+    public String getSummary() {
+        return summary;
     }
 
-    public void setCompanyEntity(UserEntity companyEntity) {
-        this.companyEntity = companyEntity;
-    }
-
-    public int getSales() {
-        return sales;
-    }
-
-    public void setSales(int sales) {
-        this.sales = sales;
+    public void setSummary(String summary) {
+        this.summary = summary;
     }
 
     @Override
     public String toString() {
         return "ProductEntity{" +
                 "id='" + id + '\'' +
-                ", prodName='" + prodName + '\'' +
-                ", marketPrice='" + marketPrice + '\'' +
-                ", shopPrice='" + shopPrice + '\'' +
-                ", stock=" + stock +
-                ", sales=" + sales +
-                ", weight='" + weight + '\'' +
-                ", topCateEntity=" + topCateEntity +
-                ", subCategEntity=" + subCategEntity +
-                ", brandEntity=" + brandEntity +
+                ", name='" + name + '\'' +
+                ", url='" + url + '\'' +
+                ", price='" + price + '\'' +
                 ", prodStateEnum=" + prodStateEnum +
-                ", prodImageEntityList=" + prodImageEntityList +
                 ", content='" + content + '\'' +
-                ", companyEntity=" + companyEntity +
+                ", summary='" + summary + '\'' +
                 '}';
     }
 }

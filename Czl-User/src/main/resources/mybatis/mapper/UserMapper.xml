@@ -6,11 +6,11 @@
     <resultMap id="userResultMap" type="com.czl.entity.user.UserEntity">
         <result property="id" column="id"/>
         <result property="username" column="username"/>
+        <result property="password" column="password"/>
         <result property="phone" column="phone"/>
-        <result property="mail" column="mail"/>
+        <result property="nickname" column="nickname"/>
         <result property="registerTime" column="register_time"/>
         <result property="registerTime" column="register_time"/>
-        <result property="userTypeEnum" column="user_type" typeHandler="com.czl.typehandler.EnumTypeHandler"/>
         <result property="userStateEnum" column="user_state" typeHandler="com.czl.typehandler.EnumTypeHandler"/>
 
         <association property="roleEntity" javaType="com.czl.entity.user.RoleEntity">
@@ -26,16 +26,8 @@
         </association>
     </resultMap>
 
-
-    <delete id="deleteRolePermission">
-        DELETE FROM sys_role_permission WHERE role_id = #{roleId}
-    </delete>
-
-
-
     <select id="findUsers" resultMap="userResultMap">
-      SELECT user.id as id, username, phone, mail, register_time,
-              user_type,
+      SELECT user.id as id, username, password,phone, nickname, register_time,
               user_state,
               role.id as role_id,
               role.name as role_name,
@@ -77,10 +69,6 @@
                 AND
                 phone = #{userQueryReq.phone}
             </if>
-            <if test="userQueryReq.mail != null">
-                AND
-                mail = #{userQueryReq.mail}
-            </if>
             <if test="userQueryReq.registerTimeStart != null">
                 AND
                 register_time &gt; #{userQueryReq.registerTimeStart}
@@ -89,10 +77,7 @@
                 AND
                 register_time &lt; #{userQueryReq.registerTimeEnd}
             </if>
-            <if test="userQueryReq.userType != null">
-                AND
-                user_type = #{userQueryReq.userType}
-            </if>
+
             <if test="userQueryReq.userState != null">
                 AND
                 user_state = #{userQueryReq.userState}
@@ -110,20 +95,5 @@
             order by register_time ASC
         </if>
     </select>
-
-
-    <select id="findPermissions" resultType="com.czl.entity.user.PermissionEntity">
-      SELECT * FROM sys_permission
-    </select>
-
-
-    <insert id="insertRolePermission">
-        INSERT INTO sys_role_permission (role_id,permission_id)
-        VALUES
-        <foreach collection="rolePermissionReq.permissionIdList" item="permissionId" index="index" separator=",">
-            (#{rolePermissionReq.roleId},#{permissionId})
-        </foreach>
-    </insert>
-
 
 </mapper>

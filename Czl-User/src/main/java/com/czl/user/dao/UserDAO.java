@@ -12,7 +12,6 @@ import java.util.List;
 
 /**
  * @author zerechen
- * @date 2017/11/1 下午8:37
  * @description 用户相关DAO
  */
 @Mapper
@@ -24,23 +23,5 @@ public interface UserDAO {
      * @return 查询结果
      */
     List<UserEntity> findUsers(@Param("userQueryReq") UserQueryReq userQueryReq);
-
-
-    /**
-     * 删除角色-权限关系
-     * @param roleId 角色ID
-     */
-    void deleteRolePermission(String roleId);
-    /**
-     * 插入角色-权限关系
-     * @param rolePermissionReq
-     */
-    void insertRolePermission(@Param("rolePermissionReq") RolePermissionReq rolePermissionReq);
-
-    /**
-     * 查询所有权限
-     * @return 权限列表
-     */
-    List<PermissionEntity> findPermissions();
 
 }

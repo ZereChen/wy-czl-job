@@ -123,7 +123,7 @@ public class PlaceOrderCheckParamComponent extends BaseCheckParamComponent {
 
         for (ProdQueryReq prodQueryReq : prodQueryReqList) {
             ProductEntity productEntity = productService.findProducts(prodQueryReq).getData().get(0);
-            companyIdSet.add(productEntity.getCompanyEntity().getId());
+//            companyIdSet.add(productEntity.getCompanyEntity().getId());
         }
 
         return companyIdSet;

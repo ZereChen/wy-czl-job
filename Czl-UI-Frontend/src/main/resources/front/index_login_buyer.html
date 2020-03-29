@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>主页</title>
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/carousel.css">
+    <link rel="stylesheet" href="css/goodsitems.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_762189_z3scoz4fh9.css">
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <script src="js/swiper.min.js"></script>
+    <script src="js/nav.js"></script>
+    <script src="myjs/httpurl.js"></script>
+    <script src="myjs/users.js"></script>
+    <script src="myjs/list.js"></script>
+    <script src="js/login.js"></script>
+    <!--分页-->
+    <link rel="stylesheet" type="text/css" href="./pagination.css" media="screen">
+    <script src="./jquery.pagination.js"></script>
+</head>
+<body>
+<div class="headerpage"></div>
+<section>
+    <div class="carousel">
+        <!-- Swiper -->
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" style="background-image:url(images/carousel-img/6f24866ea949130b515762e7809214bc.jpg)"></div>
+                <div class="swiper-slide" style="background-image:url(images/carousel-img/58fce625ced8968786465152e4346029.jpg)"></div>
+                <div class="swiper-slide" style="background-image:url(images/carousel-img/62ef27cdb8715547dbbaa2909d08bf0f.jpg)"></div>
+                <div class="swiper-slide" style="background-image:url(images/carousel-img/a071da925c90136d5d8bd0eef2875aa0.jpg)"></div>
+                <div class="swiper-slide" style="background-image:url(images/carousel-img/ac0f52cd9c6334d539cf7618d3495f0a.jpg)"></div>
+                <div class="swiper-slide" style="background-image:url(images/carousel-img/c9ef41b68352531127b76544b5385e6f.jpg)"></div>
+                <div class="swiper-slide" style="background-image:url(images/carousel-img/d7832aad63c2b15700fa27909428cb99.jpg)"></div>
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination swiper-pagination-white"></div>
+            <!-- Add Arrows -->
+            <div class="swiper-button-next swiper-button-white"></div>
+            <div class="swiper-button-prev swiper-button-white"></div>
+        </div>
+
+    </div>
+</section>
+
+<section class="m-cates">
+    <div class="grow clearfix">
+        <div class="m-cat">
+            <div class="hd clearfix">
+                <div class="left">
+                    <h3 class="name">
+                        内容
+                    </h3>
+                </div>
+            </div>
+            <div id="bdclearfix_nologin" class="bd clearfix">
+                <ul class="m-item-list">
+                    <li class="il-item">
+                        <div class="product">
+                            <div class="product-hd">
+                                <a href="login.html">
+                                    <img src="images/book/2ab7b86be448341df0247b4e44fc2e3b.png" alt="" class="product-img">
+                                    <p class="new-tag hide"></p>
+                                </a>
+                            </div>
+                            <div class="product-bd">
+                                <div class="pro-name">
+                                    <a href="" class="product-name"> 自然光多功能触控阅读灯</a>
+                                </div>
+                                <p class="price">
+                                    <span>¥189</span>
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="il-item">
+                        <div class="product">
+                            <div class="product-hd">
+                                <a href="">
+                                    <img src="images/c118ef8517199a85b46db2ef69d48509.png" alt="" class="product-img">
+                                    <p class="new-tag">新品</p>
+                                </a>
+                            </div>
+                            <div class="product-bd">
+                                <div class="pro-name">
+                                    <a href="" class="product-name">  升级款可水洗舒柔羽丝绒枕</a>
+                                </div>
+                                <p class="price">
+                                    <span>¥59</span>
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="il-item">
+                        <div class="product">
+                            <div class="product-hd">
+                                <a href="">
+                                    <img src="images/9ad25214f5abbbff716c8e5a5fd9226b.png" alt="" class="product-img">
+                                    <p class="new-tag">日本制造</p>
+                                </a>
+                            </div>
+                            <div class="product-bd">
+                                <div class="pro-name">
+                                    <a href="" class="product-name">  日本制造 标签款收纳篮</a>
+                                </div>
+                                <p class="price">
+                                    <span>¥12.9</span>
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="il-item">
+                        <div class="product">
+                            <div class="product-hd">
+                                <a href="">
+                                    <img src="images/df6ce3afe8e8827f1da41aa8e4e08760.png" alt="" class="product-img">
+                                    <p class="new-tag">泰国制造</p>
+                                </a>
+                            </div>
+                            <div class="product-bd">
+                                <div class="pro-name">
+                                    <a href="" class="product-name">  泰国制造 天然乳胶枕护颈优眠</a>
+                                </div>
+                                <p class="price">
+                                    <span>¥169.2</span>
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="m-item-list">
+
+                    <li class="il-item">
+                        <div class="product">
+                            <div class="product-hd">
+                                <a href="">
+                                    <img src="images/2ab7b86be448341df0247b4e44fc2e3b.png" alt="" class="product-img">
+                                    <p class="new-tag hide"></p>
+                                </a>
+                            </div>
+                            <div class="product-bd">
+                                <div class="pro-name">
+                                    <a href="" class="product-name"> 自然光多功能触控阅读灯</a>
+                                </div>
+                                <p class="price">
+                                    <span>¥189</span>
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="il-item">
+                        <div class="product">
+                            <div class="product-hd">
+                                <a href="">
+                                    <img src="images/c118ef8517199a85b46db2ef69d48509.png" alt="" class="product-img">
+                                    <p class="new-tag">新品</p>
+                                </a>
+                            </div>
+                            <div class="product-bd">
+                                <div class="pro-name">
+                                    <a href="" class="product-name">  升级款可水洗舒柔羽丝绒枕</a>
+                                </div>
+                                <p class="price">
+                                    <span>¥59</span>
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="il-item">
+                        <div class="product">
+                            <div class="product-hd">
+                                <a href="">
+                                    <img src="images/9ad25214f5abbbff716c8e5a5fd9226b.png" alt="" class="product-img">
+                                    <p class="new-tag">日本制造</p>
+                                </a>
+                            </div>
+                            <div class="product-bd">
+                                <div class="pro-name">
+                                    <a href="" class="product-name">  日本制造 标签款收纳篮</a>
+                                </div>
+                                <p class="price">
+                                    <span>¥12.9</span>
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="il-item">
+                        <div class="product">
+                            <div class="product-hd">
+                                <a href="">
+                                    <img src="images/df6ce3afe8e8827f1da41aa8e4e08760.png" alt="" class="product-img">
+                                    <p class="new-tag">泰国制造</p>
+                                </a>
+                            </div>
+                            <div class="product-bd">
+                                <div class="pro-name">
+                                    <a href="" class="product-name">  泰国制造 天然乳胶枕护颈优眠</a>
+                                </div>
+                                <p class="price">
+                                    <span>¥169.2</span>
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="m-item-list">
+
+                    <li class="il-item">
+                        <div class="product">
+                            <div class="product-hd">
+                                <a href="">
+                                    <img src="images/2ab7b86be448341df0247b4e44fc2e3b.png" alt="" class="product-img">
+                                    <p class="new-tag hide"></p>
+                                </a>
+                            </div>
+                            <div class="product-bd">
+                                <div class="pro-name">
+                                    <a href="" class="product-name"> 自然光多功能触控阅读灯</a>
+                                </div>
+                                <p class="price">
+                                    <span>¥189</span>
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="il-item">
+                        <div class="product">
+                            <div class="product-hd">
+                                <a href="">
+                                    <img src="images/c118ef8517199a85b46db2ef69d48509.png" alt="" class="product-img">
+                                    <p class="new-tag">新品</p>
+                                </a>
+                            </div>
+                            <div class="product-bd">
+                                <div class="pro-name">
+                                    <a href="" class="product-name">  升级款可水洗舒柔羽丝绒枕</a>
+                                </div>
+                                <p class="price">
+                                    <span>¥59</span>
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="il-item">
+                        <div class="product">
+                            <div class="product-hd">
+                                <a href="">
+                                    <img src="images/9ad25214f5abbbff716c8e5a5fd9226b.png" alt="" class="product-img">
+                                    <p class="new-tag">日本制造</p>
+                                </a>
+                            </div>
+                            <div class="product-bd">
+                                <div class="pro-name">
+                                    <a href="" class="product-name">  日本制造 标签款收纳篮</a>
+                                </div>
+                                <p class="price">
+                                    <span>¥12.9</span>
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="il-item">
+                        <div class="product">
+                            <div class="product-hd">
+                                <a href="">
+                                    <img src="images/df6ce3afe8e8827f1da41aa8e4e08760.png" alt="" class="product-img">
+                                    <p class="new-tag">泰国制造</p>
+                                </a>
+                            </div>
+                            <div class="product-bd">
+                                <div class="pro-name">
+                                    <a href="" class="product-name">  泰国制造 天然乳胶枕护颈优眠</a>
+                                </div>
+                                <p class="price">
+                                    <span>¥169.2</span>
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="m-item-list">
+
+                    <li class="il-item">
+                        <div class="product">
+                            <div class="product-hd">
+                                <a href="">
+                                    <img src="images/2ab7b86be448341df0247b4e44fc2e3b.png" alt="" class="product-img">
+                                    <p class="new-tag hide"></p>
+                                </a>
+                            </div>
+                            <div class="product-bd">
+                                <div class="pro-name">
+                                    <a href="" class="product-name"> 自然光多功能触控阅读灯</a>
+                                </div>
+                                <p class="price">
+                                    <span>¥189</span>
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="il-item">
+                        <div class="product">
+                            <div class="product-hd">
+                                <a href="">
+                                    <img src="images/c118ef8517199a85b46db2ef69d48509.png" alt="" class="product-img">
+                                    <p class="new-tag">新品</p>
+                                </a>
+                            </div>
+                            <div class="product-bd">
+                                <div class="pro-name">
+                                    <a href="" class="product-name">  升级款可水洗舒柔羽丝绒枕</a>
+                                </div>
+                                <p class="price">
+                                    <span>¥59</span>
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="il-item">
+                        <div class="product">
+                            <div class="product-hd">
+                                <a href="">
+                                    <img src="images/9ad25214f5abbbff716c8e5a5fd9226b.png" alt="" class="product-img">
+                                    <p class="new-tag">日本制造</p>
+                                </a>
+                            </div>
+                            <div class="product-bd">
+                                <div class="pro-name">
+                                    <a href="" class="product-name">  日本制造 标签款收纳篮</a>
+                                </div>
+                                <p class="price">
+                                    <span>¥12.9</span>
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="il-item">
+                        <div class="product">
+                            <div class="product-hd">
+                                <a href="">
+                                    <img src="images/df6ce3afe8e8827f1da41aa8e4e08760.png" alt="" class="product-img">
+                                    <p class="new-tag">泰国制造</p>
+                                </a>
+                            </div>
+                            <div class="product-bd">
+                                <div class="pro-name">
+                                    <a href="" class="product-name">  泰国制造 天然乳胶枕护颈优眠</a>
+                                </div>
+                                <p class="price">
+                                    <span>¥169.2</span>
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--重复m-cat部分-->
+    </div>
+</section>
+
+
+<section class="new-comment">
+    <div class="grow clearfix">
+        <div class="eg">
+            <div class="m-style M-box11"></div>
+        </div>
+    </div>
+</section>
+<div class="rightbuttonpage"></div>
+<div class="footerpage"></div>
+<script>
+    $(function () {
+        // loadProductListNologin(16,1);
+        $(".headerpage").load("header_login_buyer.html");
+        $(".rightbuttonpage").load("right_button.html");
+        // loadHeaderPage();
+        $(".footerpage").load("footer.html");
+    });
+</script>
+</body>
+</html>

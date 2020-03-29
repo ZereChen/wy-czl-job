@@ -3,15 +3,11 @@ package com.czl.controller.product;
 import com.czl.annotation.Login;
 import com.czl.annotation.Permission;
 import com.czl.entity.product.BrandEntity;
-import com.czl.entity.product.CategoryEntity;
 import com.czl.entity.product.ProdImageEntity;
 import com.czl.req.product.*;
 import com.czl.rsp.Result;
 import com.czl.entity.product.ProductEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
@@ -20,6 +16,8 @@ import java.util.List;
  * @author zerechen
  * @description 产品系统的Controller
  */
+@RestController
+@CrossOrigin
 public interface ProductController {
 
 
@@ -64,77 +62,14 @@ public interface ProductController {
 //    @Permission("product:query")
     public Result<List<ProductEntity>> findProducts(ProdQueryReq prodQueryReq);
 
-    /**
-     * 创建产品类别
-     * @param categoryEntity 产品类别参数
-     * @return 是否创建成功
-     */
-    @PostMapping("category")
-    @Login
-    @Permission("category:create")
-    public Result createCategoty(CategoryEntity categoryEntity);
 
     /**
-     * 修改产品类别
-     * PS：只能修改：类别名称、排序，且id必填
-     * @param categoryEntity 待修改类别
-     * @return 是否修改成
-     */
-    @PutMapping("category")
-    @Login
-    @Permission("category:update")
-    public Result modifyCategory(CategoryEntity categoryEntity);
-
-    /**
-     * 删除类别
-     * PS：只有当该类别下没有产品时才允许删除
-     * @param categoryId 待删除类别的id
+     * 删除产品
+     * @param productId 待删除产品的id
      * @return 删除结果
      */
-    @DeleteMapping("category/{categoryId}")
+    @DeleteMapping("product/{productId}")
     @Login
-    @Permission("category:delete")
-    public Result deleteCategory(String categoryId);
-
-    /**
-     * 查询类别
-     * @param categoryQueryReq 类别查询请求
-     * @return 类别查询结果
-     */
-    @GetMapping("category")
-    @Login
-    @Permission("category:query")
-    public Result<List<CategoryEntity>> findCategorys(CategoryQueryReq categoryQueryReq);
-
-
-    /**
-     * 创建品牌
-     * @param brandInsertReq 品牌参数(企业id即可)
-     * @return 是否创建成功
-     */
-    @PostMapping("brand")
-    @Login
-    @Permission("brand:create")
-    public Result createBrand(BrandInsertReq brandInsertReq);
-
-    /**
-     * 修改品牌
-     * @param brandInsertReq 待修改品牌(品牌id必填)
-     * @return 是否修改成功
-     */
-    @PutMapping("brand")
-    @Login
-    @Permission("brand:update")
-    public Result modifyBrand(BrandInsertReq brandInsertReq);
-
-    /**
-     * 查询品牌
-     * @param brandQueryReq 品牌查询请求
-     * @return 品牌查询结果
-     */
-    @GetMapping("brand")
-    @Login
-    @Permission("brand:query")
-    public Result<List<BrandEntity>> findBrands(BrandQueryReq brandQueryReq);
-
+    @Permission("product:delete")
+    public Result deleteProduct(String productId);
 }

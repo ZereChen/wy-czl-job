@@ -13,6 +13,7 @@ import com.czl.req.user.*;
 import com.czl.rsp.Result;
 import com.czl.util.UserUtil;
 import com.czl.utils.KeyGenerator;
+import com.czl.utils.MD5Util;
 import com.czl.utils.RedisPrefixUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -30,7 +31,7 @@ import static com.czl.rsp.Result.newSuccessResult;
 @RestController
 public class UserControllerImpl implements UserController {
 
-    @Reference(version = "1.0.0")
+    @Reference(version = "1.0.0",timeout = 100000)
     private UserService userService;
 
     @Autowired
@@ -46,6 +47,8 @@ public class UserControllerImpl implements UserController {
     @Autowired
     private UserUtil userUtil;
 
+
+
     @Override
     public Result login(LoginReq loginReq, HttpServletResponse httpRsp) {
         // 校验参数
@@ -55,11 +58,13 @@ public class UserControllerImpl implements UserController {
         if (StringUtils.isEmpty(loginReq.getPassword())) {
             return Result.newFailureResult(new CommonBizException(ExpCodeEnum.PASSWD_NULL));
         }
+        String inputPassword = loginReq.getPassword();
+        loginReq.setPassword(null);
 
         // 登录鉴权
         UserEntity userEntity = userService.login(loginReq);
         // 登录失败
-        if (userEntity == null){
+        if (userEntity == null || !inputPassword.equals(MD5Util.encode(userEntity.getPassword()))){
             return Result.newFailureResult(new CommonBizException(ExpCodeEnum.LOGIN_FAIL));
         }
         // 登录成功
@@ -69,17 +74,6 @@ public class UserControllerImpl implements UserController {
 
     @Override
     public Result logout(HttpServletRequest httpReq, HttpServletResponse httpRsp) {
-
-        // 处理登出
-        doLogout(httpReq, httpRsp);
-
-        // 登出成功
-        return Result.newSuccessResult();
-    }
-
-    private void doLogout(HttpServletRequest httpReq, HttpServletResponse httpRsp) {
-        // 获取SessionID
-
         String sessionID = userUtil.getSessionID(httpReq);
 
         // 将 SessionID-UserEntity 从Redis中移除
@@ -88,9 +82,10 @@ public class UserControllerImpl implements UserController {
         // 将SessionID从HTTP响应头中删除
         Cookie cookie = new Cookie(sessionIdName, null);
         httpRsp.addCookie(cookie);
+
+        // 登出成功
+        return Result.newSuccessResult();
     }
-
-
 
     @Override
     public Result isLogin(HttpServletRequest request) {
@@ -102,32 +97,14 @@ public class UserControllerImpl implements UserController {
         return newSuccessResult(userEntity);
     }
 
-
-    @Override
-    public Result updatePermissionOfRole(RolePermissionReq rolePermissionReq) {
-        // 更新
-        userService.updatePermissionOfRole(rolePermissionReq);
-
-        // 成功
-        return newSuccessResult();
-    }
-
-    @Override
-    public Result<List<PermissionEntity>> findPermissions() {
-        // 查询
-        List<PermissionEntity> permissionEntityList = userService.findPermissions();
-
-        // 成功
-        return newSuccessResult(permissionEntityList);
-    }
-
-
     /**
      * 处理登录成功
      * @param userEntity 用户信息
      * @param httpRsp HTTP响应参数
      */
     private void doLoginSuccess(UserEntity userEntity, HttpServletResponse httpRsp) {
+        //抹出password
+        userEntity.setPassword(null);
         // 生成SessionID
         String sessionID = KeyGenerator.getKey(KeyGeneratorPrefixEnum.SESSION_ID_PREFIX);
 

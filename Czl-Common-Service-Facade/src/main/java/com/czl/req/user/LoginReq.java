@@ -4,7 +4,6 @@ import com.czl.req.AbsReq;
 
 /**
  * @author zerechen
- * @date 2017/11/4 下午4:53
  * @description 登录请求
  */
 public class LoginReq extends AbsReq {
@@ -17,9 +16,6 @@ public class LoginReq extends AbsReq {
 
     /** 手机号 */
     private String phone;
-
-    /** 邮箱 */
-    private String mail;
 
     public String getUsername() {
         return username;
@@ -45,13 +41,6 @@ public class LoginReq extends AbsReq {
         this.phone = phone;
     }
 
-    public String getMail() {
-        return mail;
-    }
-
-    public void setMail(String mail) {
-        this.mail = mail;
-    }
 
     @Override
     public String toString() {
@@ -59,7 +48,6 @@ public class LoginReq extends AbsReq {
                 "username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", phone='" + phone + '\'' +
-                ", mail='" + mail + '\'' +
                 '}';
     }
 }
