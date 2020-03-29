@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 /**
- * @Author zerechen
+ * @author zerechen
  */
 public class UserEntity implements Serializable {
 

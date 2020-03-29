@@ -10,7 +10,6 @@
         <result property="phone" column="phone"/>
         <result property="nickname" column="nickname"/>
         <result property="registerTime" column="register_time"/>
-        <result property="registerTime" column="register_time"/>
         <result property="userStateEnum" column="user_state" typeHandler="com.czl.typehandler.EnumTypeHandler"/>
 
         <association property="roleEntity" javaType="com.czl.entity.user.RoleEntity">

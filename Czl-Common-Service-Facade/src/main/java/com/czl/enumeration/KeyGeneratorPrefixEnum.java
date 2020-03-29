@@ -20,8 +20,11 @@ public enum KeyGeneratorPrefixEnum {
     /**
      * 产品的前缀
      **/
-    PRODUCT_ID_PREFIX(5, "PRODUCT");
-
+    PRODUCT_ID_PREFIX(5, "PRODUCT"),
+    /**
+     * 购物车的前缀
+     **/
+    CAR_ID_PREFIX(6, "CAR");
 
     private int code;
     private String msg;

@@ -1,9 +1,6 @@
 package com.czl.user.dao;
 
 import com.czl.entity.user.*;
-import com.czl.req.user.LocationUpdateReq;
-import com.czl.req.user.RoleMenuReq;
-import com.czl.req.user.RolePermissionReq;
 import com.czl.req.user.UserQueryReq;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;

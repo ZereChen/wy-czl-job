@@ -3,7 +3,8 @@ package com.czl.req.product;
 import com.czl.req.AbsReq;
 
 /**
- * Created by lihang on 2017/11/4.
+ * @author zerechen
+ * @description 产品新增请求
  */
 public class ProdInsertReq extends AbsReq {
     /** 产品ID（主键） */

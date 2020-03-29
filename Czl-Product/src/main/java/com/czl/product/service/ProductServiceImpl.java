@@ -91,7 +91,7 @@ public class ProductServiceImpl implements ProductService {
         }else if (StringUtils.isEmpty(prodInsertReq.getWeight())){
             throw new CommonBizException(ExpCodeEnum.PRODUCT_WEIGHT_NULL);
         }else if (StringUtils.isEmpty(prodInsertReq.getTopCateEntityID())){
-            throw new CommonBizException(ExpCodeEnum.PRODUCT_TOPCATEENTITY_NULL);
+//            throw new CommonBizException(ExpCodeEnum.PRODUCT_TOPCATEENTITY_NULL);
         }else if (StringUtils.isEmpty(prodInsertReq.getSubCategEntityID())){
             throw new CommonBizException(ExpCodeEnum.PRODUCT_SUBCATEGENTITY_NULL);
         }else if (StringUtils.isEmpty(prodInsertReq.getBrandEntityID())){

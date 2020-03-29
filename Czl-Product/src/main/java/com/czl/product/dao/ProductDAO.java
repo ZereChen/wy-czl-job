@@ -8,9 +8,6 @@ import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
-/**
- * Created by lihang on 2017/11/4.
- */
 @Mapper
 public interface ProductDAO {
     /**
@@ -34,7 +31,7 @@ public interface ProductDAO {
     List<ProductEntity> findProducts(ProdQueryReq prodQueryReq);
 
     /**
-     * 删除类别
+     * 删除产品
      * @param productId
      * @return
      */

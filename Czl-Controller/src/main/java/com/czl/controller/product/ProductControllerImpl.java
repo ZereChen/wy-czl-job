@@ -1,7 +1,6 @@
 package com.czl.controller.product;
 
 import com.alibaba.dubbo.config.annotation.Reference;
-import com.czl.entity.product.BrandEntity;
 import com.czl.entity.product.ProdImageEntity;
 import com.czl.entity.product.ProductEntity;
 import com.czl.facade.product.ProductService;
@@ -14,7 +13,6 @@ import java.util.List;
 
 /**
  * @author zerechen
- * @date 2017/10/27 下午10:28
  */
 @RestController
 public class ProductControllerImpl implements ProductController {
@@ -49,6 +47,16 @@ public class ProductControllerImpl implements ProductController {
     @Override
     public Result deleteProduct(String productId) {
         return productService.deleteProduct(productId);
+    }
+
+    @Override
+    public Result<List<ProductEntity>> findOrdersForSeller(ProdQueryReq prodQueryReq) {
+        return null;
+    }
+
+    @Override
+    public Result<List<ProductEntity>> findOrdersForBuyer(ProdQueryReq prodQueryReq) {
+        return null;
     }
 
 }

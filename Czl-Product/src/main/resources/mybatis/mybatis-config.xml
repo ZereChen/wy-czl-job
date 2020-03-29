@@ -5,8 +5,6 @@
     <typeAliases>
 
         <typeAlias alias="ProductEntity" type="com.czl.entity.product.ProductEntity" />
-        <typeAlias alias="CategoryEntity" type="com.czl.entity.product.CategoryEntity" />
-        <typeAlias alias="BrandEntity" type="com.czl.entity.product.BrandEntity" />
         <typeAlias alias="ProdInsertReq" type="com.czl.req.product.ProdInsertReq" />
 
     </typeAliases>

@@ -5,7 +5,6 @@ import java.util.List;
 
 /**
  * @author zerechen
- * @date 2017/11/1 下午6:57
  * @description 角色实体类
  */
 public class RoleEntity implements Serializable {

@@ -1,21 +1,19 @@
-package com.czl;
+package com.czl.product;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
-import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
-@RestController
-public class MainApplication extends SpringBootServletInitializer {
+public class ProductMainApplication extends SpringBootServletInitializer {
 
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-		return builder.sources(MainApplication.class);
+		return builder.sources(ProductMainApplication.class);
 	}
 
 	public static void main(String[] args) {
-		SpringApplication.run(MainApplication.class, args);
+		SpringApplication.run(ProductMainApplication.class, args);
 	}
 }

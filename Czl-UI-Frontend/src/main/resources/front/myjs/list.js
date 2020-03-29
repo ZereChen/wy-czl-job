@@ -5,7 +5,7 @@
  */
 function loadProductListNologin(numPerPage,curPage) {
     $.ajax({
-        url : load_productList_nologin,
+        url : load_productList_nologin_url,
         type : "get",
         data : {
             prodStateCode: '1',
@@ -69,5 +69,9 @@ function loadProductListNologin(numPerPage,curPage) {
         "                            </div>\n" +
         "                        </div>\n" +
         "                    </li>"
+    }
+
+    function loadProductListloginForBuyer(numPerPage,curPage) {
+
     }
 }

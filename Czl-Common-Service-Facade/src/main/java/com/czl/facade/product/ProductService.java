@@ -1,6 +1,5 @@
 package com.czl.facade.product;
 
-import com.czl.entity.product.BrandEntity;
 import com.czl.entity.product.ProductEntity;
 import com.czl.req.product.*;
 import com.czl.rsp.Result;
@@ -9,7 +8,6 @@ import java.util.List;
 
 /**
  * @author zerechen
- * @date 2017/10/31 下午8:43
  * @description
  */
 public interface ProductService {

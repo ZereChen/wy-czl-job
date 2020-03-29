@@ -4,7 +4,6 @@ import java.util.List;
 
 /**
  * @author zerechen
- * @date 2017/11/4 下午3:34
  * @description 批量请求
  */
 public class BatchReq<T> extends AbsReq {

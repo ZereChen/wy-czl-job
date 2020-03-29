@@ -2,7 +2,7 @@ package com.czl.req;
 
 /**
  * @author zerechen
- * @description 查询请求
+ * @description 页面查询请求
  */
 public class QueryReq extends AbsReq {
 

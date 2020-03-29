@@ -2,7 +2,6 @@ package com.czl.controller.product;
 
 import com.czl.annotation.Login;
 import com.czl.annotation.Permission;
-import com.czl.entity.product.BrandEntity;
 import com.czl.entity.product.ProdImageEntity;
 import com.czl.req.product.*;
 import com.czl.rsp.Result;
@@ -57,9 +56,7 @@ public interface ProductController {
      * @param prodQueryReq 产品查询请求
      * @return 产品查询结果
      */
-    @GetMapping("product")
-//    @Login
-//    @Permission("product:query")
+    @GetMapping("product/query")
     public Result<List<ProductEntity>> findProducts(ProdQueryReq prodQueryReq);
 
 
@@ -68,8 +65,28 @@ public interface ProductController {
      * @param productId 待删除产品的id
      * @return 删除结果
      */
-    @DeleteMapping("product/{productId}")
+    @DeleteMapping("product/delete")
     @Login
     @Permission("product:delete")
     public Result deleteProduct(String productId);
+
+    /**
+     * 卖家查询产品
+     * @param prodQueryReq 产品查询请求
+     * @return 产品查询结果
+     */
+    @GetMapping("product/sellerQuery")
+    @Login
+    @Permission("product:sellerQuery")
+    public Result<List<ProductEntity>> findOrdersForSeller(ProdQueryReq prodQueryReq);
+
+    /**
+     * 买家查询产品
+     * @param prodQueryReq 产品查询请求
+     * @return 产品查询结果
+     */
+    @GetMapping("product/buyerQuery")
+    @Login
+    @Permission("product:buyerQuery")
+    public Result<List<ProductEntity>> findOrdersForBuyer(ProdQueryReq prodQueryReq);
 }

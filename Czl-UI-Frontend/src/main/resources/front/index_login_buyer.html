@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>主页</title>
+    <title>买家首页</title>
     <link rel="stylesheet" href="css/swiper.min.css">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/nav.css">
@@ -56,6 +56,11 @@
                         内容
                     </h3>
                 </div>
+                <div class="right">
+                    <nav class="subcate-list clearfix">
+                        <a href="" class="item">点击我，显示未购买哟</a>
+                    </nav>
+                </div>
             </div>
             <div id="bdclearfix_nologin" class="bd clearfix">
                 <ul class="m-item-list">
@@ -82,7 +87,7 @@
                             <div class="product-hd">
                                 <a href="">
                                     <img src="images/c118ef8517199a85b46db2ef69d48509.png" alt="" class="product-img">
-                                    <p class="new-tag">新品</p>
+                                    <p class="new-tag">已购买</p>
                                 </a>
                             </div>
                             <div class="product-bd">
@@ -374,11 +379,40 @@
 <div class="rightbuttonpage"></div>
 <div class="footerpage"></div>
 <script>
+    var carousel_swiper = new Swiper('.carousel .swiper-container', {
+        pagination: '.carousel .swiper-pagination',
+        paginationClickable: true,
+        nextButton: '.carousel .swiper-button-next',
+        prevButton: '.carousel .swiper-button-prev',
+        spaceBetween: 30,
+        effect: 'fade',
+        loop: true,
+        autoplay: 3000
+    });
+
+    var new_item_swiper = new Swiper('.new-item .swiper-container', {
+        // pagination: '.new-item .swiper-pagination',
+        nextButton: '.new-item .swiper-button-next',
+        prevButton: '.new-item .swiper-button-prev',
+        slidesPerView: 4,
+        paginationClickable: true,
+        spaceBetween: 30,
+        loop: true
+    });
+
+    var speak_list_swiper = new Swiper('.speak-list .swiper-container', {
+        // pagination: '.new-item .swiper-pagination',
+        nextButton: '.speak-list .swiper-button-next',
+        prevButton: '.speak-list .swiper-button-prev',
+        slidesPerView: 3,
+        paginationClickable: true,
+        spaceBetween: 10,
+        loop: false
+    });
     $(function () {
-        // loadProductListNologin(16,1);
+        loadProductListloginForBuyer(16,1);
         $(".headerpage").load("header_login_buyer.html");
         $(".rightbuttonpage").load("right_button.html");
-        // loadHeaderPage();
         $(".footerpage").load("footer.html");
     });
 </script>
