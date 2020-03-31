@@ -136,12 +136,12 @@ function loadProductListloginForBuyer(numPerPage,curPage,queryNoBuy) {
             "                        <div class=\"product\">\n" +
             "                            <div class=\"product-hd\">\n";
         if(data.buyed==true){
-            code+="<a onclick=\"listGoodDetail('"+data.id+"',true)\">\n" +
+            code+="<a onclick=\"getProductDetailForBuyerJump('"+data.id+"',true)\">\n" +
                 "                                    <img src=\""+data.url+"\" alt=\"\" class=\"product-img\">\n" +
                 "                                    <p class=\"new-tag\">已购买</p>\n" +
                 "                                </a>";
         }else{
-            code+="<a onclick=\"listGoodDetail('"+data.id+"',false)\">\n" +
+            code+="<a onclick=\"getProductDetailForBuyerJump('"+data.id+"',false)\">\n" +
                 "                                    <img src=\""+data.url+"\" alt=\"\" class=\"product-img\">\n" +
                 "                                    <p class=\"new-tag hide\"></p>\n" +
                 "                                </a>";
@@ -161,12 +161,19 @@ function loadProductListloginForBuyer(numPerPage,curPage,queryNoBuy) {
     }
 }
 
-
-function listGoodDetail(productid,flag) {
-    alert(productid+" "+flag);
-
+/**
+ * 跳到用户详情页面
+ * @param productid
+ * @param flag
+ */
+function getProductDetailForBuyerJump(productid,flag){
+    var request_param_buyer ={
+        productId:productid,
+        queryNoBuy:!flag
+    }
+    $.cookie('request_param_buyer', JSON.stringify(request_param_buyer), { expires: 7});
+    window.location.href='detail_login_buyer.html';
 }
-
 
 /**
  * 卖家显示产品列表
@@ -231,11 +238,11 @@ function loadProductListloginForSeller(numPerPage,curPage) {
             "                            <div class=\"product-hd\">\n";
         if(data.num==null){
             code+="<a>\n" +
-                "                                    <img src=\""+data.url+"\" onclick=\"getProductDetailBySeller('"+data.id+"')\" class=\"product-img\">\n" +
+                "                                    <img src=\""+data.url+"\" onclick=\"getProductDetailForSeller('"+data.id+"')\" class=\"product-img\">\n" +
                 "                                    <p class=\"new-tag\" onclick=\"deleteProductById("+data.id+")\">删除</p>\n" +
                 "                                </a>";
         }else{
-            code+="<a onclick=\"getProductDetailBySeller('"+data.id+"')\">\n" +
+            code+="<a onclick=\"getProductDetailForSeller('"+data.id+"')\">\n" +
                 "                                    <img src=\""+data.url+"\" alt=\"\" class=\"product-img\">\n" +
                 "                                    <p class=\"new-tag \">"+"已售"+data.num+"个"+"</p>\n" +
                 "                                </a>";
@@ -255,7 +262,7 @@ function loadProductListloginForSeller(numPerPage,curPage) {
     }
 
 }
-function getProductDetailBySeller(data) {
+function getProductDetailForSeller(data) {
 
     alert("getProductDetailBySeller"+data);
 }

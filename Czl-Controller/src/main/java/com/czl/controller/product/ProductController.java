@@ -71,7 +71,7 @@ public interface ProductController {
     public Result deleteProduct(@RequestParam(value = "productId")String productId);
 
     /**
-     * 卖家查询产品
+     * 卖家查询产品列表
      * @param prodQueryReqForLogin 产品查询请求
      * @return 产品查询结果
      */
@@ -81,7 +81,7 @@ public interface ProductController {
     public Result<List<ProductEntity>> findProductsForSeller(ProdQueryReqForLogin prodQueryReqForLogin);
 
     /**
-     * 买家产品列表
+     * 买家查询产品列表
      * @param prodQueryReqForLogin
      * @return
      */
@@ -89,4 +89,14 @@ public interface ProductController {
     @Login
     @Permission("product:buyerQuery")
     public Result<List<ProductEntity>> findProductsForBuyer(ProdQueryReqForLogin prodQueryReqForLogin);
+
+    /**
+     * 买家查询产品详情
+     * @param prodQueryReqForLogin
+     * @return
+     */
+    @GetMapping("product/buyerQueryDetail")
+    @Login
+    @Permission("product:buyerQueryDetail")
+    public Result<List<ProductEntity>> findProductDetailForBuyer(ProdQueryReqForLogin prodQueryReqForLogin);
 }

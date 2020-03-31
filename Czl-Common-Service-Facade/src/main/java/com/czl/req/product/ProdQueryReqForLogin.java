@@ -11,6 +11,9 @@ public class ProdQueryReqForLogin extends QueryReq {
     /** 买家id */
     String userId;
 
+    /** 商品id */
+    String productId;
+
     /** 查询未购买的*/
     boolean queryNoBuy;
 
@@ -41,10 +44,19 @@ public class ProdQueryReqForLogin extends QueryReq {
         this.prodStateCode = prodStateCode;
     }
 
+    public String getProductId() {
+        return productId;
+    }
+
+    public void setProductId(String productId) {
+        this.productId = productId;
+    }
+
     @Override
     public String toString() {
         return "ProdQueryReqForLogin{" +
                 "userId='" + userId + '\'' +
+                ", productId='" + productId + '\'' +
                 ", queryNoBuy=" + queryNoBuy +
                 ", prodStateCode=" + prodStateCode +
                 '}';

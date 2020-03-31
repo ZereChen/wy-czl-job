@@ -16,40 +16,44 @@
             <result property="name" column="name"/>
             <result property="price" column="price"/>
             <result property="url" column="url"/>
+            <result property="summary" column="summary"/>
+            <result property="content" column="content"/>
             <result property="prodStateEnum" column="state" typeHandler="com.czl.typehandler.EnumTypeHandler"/>
         </association>
     </resultMap>
 
     <select id="findBuys" resultMap="buyResultMap" parameterType="com.czl.req.buy.BuyQueryReq">
         SELECT
-        car.id as id,
-        car.user_id as user_id,
-        car.num as num,
-        product.id as product_id,
-        product.NAME as name,
-        product.price as price,
-        product.url as url,
-        product.state as state
+            buy.id AS id,
+            buy.user_id AS user_id,
+            buy.num AS num,
+            buy.time as time,
+            buy.price as price,
+            product.id AS product_id,
+            product.NAME AS NAME,
+            product.url AS url,
+            product.state AS state,
+            product.summary AS summary,
+            product.content AS content
         FROM
-        biz_car as car
-        LEFT JOIN biz_product as product ON product.id = car.product_id
+            biz_buy AS buy
+        LEFT JOIN biz_product AS product ON product.id = buy.product_id
         <where>
             <if test="prodStateCode != null">
                 AND product.state = #{prodStateCode}
             </if>
             <if test="id != null">
-                AND car.id = #{id}
+                AND buy.id = #{id}
             </if>
             <if test="productId != null">
-                AND car.product_id = #{productId}
+                AND buy.product_id = #{productId}
             </if>
 
             <if test="userId != null">
-                AND car.user_id = #{userId}
+                AND buy.user_id = #{userId}
             </if>
         </where>
-
-        ORDER BY id ASC
+        ORDER BY time desc
     </select>
 
 <!--    <insert id="createBuy">-->

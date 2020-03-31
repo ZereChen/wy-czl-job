@@ -59,5 +59,10 @@ public class ProductControllerImpl implements ProductController {
         return productService.findProductsForBuyer(prodQueryReqForLogin);
     }
 
+    @Override
+    public Result<List<ProductEntity>> findProductDetailForBuyer(ProdQueryReqForLogin prodQueryReqForLogin) {
+        return productService.findProductDetailForBuyer(prodQueryReqForLogin);
+    }
+
 
 }

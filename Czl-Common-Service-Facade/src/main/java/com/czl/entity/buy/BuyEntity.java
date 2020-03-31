@@ -4,6 +4,7 @@ import com.czl.entity.product.ProductEntity;
 import com.czl.entity.user.UserEntity;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * @author zerechen
@@ -24,7 +25,7 @@ public class BuyEntity implements Serializable {
     private Integer num;
 
     /** 时间 */
-    private String time;
+    private Date time;
 
     /** 价格 */
     private String price;
@@ -62,11 +63,23 @@ public class BuyEntity implements Serializable {
         this.id = id;
     }
 
-    public String getTime() {
+    @Override
+    public String toString() {
+        return "BuyEntity{" +
+                "id='" + id + '\'' +
+                ", productEntity=" + productEntity +
+                ", userEntity=" + userEntity +
+                ", num=" + num +
+                ", time=" + time +
+                ", price='" + price + '\'' +
+                '}';
+    }
+
+    public Date getTime() {
         return time;
     }
 
-    public void setTime(String time) {
+    public void setTime(Date time) {
         this.time = time;
     }
 
@@ -78,15 +91,4 @@ public class BuyEntity implements Serializable {
         this.price = price;
     }
 
-    @Override
-    public String toString() {
-        return "BuyEntity{" +
-                "id='" + id + '\'' +
-                ", productEntity=" + productEntity +
-                ", userEntity=" + userEntity +
-                ", num=" + num +
-                ", time='" + time + '\'' +
-                ", price='" + price + '\'' +
-                '}';
-    }
 }

@@ -64,40 +64,10 @@ public enum ExpCodeEnum implements Serializable {
     CAR_NUM_FAIL(ProdExpPrefix + "018","购物车产品数量错误"),
     CAR_ID_NULL(ProdExpPrefix + "019","购物车产品ID为空"),
 
-    /** Brand异常 前缀统一使用 ProdExpPrefix */
-    BRADN_NAME_NULL(ProdExpPrefix + "018","品牌名称为空"),
-    BRADN_LOGO_NULL(ProdExpPrefix + "019","品牌LOGO为空"),
-    BRADN_COMMPANY_NULL(ProdExpPrefix + "020","品牌所属企业为空"),
-    BRADN_CREATE_FAIL(ProdExpPrefix + "021","品牌查询失败"),
-    BRADN_UPDATE_FAIL(ProdExpPrefix + "022","品牌更新失败"),
-    BRADN_DELETE_FAIL(ProdExpPrefix + "023","品牌删除失败"),
-    BRADN_SELETE_FAIL(ProdExpPrefix + "024","没有符合条件的查询结果，品牌查询失败"),
+    /** BUY异常 前缀统一使用 ProdExpPrefix */
+    BUY_SELECT_FAIL(ProdExpPrefix + "017","没有符合条件的查询结果，购买记录产品查询失败");
 
 
-    /** Order模块异常 */
-    STOCK_LOW(OrderExpPrefix + "000", "库存不足"),
-    PROCESSOR_NULL(OrderExpPrefix + "001", "受理请求不存在"),
-    COMPONENT_NULL(OrderExpPrefix + "002", "业务组件列表为空"),
-    PROCESSREQ_ENUM_NULL(OrderExpPrefix + "003", "受理请求的枚举为空"),
-    PROCESSREQ_NULL(OrderExpPrefix + "004", "受理请求为空"),
-    PROCESSREQ_ORDERID_NULL(OrderExpPrefix + "005", "受理请求中的orderId为空"),
-    PROCESSREQ_USERID_NULL(OrderExpPrefix + "006", "受理请求中的userId为空"),
-    AllowStateList_NULL(OrderExpPrefix + "007", "幂等性检查所需的allowStateList为空"),
-    ORDER_INSERT_REQ_NULL(OrderExpPrefix + "008", "创建订单的请求参数为空"),
-    USERID_NULL(OrderExpPrefix + "009", "UserId为空"),
-    PAYMODE_NULL(OrderExpPrefix + "010", "支付方式不能为空，且必须符合枚举规范"),
-    LOCATION_NULL(OrderExpPrefix + "011", "收货地址为空"),
-    PRODUCTIDCOUNT_NULL(OrderExpPrefix + "012", "prodIdCountMap为空"),
-    SELLER_DIFFERENT(OrderExpPrefix + "013", "产品的卖家必须相同"),
-    TARGETSTATE_NULL(OrderExpPrefix + "014", "更新订单状态时，订单目标状态不能为空"),
-    PROCESSCONTEXT_NULL(OrderExpPrefix + "015", "订单受理上下文为空"),
-    PAYMODECODE_ERROR(OrderExpPrefix + "016", "支付方式code不存在"),
-    ORDERQUERYREQ_NULL(OrderExpPrefix + "017", "orderQueryReq为空"),
-    PRODUCTIDCOUNT_ERROR(OrderExpPrefix + "018", "产品的数量必须大于0"),
-    PRODUCT_ID_NO_EXISTENT(OrderExpPrefix + "019", "产品ID不存在"),
-    ORDER_NULL(OrderExpPrefix + "020", "查无此单"),
-    EXPRESS_NO_NULL(OrderExpPrefix + "021", "物流单号不能为空"),
-    ORDER_STATE_NULL(OrderExpPrefix + "022", "该订单的状态字段为空");
 
 
     private String code;

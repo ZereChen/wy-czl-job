@@ -29,7 +29,7 @@
 //    }
 //
 //    @Test
-//    public void testFindOrdersForBuyer() throws Exception {
+//    public void testFindProductsForBuyer() throws Exception {
 //        ProdQueryReqForLogin prodQueryReqForLogin = new ProdQueryReqForLogin();
 //        prodQueryReqForLogin.setUserId("USERee31ea93e5ac4f7ea0d8b044dff641ec");
 //        prodQueryReqForLogin.setProdStateCode(ProdStateEnum.OPEN.getCode());

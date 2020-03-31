@@ -98,7 +98,6 @@
 	<modules>
 		<module>Czl-Common-Service-Facade</module>
 		<module>Czl-Base</module>
-		<module>Czl-Order</module>
 		<module>Czl-Product</module>
 		<module>Czl-User</module>
 		<module>Czl-Controller</module>

@@ -15,8 +15,6 @@ public class ExpPrefix {
     /** Product模块异常码前缀 */
     public static final String ProdExpPrefix = "30";
 
-    /** Order模块异常码前缀 */
-    public static final String OrderExpPrefix = "40";
 
     /** Czlbase模块异常码前缀 */
     public static final String CzlbaseExpPrefix = "50";

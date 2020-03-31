@@ -44,4 +44,6 @@ public interface ProductDAO {
     List<ProductEntity> findProductsForBuyerNoBuyed(ProdQueryReqForLogin prodQueryReqForLogin);
 
     List<ProductEntity> findProductsForSeller(ProdQueryReqForLogin prodQueryReqForLogin);
+
+    ProductEntity findProductDetailForBuyer(ProdQueryReqForLogin prodQueryReqForLogin);
 }

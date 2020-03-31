@@ -47,9 +47,16 @@ public interface ProductService {
     Result<List<ProductEntity>> findProductsForBuyer(ProdQueryReqForLogin prodQueryReqForLogin);
 
     /**
-     * 卖家家产品列表
+     * 卖家产品列表
      * @param prodQueryReqForLogin
      * @return
      */
     Result<List<ProductEntity>> findProductsForSeller(ProdQueryReqForLogin prodQueryReqForLogin);
+
+    /**
+     * 买家查询产品详情列表
+     * @param prodQueryReqForLogin
+     * @return
+     */
+    Result<List<ProductEntity>> findProductDetailForBuyer(ProdQueryReqForLogin prodQueryReqForLogin);
 }

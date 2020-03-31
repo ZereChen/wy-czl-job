@@ -60,7 +60,7 @@ function submit() {
         },
         success : function (result,response) {
             if (result.success == true){
-                saveInfoToCookie(result.data,response)
+                $.cookie('users', JSON.stringify(result.data), { expires: 7});
                 var users = result.data;
                 console.log(result.data);
                 if(users != undefined && users != null){

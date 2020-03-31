@@ -146,4 +146,23 @@
             id ASC
     </select>
 
+    <select id="findProductDetailForBuyer" resultMap="productResultMap" parameterType="com.czl.req.product.ProdQueryReq">
+<!--        SELECT id ,name,price,url,content,summary,state-->
+<!--        FROM-->
+<!--        biz_product-->
+<!--        <where>-->
+<!--            <if test="id != null">-->
+<!--                AND product.id = #{id}-->
+<!--            </if>-->
+<!--            <if test="name != null">-->
+<!--                AND name = #{name}-->
+<!--            </if>-->
+
+<!--            <if test="prodStateCode != null">-->
+<!--                AND state = #{prodStateCode}-->
+<!--            </if>-->
+<!--        </where>-->
+<!--        ORDER BY id ASC-->
+    </select>
+
 </mapper>

@@ -4,6 +4,7 @@ import com.czl.entity.user.UserEntity;
 import com.czl.enumeration.product.ProdStateEnum;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -38,6 +39,16 @@ public class ProductEntity implements Serializable {
 
     /** 已购买/出售的数量 */
     private Integer num;
+
+    private Date time;
+
+    public Date getTime() {
+        return time;
+    }
+
+    public void setTime(Date time) {
+        this.time = time;
+    }
 
     public String getId() {
         return id;
@@ -123,6 +134,7 @@ public class ProductEntity implements Serializable {
                 ", summary='" + summary + '\'' +
                 ", buyed=" + buyed +
                 ", num=" + num +
+                ", time='" + time + '\'' +
                 '}';
     }
 }
