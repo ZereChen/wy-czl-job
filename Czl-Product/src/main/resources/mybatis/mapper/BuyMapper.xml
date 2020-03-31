@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.czl.product.dao.CarDAO" >
+<mapper namespace="com.czl.product.dao.BuyDAO" >
 
-    <resultMap id="carResultMap" type="com.czl.entity.car.CarEntity">
+    <resultMap id="buyResultMap" type="com.czl.entity.buy.BuyEntity">
         <result property="id" column="id"/>
         <result property="num" column="num"/>
+        <result property="time" column="time"/>
+        <result property="price" column="price"/>
         <association property="userEntity" javaType="com.czl.entity.user.UserEntity">
             <result property="id" column="user_id"/>
         </association>
@@ -18,7 +20,7 @@
         </association>
     </resultMap>
 
-    <select id="findCars" resultMap="carResultMap" parameterType="com.czl.req.car.CarQueryReq">
+    <select id="findBuys" resultMap="buyResultMap" parameterType="com.czl.req.buy.BuyQueryReq">
         SELECT
         car.id as id,
         car.user_id as user_id,
@@ -50,27 +52,23 @@
         ORDER BY id ASC
     </select>
 
-    <insert id="createCar">
-      INSERT INTO biz_car
-      (id,product_id,user_id,num)
-      VALUES
-      (#{id},#{productId},#{userId},#{num})
-    </insert>
-    <update id="updateCar" parameterType="com.czl.req.car.CarUpdateReq" >
-        update biz_car
-        <set >
-            <if test="num != null" >
-                num = #{num,jdbcType=VARCHAR},
-            </if>
-        </set>
-        where id = #{id,jdbcType=VARCHAR}
-    </update>
-    <delete id="deleteCar" parameterType="java.util.List">
-        DELETE FROM biz_car
-        WHERE id in
-        <foreach collection="carId" item="item" index="index" open="(" close=")" separator=",">
-            #{item}
+<!--    <insert id="createBuy">-->
+<!--      INSERT INTO biz_buy-->
+<!--      (id,product_id,user_id,num)-->
+<!--      VALUES-->
+<!--      (#{id},#{productId},#{userId},#{num})-->
+<!--    </insert>-->
+    <insert id="createBuy" parameterType="java.util.List">
+        insert into
+        (id,product_id,user_id,num)
+        VALUES
+        <foreach collection="list"  item="item" index="index" separator=",">
+            (
+                #{item.id,jdbcType=VARCHAR},
+                #{item.productId,jdbcType=INTEGER},
+                #{item.userId,jdbcType=LONGVARCHAR}，
+                #{item.num,jdbcType=LONGVARCHAR}
+            )
         </foreach>
-    </delete>
-
+    </insert>
 </mapper>

@@ -38,4 +38,18 @@ public interface ProductService {
      * @return
      */
     Result deleteProduct(String ProductId);
+
+    /**
+     * 买家产品列表
+     * @param prodQueryReqForLogin
+     * @return
+     */
+    Result<List<ProductEntity>> findProductsForBuyer(ProdQueryReqForLogin prodQueryReqForLogin);
+
+    /**
+     * 卖家家产品列表
+     * @param prodQueryReqForLogin
+     * @return
+     */
+    Result<List<ProductEntity>> findProductsForSeller(ProdQueryReqForLogin prodQueryReqForLogin);
 }

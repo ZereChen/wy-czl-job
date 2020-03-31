@@ -53,6 +53,7 @@ public enum ExpCodeEnum implements Serializable {
     PRODUCT_CREATE_FAIL(ProdExpPrefix + "009", "产品新增失败"),
     PRODUCT_UPDATE_FAIL(ProdExpPrefix + "010", "产品更新失败"),
     PRODUCT_SELECT_FAIL(ProdExpPrefix + "011", "没有符合条件的查询结果，产品查询失败"),
+    PRODUCT_DELETE_FAIL(ProdExpPrefix + "011", "产品删除失败"),
     PRODUCT_NO_EXISTENT(ProdExpPrefix + "025", "产品不存在，或者已下架"),
     /** Car异常 前缀统一使用 ProdExpPrefix */
     CAR_MERGE_FAIL(ProdExpPrefix + "013","购物车产品合并失败"),

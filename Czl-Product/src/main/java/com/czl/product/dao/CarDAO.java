@@ -27,11 +27,11 @@ public interface CarDAO {
     List<CarEntity> findCars(CarQueryReq carQueryReq);
 
     /**
-     * 删除购物车产品
+     * 批量删除购物车产品
      * @param carId
      * @return
      */
-    int deleteCar(String carId);
+    int deleteCar(List<String> carId);
     /**
      * 增量更新购物车产品
      * @param carUpdateReq

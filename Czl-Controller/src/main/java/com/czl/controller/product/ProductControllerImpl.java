@@ -50,13 +50,14 @@ public class ProductControllerImpl implements ProductController {
     }
 
     @Override
-    public Result<List<ProductEntity>> findOrdersForSeller(ProdQueryReq prodQueryReq) {
-        return null;
+    public Result<List<ProductEntity>> findProductsForSeller(ProdQueryReqForLogin prodQueryReqForLogin) {
+        return productService.findProductsForSeller(prodQueryReqForLogin);
     }
 
     @Override
-    public Result<List<ProductEntity>> findOrdersForBuyer(ProdQueryReq prodQueryReq) {
-        return null;
+    public Result<List<ProductEntity>> findProductsForBuyer(ProdQueryReqForLogin prodQueryReqForLogin) {
+        return productService.findProductsForBuyer(prodQueryReqForLogin);
     }
+
 
 }

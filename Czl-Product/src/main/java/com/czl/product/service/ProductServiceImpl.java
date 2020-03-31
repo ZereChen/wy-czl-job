@@ -120,16 +120,48 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Result deleteProduct(String ProductId) {
-        //判断当前类别是否已经被使用
-//        int result = productDAO.findUsedCategory(categoryId);
-//        if (result>0){
-//            throw new CommonBizException(ExpCodeEnum.CATEGORY_HASUSED);
-//        }
-//        //当前类别未被使用，可以删除
-//        result = categoryDAO.deleteCategory(categoryId);
-//        if (result == 0){
-//            throw new CommonBizException(ExpCodeEnum.CATEGORY_DELETE_FAIL);
-//        }
+        int result = productDAO.deleteProduct(ProductId);
+        if (result == 0){
+            return Result.newFailureResult(new CommonBizException(ExpCodeEnum.PRODUCT_DELETE_FAIL));
+        }
         return Result.newSuccessResult();
+    }
+
+    @Override
+    public Result<List<ProductEntity>> findProductsForBuyer(ProdQueryReqForLogin prodQueryReqForLogin) {
+        prodQueryReqForLogin.setProdStateCode(ProdStateEnum.OPEN.getCode());
+
+        if (StringUtils.isEmpty(prodQueryReqForLogin.getUserId())) {
+            return Result.newFailureResult(new CommonBizException(ExpCodeEnum.USER_ID_NULL));
+        }
+
+        PageHelper.startPage(prodQueryReqForLogin.getPage(), prodQueryReqForLogin.getNumPerPage());
+        List<ProductEntity> productEntityList = null;
+        if(prodQueryReqForLogin.isQueryNoBuy()){
+            //只查询未购买的
+            productEntityList = productDAO.findProductsForBuyerNoBuyed(prodQueryReqForLogin);
+        }else{
+            //查询所有已购买的
+            productEntityList = productDAO.findProductsForBuyer(prodQueryReqForLogin);
+        }
+        PageInfo info=new PageInfo(productEntityList);
+        productEntityList=info.getList();
+        if (CollectionUtils.isEmpty(productEntityList)){
+            return Result.newFailureResult(new CommonBizException(ExpCodeEnum.PRODUCT_SELECT_FAIL));
+        }
+        return Result.newSuccessResult(productEntityList,info.getPages());
+    }
+
+    @Override
+    public Result<List<ProductEntity>> findProductsForSeller(ProdQueryReqForLogin prodQueryReqForLogin) {
+        prodQueryReqForLogin.setProdStateCode(ProdStateEnum.OPEN.getCode());
+        PageHelper.startPage(prodQueryReqForLogin.getPage(), prodQueryReqForLogin.getNumPerPage());
+        List<ProductEntity>  productEntityList = productDAO.findProductsForSeller(prodQueryReqForLogin);
+        PageInfo info=new PageInfo(productEntityList);
+        productEntityList=info.getList();
+        if (CollectionUtils.isEmpty(productEntityList)){
+            return Result.newFailureResult(new CommonBizException(ExpCodeEnum.PRODUCT_SELECT_FAIL));
+        }
+        return Result.newSuccessResult(productEntityList,info.getPages());
     }
 }

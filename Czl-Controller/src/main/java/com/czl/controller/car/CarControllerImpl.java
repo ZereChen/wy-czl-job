@@ -17,6 +17,7 @@ import com.czl.rsp.Result;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -41,7 +42,9 @@ public class CarControllerImpl implements CarController {
 
     @Override
     public Result deleteCar(String carId) {
-        return carService.deleteCar(carId);
+        ArrayList<String> arrayList = new ArrayList<>();
+        arrayList.add(carId);
+        return carService.deleteCar(arrayList);
     }
 
     @Override

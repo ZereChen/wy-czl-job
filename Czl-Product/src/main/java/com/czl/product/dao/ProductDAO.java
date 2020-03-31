@@ -3,7 +3,9 @@ package com.czl.product.dao;
 import com.czl.entity.product.ProductEntity;
 import com.czl.req.product.ProdInsertReq;
 import com.czl.req.product.ProdQueryReq;
+import com.czl.req.product.ProdQueryReqForLogin;
 import com.czl.req.product.ProdUpdateReq;
+import com.czl.rsp.Result;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -37,4 +39,9 @@ public interface ProductDAO {
      */
     int deleteProduct(String productId);
 
+    List<ProductEntity> findProductsForBuyer(ProdQueryReqForLogin prodQueryReqForLogin);
+
+    List<ProductEntity> findProductsForBuyerNoBuyed(ProdQueryReqForLogin prodQueryReqForLogin);
+
+    List<ProductEntity> findProductsForSeller(ProdQueryReqForLogin prodQueryReqForLogin);
 }

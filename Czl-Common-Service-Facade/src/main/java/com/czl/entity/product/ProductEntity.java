@@ -33,6 +33,12 @@ public class ProductEntity implements Serializable {
     /** 摘要 */
     private String summary;
 
+    /** 已购买 */
+    private boolean buyed;
+
+    /** 已购买/出售的数量 */
+    private Integer num;
+
     public String getId() {
         return id;
     }
@@ -89,6 +95,22 @@ public class ProductEntity implements Serializable {
         this.summary = summary;
     }
 
+    public boolean isBuyed() {
+        return buyed;
+    }
+
+    public void setBuyed(boolean buyed) {
+        this.buyed = buyed;
+    }
+
+    public Integer getNum() {
+        return num;
+    }
+
+    public void setNum(Integer num) {
+        this.num = num;
+    }
+
     @Override
     public String toString() {
         return "ProductEntity{" +
@@ -99,6 +121,8 @@ public class ProductEntity implements Serializable {
                 ", prodStateEnum=" + prodStateEnum +
                 ", content='" + content + '\'' +
                 ", summary='" + summary + '\'' +
+                ", buyed=" + buyed +
+                ", num=" + num +
                 '}';
     }
 }

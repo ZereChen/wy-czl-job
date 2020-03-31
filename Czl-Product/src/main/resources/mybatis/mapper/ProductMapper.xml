@@ -11,6 +11,8 @@
         <result property="content" column="content"/>
         <result property="summary" column="summary"/>
         <result property="prodStateEnum" column="state" typeHandler="com.czl.typehandler.EnumTypeHandler"/>
+        <result property="buyed" column="buyid" typeHandler="com.czl.typehandler.BooleanTypeHandlerForBuyed"/>
+        <result property="num" column="num"/>
     </resultMap>
 
     <select id="findProducts" resultMap="productResultMap" parameterType="com.czl.req.product.ProdQueryReq">
@@ -86,5 +88,62 @@
         DELETE FROM biz_product
         WHERE id = #{productId}
     </delete>
+
+    <select id="findProductsForBuyer" resultMap="productResultMap" parameterType="com.czl.req.product.ProdQueryReqForLogin">
+        SELECT
+            product.id AS id,
+            product.NAME AS NAME,
+            product.price AS price,
+            product.url AS url,
+            buy.id AS buyid,
+            COUNT( DISTINCT product.id)
+        FROM
+            biz_product product
+            LEFT JOIN ( SELECT * FROM biz_buy WHERE user_id = #{userId} ) AS buy ON product.id = buy.product_id
+        WHERE
+            product.state = #{prodStateCode}
+        GROUP BY
+            product.id
+        ORDER BY
+            id ASC
+    </select>
+
+    <select id="findProductsForBuyerNoBuyed" resultMap="productResultMap" parameterType="com.czl.req.product.ProdQueryReqForLogin">
+        SELECT
+            product.id AS id,
+            product.NAME AS NAME,
+            product.price AS price,
+            product.url AS url
+        FROM
+            biz_product product
+        WHERE
+            id NOT IN ( SELECT product_id FROM biz_buy WHERE user_id = #{userId} )
+            AND state = #{prodStateCode}
+        ORDER BY id ASC
+    </select>
+
+
+    <select id="findProductsForSeller" resultMap="productResultMap" parameterType="com.czl.req.product.ProdQueryReqForLogin">
+        SELECT
+            product.id AS id,
+            product.NAME AS NAME,
+            product.price AS price,
+            product.url AS url,
+            buy.num AS num
+        FROM
+            biz_product AS product
+            LEFT JOIN (
+                SELECT
+                    product_id,
+                    SUM( num ) AS num,
+                    COUNT( product_id )
+                FROM
+                    biz_buy
+                GROUP BY
+                    product_id
+            ) AS buy ON buy.product_id = product.id
+        ORDER BY
+            id ASC
+    </select>
 
 </mapper>

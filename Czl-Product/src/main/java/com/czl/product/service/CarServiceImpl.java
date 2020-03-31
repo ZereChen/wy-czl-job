@@ -17,6 +17,7 @@ import com.czl.utils.KeyGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.CollectionUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -113,8 +114,8 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
-    public Result deleteCar(String carId) {
-        if (StringUtils.isEmpty(carId)) {
+    public Result deleteCar(List<String> carId) {
+        if (CollectionUtils.isEmpty(carId)) {
             return Result.newFailureResult(new CommonBizException(ExpCodeEnum.CAR_ID_NULL));
         }
         int result = carDAO.deleteCar(carId);

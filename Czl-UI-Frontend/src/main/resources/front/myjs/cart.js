@@ -103,7 +103,10 @@ function totalInit() {
     $(".m-cart-body .ft .total .num").html(total)
 }
 
-
+/**
+ * 删除某一个购物车
+ * @param carId
+ */
 function deleteCar(carId) {
     $.ajax({
         url : delete_car_url,
@@ -126,6 +129,10 @@ function deleteCar(carId) {
         }
     })
 }
+
+/**
+ * 查询用户的购物车列表
+ */
 function loadCarList() {
     var users = $.parseJSON( $.cookie('users'));
     $.ajax({

@@ -25,7 +25,7 @@ public interface ProductController {
      * @param prodInsertReq 产品详情
      * @return 是否创建成功
      */
-    @PostMapping("product")
+    @PostMapping("product/create")
     @Login
     @Permission("product:create")
     public Result createProduct(ProdInsertReq prodInsertReq);
@@ -46,13 +46,13 @@ public interface ProductController {
      * @param prodUpdateReq 待修改产品（id必填 & 只提交待修改字段即可）
      * @return 是否修改成功
      */
-    @PutMapping("product")
+    @PostMapping("product/update")
     @Login
     @Permission("product:update")
     public Result updateProduct(ProdUpdateReq prodUpdateReq);
 
     /**
-     * 查询产品
+     * 未登录查询产品
      * @param prodQueryReq 产品查询请求
      * @return 产品查询结果
      */
@@ -65,28 +65,28 @@ public interface ProductController {
      * @param productId 待删除产品的id
      * @return 删除结果
      */
-    @DeleteMapping("product/delete")
+    @PostMapping("product/delete")
     @Login
     @Permission("product:delete")
-    public Result deleteProduct(String productId);
+    public Result deleteProduct(@RequestParam(value = "productId")String productId);
 
     /**
      * 卖家查询产品
-     * @param prodQueryReq 产品查询请求
+     * @param prodQueryReqForLogin 产品查询请求
      * @return 产品查询结果
      */
     @GetMapping("product/sellerQuery")
     @Login
     @Permission("product:sellerQuery")
-    public Result<List<ProductEntity>> findOrdersForSeller(ProdQueryReq prodQueryReq);
+    public Result<List<ProductEntity>> findProductsForSeller(ProdQueryReqForLogin prodQueryReqForLogin);
 
     /**
-     * 买家查询产品
-     * @param prodQueryReq 产品查询请求
-     * @return 产品查询结果
+     * 买家产品列表
+     * @param prodQueryReqForLogin
+     * @return
      */
     @GetMapping("product/buyerQuery")
     @Login
     @Permission("product:buyerQuery")
-    public Result<List<ProductEntity>> findOrdersForBuyer(ProdQueryReq prodQueryReq);
+    public Result<List<ProductEntity>> findProductsForBuyer(ProdQueryReqForLogin prodQueryReqForLogin);
 }

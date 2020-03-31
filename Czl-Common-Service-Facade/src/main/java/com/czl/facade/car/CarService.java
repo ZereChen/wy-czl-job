@@ -6,6 +6,7 @@ import com.czl.req.car.CarQueryReq;
 import com.czl.req.car.CarUpdateReq;
 import com.czl.rsp.Result;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -39,5 +40,7 @@ public interface CarService {
      * @param carId
      * @return
      */
-    Result deleteCar(String carId);
+    Result deleteCar(List<String> carId);
+
+
 }

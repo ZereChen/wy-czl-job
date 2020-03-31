@@ -4,7 +4,6 @@ import com.czl.enumeration.BaseEnum;
 
 /**
  * @author zerechen
- * @date 2017/11/4 下午8:02
  * @description
  */
 public class EnumUtil {
