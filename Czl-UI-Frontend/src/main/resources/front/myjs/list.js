@@ -79,6 +79,8 @@ function loadProductListNologin(numPerPage,curPage) {
  * @param queryNoBuy false显示全部，true显示未购买
  */
 function loadProductListloginForBuyer(numPerPage,curPage,queryNoBuy) {
+    var sessionId = $.cookie('JSESSIONID');
+    console.log(sessionId);
     var users =  $.parseJSON( $.cookie('users'));
     $.ajax({
         url: load_productList_login_buyer_url,

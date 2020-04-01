@@ -24,11 +24,12 @@ $(function () {
  * @param flag
  */
 function getProductDetailForBuyer() {
-    alert("getProductDetailForBuyer");
+    alert("getProductDetailForBuye1r");
     var request_param_buyer =  $.parseJSON( $.cookie('request_param_buyer'));
     var users = $.parseJSON( $.cookie('users'));
-    alert(users.id);
-    $.cookie('request_param_buyer',null);
+    var cookie = $.cookie('Cookie');
+    console.log(users);
+    console.log(cookie);
     $.ajax({
         url: load_productDetail_login_buyer_url,
         type: "get",
@@ -41,6 +42,7 @@ function getProductDetailForBuyer() {
         xhrFields: {
             withCredentials: true
         },
+        crossDomain: true,
         success: function (result, response) {
             if (result.success == true) {
                 var data = result.data;

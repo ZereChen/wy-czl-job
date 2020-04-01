@@ -16,7 +16,7 @@ import java.util.List;
  * @description 产品系统的Controller
  */
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = "*")
 public interface ProductController {
 
 
