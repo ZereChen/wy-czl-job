@@ -46,7 +46,10 @@ function loadProductListNologin(numPerPage,curPage) {
                 alert("获取失败"+result.message);
             }
         },
-        error : function () {
+        error:function(XMLHttpRequest, textStatus, errorThrown){
+            console.log(XMLHttpRequest);
+            console.log(textStatus);
+            console.log(errorThrown);
         }
     });
     function generateli(data) {
@@ -79,8 +82,6 @@ function loadProductListNologin(numPerPage,curPage) {
  * @param queryNoBuy false显示全部，true显示未购买
  */
 function loadProductListloginForBuyer(numPerPage,curPage,queryNoBuy) {
-    var sessionId = $.cookie('JSESSIONID');
-    console.log(sessionId);
     var users =  $.parseJSON( $.cookie('users'));
     $.ajax({
         url: load_productList_login_buyer_url,

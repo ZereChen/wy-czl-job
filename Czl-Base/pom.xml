@@ -6,7 +6,7 @@
 	<groupId>com.czl</groupId>
 	<artifactId>czl-base</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 
 	<name>czl-base</name>
 	<description></description>

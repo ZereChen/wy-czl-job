@@ -24,6 +24,8 @@ services:
     depends_on:
       - czl-redis
       - zk-dubbo-admin
+      - czl-product
+      - czl-user
 
   czl-user:
     build: Czl-User/

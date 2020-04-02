@@ -27,9 +27,6 @@ function getProductDetailForBuyer() {
     alert("getProductDetailForBuye1r");
     var request_param_buyer =  $.parseJSON( $.cookie('request_param_buyer'));
     var users = $.parseJSON( $.cookie('users'));
-    var cookie = $.cookie('Cookie');
-    console.log(users);
-    console.log(cookie);
     $.ajax({
         url: load_productDetail_login_buyer_url,
         type: "get",

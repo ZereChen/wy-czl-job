@@ -1,0 +1,6 @@
+version: '3'
+services:
+  czl-ui:
+    build: Czl-UI-Frontend
+    ports:
+      - "8080:8080"
