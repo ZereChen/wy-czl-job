@@ -201,6 +201,10 @@ function loadProductListloginForSeller(numPerPage,curPage) {
         xhrFields: {
             withCredentials: true
         },
+        headers:{
+            Accept: "application/json; charset=utf-8",
+            "x-token": localStorage.getItem("token")
+        },
         success: function (result, response) {
             if (result.success == true) {
                 var num = result.data.length;

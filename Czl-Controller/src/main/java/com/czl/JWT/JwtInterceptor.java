@@ -1,7 +1,9 @@
 package com.czl.JWT;
 
 import com.alibaba.dubbo.common.utils.CollectionUtils;
+import com.alibaba.dubbo.common.utils.StringUtils;
 import com.czl.annotation.Login;
+import com.czl.annotation.Permission;
 import com.czl.entity.user.AccessAuthEntity;
 import com.czl.entity.user.PermissionEntity;
 import com.czl.entity.user.UserEntity;
@@ -58,10 +60,17 @@ public class JwtInterceptor extends HandlerInterceptorAdapter {
             redisService = (RedisService) factory.getBean("redisServiceImpl");
         }
 
-        // 验证token是否有效--无效已做异常抛出，由全局异常处理后返回对应信息
-        jwtTokenUtil.parseJWT(request, audience.getBase64Secret());
-        // 获取用户信息
+        // 验证token是否有效，无效就异常抛出。检查是否登录，并获取用户信息
         UserEntity userEntity = jwtTokenUtil.getUserEntity(request,audience);
+
+        //若没带@Permission，对所有用户都通过
+        if (handler instanceof HandlerMethod) {
+            HandlerMethod handlerMethod = (HandlerMethod) handler;
+            Permission permission = AnnotationUtil.getAnnotationValueByMethod(handlerMethod.getMethod(), Permission.class);
+            if (permission == null) {
+                return true;
+            }
+        }
 
         // 获取本次接口权限信息
         AccessAuthEntity accessAuthEntity = getAccessAuthEntity(request.getMethod(), request.getServletPath());
@@ -104,7 +113,6 @@ public class JwtInterceptor extends HandlerInterceptorAdapter {
     private void checkPermission(UserEntity userEntity, AccessAuthEntity accessAuthEntity) {
         // 获取接口权限
         String accessPermission = accessAuthEntity.getPermission();
-
         // 获取用户权限
         List<PermissionEntity> userPermissionList = userEntity.getRoleEntity().getPermissionList();
 

@@ -159,8 +159,6 @@ public class JwtTokenUtil {
     public String getToken(HttpServletRequest request) {
 
         final String authHeader = request.getHeader(JwtTokenUtil.AUTH_HEADER_KEY);
-//        final String authHeader1 = request.getHeader("access-control-request-headers");
-//        logger.info("## authHeader= {}", authHeader1);
 
         //检测是否登录
         if (StringUtils.isBlank(authHeader) || !authHeader.startsWith(JwtTokenUtil.TOKEN_PREFIX)) {

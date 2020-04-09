@@ -44,8 +44,3 @@ services:
       - ./logs/product:/logs/
     depends_on:
       - zk-dubbo-admin
-
-  czl-ui:
-    build: Czl-UI-Frontend
-    ports:
-      - "8080:8080"
