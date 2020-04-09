@@ -1,8 +1,7 @@
 package com.czl.JWT;
 
 import com.alibaba.dubbo.common.utils.CollectionUtils;
-import com.alibaba.dubbo.common.utils.StringUtils;
-import com.czl.annotation.NoLogin;
+import com.czl.annotation.Login;
 import com.czl.entity.user.AccessAuthEntity;
 import com.czl.entity.user.PermissionEntity;
 import com.czl.entity.user.UserEntity;
@@ -11,23 +10,16 @@ import com.czl.exception.ExpCodeEnum;
 import com.czl.facade.redis.RedisService;
 import com.czl.utils.AnnotationUtil;
 import com.czl.utils.RedisPrefixUtil;
-import io.jsonwebtoken.Claims;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanFactory;
-import org.springframework.beans.factory.BeanFactoryAware;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
-import org.springframework.stereotype.Component;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.Enumeration;
 import java.util.List;
 import java.util.Map;
 
@@ -45,11 +37,11 @@ public class JwtInterceptor extends HandlerInterceptorAdapter {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
-        // 忽略带JwtIgnore注解的请求, 不做后续token认证校验
+        // 若没带@Login, 不做后续token认证校验
         if (handler instanceof HandlerMethod) {
             HandlerMethod handlerMethod = (HandlerMethod) handler;
-            NoLogin jwtIgnore = AnnotationUtil.getAnnotationValueByMethod(handlerMethod.getMethod(), NoLogin.class);
-            if (jwtIgnore != null) {
+            Login login = AnnotationUtil.getAnnotationValueByMethod(handlerMethod.getMethod(), Login.class);
+            if (login == null) {
                 return true;
             }
         }

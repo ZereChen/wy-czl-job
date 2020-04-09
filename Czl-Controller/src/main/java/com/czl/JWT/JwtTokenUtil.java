@@ -123,14 +123,18 @@ public class JwtTokenUtil {
         return Base64Util.decode(userId);
     }
 
+    /**
+     * 获取UserEntity
+     * @param request
+     * @param audience
+     * @return
+     */
     public  UserEntity getUserEntity(HttpServletRequest request,Audience audience){
-        // 获取userId
         String userId = getUserId(request,audience);
         if (StringUtils.isEmpty(userId)) {
             return null;
         }
 
-        // 获取UserEntity
         Object userEntity = redisService.get(userId);
         if (userEntity == null) {
             return null;

@@ -3,17 +3,11 @@ package com.czl.controller.car;
 import com.czl.annotation.Login;
 import com.czl.annotation.Permission;
 import com.czl.entity.car.CarEntity;
-import com.czl.entity.product.ProdImageEntity;
-import com.czl.entity.product.ProductEntity;
 import com.czl.req.car.CarInsertReq;
 import com.czl.req.car.CarQueryReq;
 import com.czl.req.car.CarUpdateReq;
-import com.czl.req.product.ProdInsertReq;
-import com.czl.req.product.ProdQueryReq;
-import com.czl.req.product.ProdUpdateReq;
 import com.czl.rsp.Result;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -32,8 +26,8 @@ public interface CarController {
      * @return 是否创建成功
      */
     @PostMapping("car/create")
-    @Login
     @Permission("car:create")
+    @Login
     public Result createCar(CarInsertReq carInsertReq);
 
     /**
@@ -42,8 +36,8 @@ public interface CarController {
      * @return 购物车产品查询结果
      */
     @GetMapping("car/query")
-    @Login
     @Permission("car:query")
+    @Login
     public Result<List<CarEntity>> findCars(CarQueryReq carQueryReq);
 
 
@@ -53,8 +47,8 @@ public interface CarController {
      * @return 删除结果
      */
     @GetMapping("car/delete")
-    @Login
     @Permission("car:delete")
+    @Login
     public Result deleteCar(@RequestParam(value = "carId") String carId);
 
     /**
@@ -63,8 +57,8 @@ public interface CarController {
      * @return 是否修改成功
      */
     @PutMapping("car")
-    @Login
     @Permission("car:update")
+    @Login
     public Result updateCar(CarUpdateReq carUpdateReq);
 
 }

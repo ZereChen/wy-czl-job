@@ -1,7 +1,6 @@
 package com.czl.controller.product;
 
 import com.czl.annotation.Login;
-import com.czl.annotation.NoLogin;
 import com.czl.annotation.Permission;
 import com.czl.entity.product.ProdImageEntity;
 import com.czl.req.product.*;
@@ -27,8 +26,8 @@ public interface ProductController {
      * @return 是否创建成功
      */
     @PostMapping("product/create")
-    @Login
     @Permission("product:create")
+    @Login
     public Result createProduct(ProdInsertReq prodInsertReq);
 
     /**
@@ -38,8 +37,8 @@ public interface ProductController {
      * @return 图片详情
      */
     @PostMapping("image")
-    @Login
     @Permission("image:upload")
+    @Login
     public Result<ProdImageEntity> uploadImage(MultipartFile file);
 
     /**
@@ -48,8 +47,8 @@ public interface ProductController {
      * @return 是否修改成功
      */
     @PostMapping("product/update")
-    @Login
     @Permission("product:update")
+    @Login
     public Result updateProduct(ProdUpdateReq prodUpdateReq);
 
     /**
@@ -58,7 +57,6 @@ public interface ProductController {
      * @return 产品查询结果
      */
     @GetMapping("product/query")
-    @NoLogin
     public Result<List<ProductEntity>> findProducts(ProdQueryReq prodQueryReq);
 
 
@@ -68,8 +66,8 @@ public interface ProductController {
      * @return 删除结果
      */
     @PostMapping("product/delete")
-    @Login
     @Permission("product:delete")
+    @Login
     public Result deleteProduct(@RequestParam(value = "productId")String productId);
 
     /**
@@ -78,8 +76,8 @@ public interface ProductController {
      * @return 产品查询结果
      */
     @GetMapping("product/sellerQuery")
-    @Login
     @Permission("product:sellerQuery")
+    @Login
     public Result<List<ProductEntity>> findProductsForSeller(ProdQueryReqForLogin prodQueryReqForLogin);
 
     /**
@@ -88,8 +86,8 @@ public interface ProductController {
      * @return
      */
     @GetMapping("product/buyerQuery")
-    @Login
     @Permission("product:buyerQuery")
+    @Login
     public Result<List<ProductEntity>> findProductsForBuyer(ProdQueryReqForLogin prodQueryReqForLogin);
 
     /**
@@ -98,7 +96,7 @@ public interface ProductController {
      * @return
      */
     @GetMapping("product/buyerQueryDetail")
-    @Login
     @Permission("product:buyerQueryDetail")
+    @Login
     public Result<List<ProductEntity>> findProductDetailForBuyer(ProdQueryReqForLogin prodQueryReqForLogin);
 }

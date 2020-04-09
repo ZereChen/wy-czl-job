@@ -3,7 +3,6 @@ package com.czl.init;
 import com.alibaba.dubbo.common.utils.StringUtils;
 import com.czl.annotation.AuthScan;
 import com.czl.annotation.Login;
-import com.czl.annotation.NoLogin;
 import com.czl.annotation.Permission;
 import com.czl.entity.user.AccessAuthEntity;
 import com.czl.enumeration.HttpMethodEnum;
@@ -192,16 +191,8 @@ public class InitAuth implements CommandLineRunner {
         }
 
         // 获取@Login的值
-//        Login login = AnnotationUtil.getAnnotationValueByMethod(method, Login.class);
-//        if (login!=null) {
-//            accessAuthEntity.setLogin(true);
-//        }
-//
-//        accessAuthEntity.setLogin(false);
-        //获取@NoLogin的值
-        NoLogin noLogin = AnnotationUtil.getAnnotationValueByMethod(method, NoLogin.class);
-        if (noLogin==null) {
-            //需要登录
+        Login login = AnnotationUtil.getAnnotationValueByMethod(method, Login.class);
+        if (login!=null) {
             accessAuthEntity.setLogin(true);
         }
 

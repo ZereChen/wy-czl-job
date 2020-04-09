@@ -13,7 +13,6 @@ import com.czl.facade.user.UserService;
 import com.czl.req.BatchReq;
 import com.czl.req.user.*;
 import com.czl.rsp.Result;
-import com.czl.util.UserUtil;
 import com.czl.utils.KeyGenerator;
 import com.czl.utils.MD5Util;
 import com.czl.utils.RedisPrefixUtil;
@@ -41,17 +40,6 @@ public class UserControllerImpl implements UserController {
 
     @Autowired
     private RedisService redisService;
-
-    /** Session有效时间 */
-    @Value("${session.expireTime}")
-    private long sessionExpireTime;
-
-    @Value("${session.SessionIdName}")
-    private String sessionIdName;
-
-    @Autowired
-    private UserUtil userUtil;
-
     @Autowired
     private Audience audience;
     @Autowired
@@ -77,8 +65,7 @@ public class UserControllerImpl implements UserController {
             return Result.newFailureResult(new CommonBizException(ExpCodeEnum.LOGIN_FAIL));
         }
         // 登录成功
-//        doLoginSuccess(userEntity, httpRsp);
-        doLoginSuccess1(userEntity, httpRsp);
+        doLoginSuccess(userEntity, httpRsp);
         return Result.newSuccessResult(userEntity);
     }
 
@@ -91,28 +78,17 @@ public class UserControllerImpl implements UserController {
 
         // 将SessionID从HTTP响应头中删除
         httpRsp.setHeader(JwtTokenUtil.AUTH_HEADER_KEY, "");
+
+        //让前端可以取到
+        httpRsp.setHeader("Access-Control-Expose-Headers",JwtTokenUtil.AUTH_HEADER_KEY);
+
         // 登出成功
         return Result.newSuccessResult();
     }
-//    @Override
-//    public Result logout(HttpServletRequest httpReq, HttpServletResponse httpRsp) {
-//        String sessionID = userUtil.getSessionID(httpReq);
-//
-//        // 将 SessionID-UserEntity 从Redis中移除
-//        redisService.remove(sessionID);
-//
-//        // 将SessionID从HTTP响应头中删除
-//        Cookie cookie = new Cookie(sessionIdName, null);
-//        httpRsp.addCookie(cookie);
-//
-//        // 登出成功
-//        return Result.newSuccessResult();
-//    }
-
 
     @Override
-    public Result isLogin(HttpServletRequest request) {
-        UserEntity userEntity = userUtil.getUser(request);
+    public Result isLogin(HttpServletRequest httpReq) {
+        UserEntity userEntity = jwtTokenUtil.getUserEntity(httpReq,audience);
 
         if (userEntity==null) {
             return newFailureResult();
@@ -120,31 +96,13 @@ public class UserControllerImpl implements UserController {
         return newSuccessResult(userEntity);
     }
 
-//    /**
-//     * 处理登录成功
-//     * @param userEntity 用户信息
-//     * @param httpRsp HTTP响应参数
-//     */
-//    private void doLoginSuccess(UserEntity userEntity, HttpServletResponse httpRsp) {
-//        //抹出password
-//        userEntity.setPassword(null);
-//        // 生成SessionID
-//        String sessionID = KeyGenerator.getKey(KeyGeneratorPrefixEnum.SESSION_ID_PREFIX);
-//
-//        // 将 SessionID-UserEntity 存入Redis
-//        redisService.set(sessionID, userEntity, sessionExpireTime);
-//
-//        // 将SessionID存入HTTP响应头
-//        Cookie cookie = new Cookie(sessionIdName, sessionID);
-//        httpRsp.addCookie(cookie);
-//    }
 
     /**
      * 处理登录成功
      * @param userEntity 用户信息
      * @param httpRsp HTTP响应参数
      */
-    private void doLoginSuccess1(UserEntity userEntity, HttpServletResponse httpRsp) {
+    private void doLoginSuccess(UserEntity userEntity, HttpServletResponse httpRsp) {
         //抹出password
         userEntity.setPassword(null);
         // 创建token
@@ -152,7 +110,7 @@ public class UserControllerImpl implements UserController {
         logger.info("Login Success, token={}", token);
 
         // 将 userid - UserEntity 存入Redis
-        redisService.set(userEntity.getId(), userEntity, sessionExpireTime);
+        redisService.set(userEntity.getId(), userEntity);
 
         // 将token放在响应头
         httpRsp.setHeader(JwtTokenUtil.AUTH_HEADER_KEY, JwtTokenUtil.TOKEN_PREFIX + token);

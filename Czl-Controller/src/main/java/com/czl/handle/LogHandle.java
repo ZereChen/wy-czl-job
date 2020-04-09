@@ -1,6 +1,5 @@
 package com.czl.handle;
 
-import com.czl.util.UserUtil;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.slf4j.Logger;
@@ -29,14 +28,15 @@ public class LogHandle {
     @Pointcut("execution(public * com.czl.controller..*.*(..))")
     public void restLog(){}
 
-    @Autowired
-    private UserUtil userUtil;
     @Around("restLog()")
     public Object doAround(ProceedingJoinPoint joinPoint) throws Throwable {
         // 生成本次请求时间戳
         String timestamp = System.currentTimeMillis()+"";
 
-        HttpServletRequest request = userUtil.getHttpServletRequest();
+        RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();
+        ServletRequestAttributes servletRequestAttributes = (ServletRequestAttributes) requestAttributes;
+        HttpServletRequest request =  servletRequestAttributes.getRequest();
+
         String url = request.getRequestURL().toString();
         String method = request.getMethod();
         String uri = request.getRequestURI();

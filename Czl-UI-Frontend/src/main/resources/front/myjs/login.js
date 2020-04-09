@@ -95,10 +95,14 @@ function logout() {
         xhrFields: {
             withCredentials: true
         },
-        // headers:{'Content-Type':'application/json;charset=utf8','organId':'1333333333'},
+        headers:{
+            Accept: "application/json; charset=utf-8",
+            "x-token": localStorage.getItem("token")
+        },
         success : function (result,response) {
             if (result.success == true){
                 $.cookie('users', null);
+                localStorage.removeItem("token");
                 window.location.href='index_nologin.html';
             } else if (result.success == false){
                 alert("退出失败："+result.message);
