@@ -1,0 +1,18 @@
+package com.czl.annotation;
+
+import java.lang.annotation.*;
+
+/**
+ * @author zerechen
+ * @description 本注解用在Controller层的接口上，表示该接口是否需要登录,当有@Nologin时 @Permission不起作用
+ */
+// 本注解只能用在方法上
+@Target(ElementType.METHOD)
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+public @interface NoLogin {
+
+    // 是否需要登录（默认为true）
+    public boolean value() default true;
+
+}

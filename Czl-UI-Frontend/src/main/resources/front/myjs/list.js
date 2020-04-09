@@ -93,6 +93,10 @@ function loadProductListloginForBuyer(numPerPage,curPage,queryNoBuy) {
             userId: users.id,
             queryNoBuy: queryNoBuy
         },
+        headers:{
+            Accept: "application/json; charset=utf-8",
+            "x-token": localStorage.getItem("token")
+        },
         dataType: "json",
         xhrFields: {
             withCredentials: true

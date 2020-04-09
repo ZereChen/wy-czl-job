@@ -5,6 +5,7 @@ import org.apache.commons.codec.binary.Base64;
 import java.io.UnsupportedEncodingException;
 
 public class Base64Util {
+    //加密
     public static String encode(String str) {
         byte[] b = null;
         String s = null;

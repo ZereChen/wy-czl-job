@@ -1,4 +1,4 @@
-var host = "172.18.0.7:8080"
+var host = "localhost:9081"
 var project ="czl-controller"
 var base = "http://"+host+"/"+project;
 var login_url = base+"/login";

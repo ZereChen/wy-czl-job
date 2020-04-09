@@ -1,6 +1,7 @@
 package com.czl.controller.user;
 
 import com.czl.annotation.Login;
+import com.czl.annotation.NoLogin;
 import com.czl.annotation.Permission;
 import com.czl.entity.user.*;
 import com.czl.req.BatchReq;
@@ -25,6 +26,7 @@ public interface UserController {
      * @return 登录是否成功
      */
     @GetMapping("/login")
+    @NoLogin
     public Result login(LoginReq loginReq, HttpServletResponse httpRsp);
 
     /**

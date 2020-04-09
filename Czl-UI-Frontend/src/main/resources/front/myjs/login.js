@@ -58,11 +58,13 @@ function submit() {
         xhrFields: {
             withCredentials: true
         },
-        success : function (result,response) {
+        success : function (result,response,xhr) {
             if (result.success == true){
                 $.cookie('users', JSON.stringify(result.data), { expires: 7});
                 var users = result.data;
                 console.log(result.data);
+                var token = xhr.getResponseHeader('x-token');
+                localStorage.setItem('token',token);
                 if(users != undefined && users != null){
                     var role = users.roleEntity;
                     if(role.id == '3'){

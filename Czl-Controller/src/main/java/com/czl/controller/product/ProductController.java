@@ -1,6 +1,7 @@
 package com.czl.controller.product;
 
 import com.czl.annotation.Login;
+import com.czl.annotation.NoLogin;
 import com.czl.annotation.Permission;
 import com.czl.entity.product.ProdImageEntity;
 import com.czl.req.product.*;
@@ -57,6 +58,7 @@ public interface ProductController {
      * @return 产品查询结果
      */
     @GetMapping("product/query")
+    @NoLogin
     public Result<List<ProductEntity>> findProducts(ProdQueryReq prodQueryReq);
 
 

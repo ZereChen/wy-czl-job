@@ -60,6 +60,7 @@ public class UserUtil {
         return (UserEntity) userEntity;
 
     }
+
     /**
      * 获取用户ID
      * @param httpReq HTTP请求

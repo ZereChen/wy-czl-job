@@ -52,10 +52,10 @@ public class AccessAuthHandle {
     /**
      * 拦截所有请求
      */
-    @Before("accessAuth()")
-    public void doBefore() {
-        authentication();
-    }
+//    @Before("accessAuth()")
+//    public void doBefore() {
+//        authentication();
+//    }
 
     /**
      * 访问鉴权：检查当前用户是否允许访问该接口
