@@ -44,9 +44,6 @@ public class InitAuth implements CommandLineRunner {
     /** 接口权限列表 */
     private Map<String,AccessAuthEntity> accessAuthMap = Maps.newHashMap();
 
-    @Value("$(server.context-path)")
-    String path;
-
     @Override
     public void run(String... strings) throws Exception {
         loadAccessAuth();
@@ -176,7 +173,7 @@ public class InitAuth implements CommandLineRunner {
     }
 
     /**
-     * 获取指定方法上的@Login的值和@Role的值
+     * 获取指定方法上的@Login的值和@Permission的值
      * @param method 目标方法
      * @param accessAuthEntity
      * @return
